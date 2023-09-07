@@ -16,10 +16,15 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
+@EnableSwagger2
 @EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -50,6 +55,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+    private static final String[] AUTH_WHITELIST = {
+            // -- swagger ui
+            "/v2/api-docs",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/configuration/ui",
+            "/configuration/security",
+            "/api.html",
+            "/swagger-ui.html",
+            "/webjars/**"
+            // other public endpoints of your API may be appended to this array
+    };
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -62,6 +79,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/rest/v1/api/**").permitAll()
                 .antMatchers("/dashboards").permitAll()
                 .antMatchers("/auth/login").permitAll()
+                .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers("/auth/admin/**").hasAuthority("SUPERADMIN").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/auth/login")
@@ -89,15 +107,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers("/resources/**",
                         "/static/**",
-                       // "/themes/**",
-                      //  "/themes/adminlite/**",
-                      //  "/themes/assets/**",
-                      //  "/themes/bower_components/**",
                         "/themes/css/**",
                         "/themes/img/**",
                         "/themes/jquery/**",
                         "/themes/js/**",
+                        "/swagger-resources/**",
+                        "/swagger-ui.html",
                         "/themes/jtoaster/**");
+    }
+
+    @Bean
+    public Docket productApi() {
+        return new Docket(DocumentationType.SWAGGER_2).select()
+                .apis(RequestHandlerSelectors.basePackage("ampath.or.ke.spot")).build();
     }
    
 

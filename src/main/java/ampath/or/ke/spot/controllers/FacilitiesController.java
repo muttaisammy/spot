@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -17,6 +18,7 @@ import java.util.List;
 @Controller
 @Transactional
 @RequestMapping("/sites")
+@EnableSwagger2
 public class FacilitiesController {
     @Autowired
     public FacilitiesService facilitiesService;
