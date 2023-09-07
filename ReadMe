@@ -1,0 +1,32 @@
+
+create Dockerfile in root
+mvn package
+docker build -t erugut/ampath-ioms .
+docker run -p 8080:8080 ampathke/ioms
+docker login -u erugut
+token: dckr_pat_0OxbRX4c9AcZ5K3npzqkZ2Xnyys
+sudo docker push erugut/ampath-ioms:spot
+sudo docker run --platform linux/amd64 -p 8080:8080 erugut/ampath-ioms -d # detached mode
+
+################# For MacBook M1 #######################
+docker buildx create --name iomsbuilder
+docker buildx use iomsbuilder
+docker buildx inspect --bootstrap
+# docker buildx build --tag erugut/ampath-ioms -o type=image --platform=linux/arm64,linux/amd64 .
+docker buildx build --push --tag erugut/ampath-ioms --platform=linux/arm64,linux/amd64 .
+# docker push erugut/ampath-ioms
+sudo docker pull erugut/ampath-ioms #run on server
+sudo docker run -d -p 8080:8080 erugut/ampath-ioms #run on server
+
+############ Install nginx###################
+sudo apt install nginx
+sudo nano /etc/nginx/sites-available/default
+################ next buid ###############
+mvn package
+docker buildx build --push --tag erugut/ampath-ioms:spot --platform=linux/arm64,linux/amd64 .
+sudo docker pull erugut/ampath-ioms:spot #run on server
+sudo docker run -d -p 8080:8080 erugut/ampath-ioms:spot #run on server
+sudo docker-compose pull
+sudo docker-compose up --build -d
+
+

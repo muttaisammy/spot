@@ -1,0 +1,97 @@
+<nav class="pcoded-navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="pcoded-navigatio-lavel">Navigation</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="pcoded-hasmenu">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                    <span class="pcoded-mtext">Dashboard</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class>
+                        <a th:href="@{/spot/dashboard}">
+                            <span class="pcoded-mtext">Main</span>
+                        </a>
+                    </li>
+                   <!-- <li class>
+                        <a href="dashboard-crm.html">
+                            <span class="pcoded-mtext">AMEP</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </li>
+
+            <li class="pcoded-hasmenu ">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="feather icon-sliders"></i></span>
+                    <span class="pcoded-mtext">Maintenance</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class>
+                        <a th:href="@{/sites/linelist}" >
+                            <span class="pcoded-mtext">Sites</span>
+                        </a>
+                    </li>
+                    <li class>
+                        <a href="comming-soon.html">
+                            <span class="pcoded-mtext">SMTP Server</span>
+                        </a>
+                    </li>
+                    <li class>
+                        <a href="offline-ui.html">
+                            <span class="pcoded-mtext">Offline UI</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu ">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                    <span class="pcoded-mtext">System User</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class>
+                        <a th:href="@{/system/users}">
+                            <span class="pcoded-mtext">Users</span>
+                        </a>
+                    </li>
+                    <li class>
+                        <a href="timeline-social.html">
+                            <span class="pcoded-mtext">Timeline Social</span>
+                        </a>
+                    </li>
+
+                    <li class>
+                        <a href="user-card.html">
+                            <span class="pcoded-mtext">User Card</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                    <span class="pcoded-mtext">Data Manager</span>
+                   <!-- <span class="pcoded-badge label label-danger">100+</span> -->
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class>
+                        <a th:href="@{/db_manager/masterdatabases}">
+                            <span class="pcoded-mtext">Databases</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="widget-data.html">
+                            <span class="pcoded-mtext">Data</span>
+                        </a>
+                    </li>
+                    <li class>
+                        <a href="widget-chart.html">
+                            <span class="pcoded-mtext">Chart Widget</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

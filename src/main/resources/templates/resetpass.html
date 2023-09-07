@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMPATH SPOT</title>
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
+    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
+    <meta name="msapplication-TileImage" content="/themes/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
+    <script th:src="@{/themes/assets/js/config.js}"></script>
+    <script>
+      window.config.set({
+        phoenixNavbarTopShape: 'slim',
+        phoenixNavbarPosition: 'horizontal'
+      });
+    </script>
+    <script>
+      document.documentElement.classList.add('navbar-horizontal');
+    </script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link th:href="@{/themes/vendors/simplebar/simplebar.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link th:href="@{/themes/assets/css/theme-rtl.min.css}" type="text/css" rel="stylesheet" id="style-rtl">
+    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
+    <script th:src="@{/themes/highcharts/code/highcharts.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/exporting.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/export-data.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .containers {
+          display: flex; /* or inline-flex */
+          flex-wrap: nowrap;
+          width:100%;
+          height: 100%; /* or whatever */
+        }
+        .item {
+          flex: 1 1;
+          margin:0 1%;
+        }
+    </style>
+
+    <script>
+      var phoenixIsRTL = window.config.config.phoenixIsRTL;
+      if (phoenixIsRTL) {
+        var linkDefault = document.getElementById('style-default');
+        var userLinkDefault = document.getElementById('user-style-default');
+        linkDefault.setAttribute('disabled', true);
+        userLinkDefault.setAttribute('disabled', true);
+        document.querySelector('html').setAttribute('dir', 'rtl');
+      } else {
+        var linkRTL = document.getElementById('style-rtl');
+        var userLinkRTL = document.getElementById('user-style-rtl');
+        linkRTL.setAttribute('disabled', true);
+        userLinkRTL.setAttribute('disabled', true);
+      }
+    </script>
+    <link th:href="@{/themes/vendors/leaflet/leaflet.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.Default.css}" rel="stylesheet">
+</head>
+
+<body>
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <nav class="navbar navbar-vertical navbar-expand-lg" style="display:none;">
+        <script>
+          var navbarStyle = window.config.config.phoenixNavbarStyle;
+          if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
+          }
+        </script>
+
+        <div class="navbar-vertical-footer">
+            <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+                <span class="uil uil-left-arrow-to-left fs-0"></span>
+                <span class="uil uil-arrow-from-right fs-0"></span>
+                <span class="navbar-vertical-footer-text ms-2">Collapsed View</span>
+            </button>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <div th:insert="~{common/nav}"></div>
+    <!-- /.navbar -->
+    <script>
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var body = document.querySelector('body');
+        navbarVertical.remove()
+        navbarTopSlim.removeAttribute('style');
+        body.classList.add('nav-slim');
+
+      </script>
+
+    <script>
+        var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+        var navbarPosition = window.config.config.phoenixNavbarPosition;
+        var body = document.querySelector('body');
+        var navbarTop = document.querySelector('#navbarTop');
+        var topNavSlim = document.querySelector('#topNavSlim');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var navbarCombo = document.querySelector('#navbarCombo');
+        var navbarComboSlim = document.querySelector('#navbarComboSlim');
+        var dualNav = document.querySelector('#dualNav');
+
+        var documentElement = document.documentElement;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+
+        if (navbarPosition === 'dual-nav') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          dualNav.removeAttribute('style');
+          documentElement.classList.add('dual-nav');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          topNavSlim.style.display = 'block';
+          navbarVertical.style.display = 'inline-block';
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+          navbarTopSlim.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+           navbarTop.remove();
+          topNavSlim.remove();
+          navbarCombo.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+          topNavSlim.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarTop.removeAttribute('style');
+          documentElement.classList.add('navbar-horizontal');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.remove();
+          navbarCombo.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          documentElement.classList.add('navbar-combo')
+
+        } else {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarVertical.removeAttribute('style');
+        }
+
+        var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+        var navbarTop = document.querySelector('.navbar-top');
+        if (navbarTopStyle === 'darker') {
+          navbarTop.classList.add('navbar-darker');
+        }
+
+        var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        if (navbarVerticalStyle === 'darker') {
+          navbarVertical.classList.add('navbar-darker');
+        }
+      </script>
+
+    <div class="content">
+        <input type="hidden" id="checkid" name="checkid" th:value="${msg}">
+            <div id="divsc" class="alert alert-outline-success d-flex align-items-center" role="alert"  style="display: none !important">
+                <span class="fas fa-check-circle text-success fs-3 me-3"></span>
+                <p class="mb-0 flex-1">Dear <span th:utext="${username}"></span> ,You have changed your password successfully, We have sent you a confirmation email to <span th:utext="${email}"></span>. <a th:href="@{/spot/dashboard}">Go to Dashboard</a>  </p>
+                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+           
+            <div class="row flex-center min-vh-80 py-5">
+              <div class="col-sm-8 col-md-8 col-lg-5 col-xl-5 col-xxl-3">
+                <a class="d-flex flex-center text-decoration-none mb-4" th:href="@{/}">
+                  <div class="d-flex align-items-center fw-bolder fs-5 d-inline-block">
+                    <img th:src="@{/themes/assets/img/icons/logo.png}" alt="phoenix" width="58" />
+                </div>
+                </a>
+                <div class="text-center mb-6">
+                  <h4 class="text-1000">Set new password</h4>
+                  <p class="text-700">Type your new password</p>
+                  <div class="alert alert-soft-danger" id="fadiv" style="display: none;" >Passwords didn't Matched</div>
+                  <div class="alert alert-soft-success" id="sucdiv" style="display: none;"> Passwords Matched Correctly</div>
+
+                  <form class="mt-5" th:action="@{/system/users/changepassword}" th:object="${user}" method="POST">
+                    <input class="form-control mb-2" id="password" type="password" th:field="*{password}"  placeholder="Type new password" onchange="validate()" required  /><i class="bi bi-eye-slash" id="togglePassword"></i>
+                    <input class="form-control mb-4" id="confirmPassword" type="password" placeholder="Confirm new password"  onkeyup="validate()" required /><i class="bi bi-eye-slash" id="togglePassword"></i>
+                    <button class="btn btn-primary w-100" type="submit" id="cmdsubmit" disabled>
+                        Set Password
+                    </button>
+                </form>
+                </div>
+              </div>
+            </div>
+    </div>
+      <div th:insert="~{common/footer}"></div>
+    </div>
+
+</main><!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+<script>
+    $( document ).ready(function() {
+        var checker = document.getElementById("checkid").value;
+       // alert(checker);
+        if(checker==0){
+
+        }else{
+        document.getElementById("divsc").style.display = "block";
+        }
+});
+</script>
+<script>
+    function validate(){
+        var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirmPassword");
+        if(password.value != confirm_password.value) {
+            document.getElementById("cmdsubmit").disabled=true;
+            confirm_password.setCustomValidity("Passwords Don't Match");
+            document.getElementById("fadiv").style.display = "block";
+            document.getElementById("suciv").style.display = "none";
+            document.getElementById("divsc").style.display = "none";
+        
+            
+        } else {
+            confirm_password.setCustomValidity('');
+            document.getElementById("cmdsubmit").disabled=false;
+            document.getElementById("fadiv").style.display = "none";
+            document.getElementById("suciv").style.display = "block";
+            document.getElementById("divsc").style.display = "none";
+            
+        }
+    }
+</script>
+
+
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/fontawesome/all.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script th:src="@{/themes/vendors/list.js/list.min.js}"></script>
+<script th:src="@{/themes/vendors/feather-icons/feather.min.js}"></script>
+<script th:src="@{/themes/vendors/dayjs/dayjs.min.js}"></script>
+<script th:src="@{/themes/assets/js/phoenix.js}"></script>
+<script th:src="@{/themes/vendors/echarts/echarts.min.js}"></script>
+<script th:src="@{/themes/vendors/leaflet/leaflet.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
+<script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
+</body>
+</html>

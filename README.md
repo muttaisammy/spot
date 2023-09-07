@@ -1,2 +1,2 @@
 # spot
-Single Point of Truth
+Single point of Truth

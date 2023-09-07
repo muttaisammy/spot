@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMPATH SPOT</title>
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
+    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
+    <meta name="msapplication-TileImage" content="/themes/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
+    <script th:src="@{/themes/assets/js/config.js}"></script>
+    <script>
+      window.config.set({
+        phoenixNavbarTopShape: 'slim',
+        phoenixNavbarPosition: 'horizontal'
+      });
+    </script>
+    <script>
+      document.documentElement.classList.add('navbar-horizontal');
+    </script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link th:href="@{/themes/vendors/simplebar/simplebar.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link th:href="@{/themes/assets/css/theme-rtl.min.css}" type="text/css" rel="stylesheet" id="style-rtl">
+    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
+    <script th:src="@{/themes/highcharts/code/highcharts.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/exporting.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/export-data.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .containers {
+          display: flex; /* or inline-flex */
+          flex-wrap: nowrap;
+          width:100%;
+          height: 100%; /* or whatever */
+        }
+        .item {
+          flex: 1 1;
+          margin:0 1%;
+        }
+    </style>
+
+    <script>
+      var phoenixIsRTL = window.config.config.phoenixIsRTL;
+      if (phoenixIsRTL) {
+        var linkDefault = document.getElementById('style-default');
+        var userLinkDefault = document.getElementById('user-style-default');
+        linkDefault.setAttribute('disabled', true);
+        userLinkDefault.setAttribute('disabled', true);
+        document.querySelector('html').setAttribute('dir', 'rtl');
+      } else {
+        var linkRTL = document.getElementById('style-rtl');
+        var userLinkRTL = document.getElementById('user-style-rtl');
+        linkRTL.setAttribute('disabled', true);
+        //userLinkRTL.setAttribute('disabled', true);
+      }
+    </script>
+    <link th:href="@{/themes/vendors/leaflet/leaflet.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.Default.css}" rel="stylesheet">
+</head>
+
+<body>
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <nav class="navbar navbar-vertical navbar-expand-lg" style="display:none;">
+        <script>
+          var navbarStyle = window.config.config.phoenixNavbarStyle;
+          if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
+          }
+        </script>
+
+        <div class="navbar-vertical-footer">
+            <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+                <span class="uil uil-left-arrow-to-left fs-0"></span>
+                <span class="uil uil-arrow-from-right fs-0"></span>
+                <span class="navbar-vertical-footer-text ms-2">Collapsed View</span>
+            </button>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <div th:insert="~{common/nav}"></div>
+    <!-- /.navbar -->
+    <script>
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var body = document.querySelector('body');
+        navbarVertical.remove()
+        navbarTopSlim.removeAttribute('style');
+        body.classList.add('nav-slim');
+
+      </script>
+
+    <script>
+        var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+        var navbarPosition = window.config.config.phoenixNavbarPosition;
+        var body = document.querySelector('body');
+        var navbarTop = document.querySelector('#navbarTop');
+        var topNavSlim = document.querySelector('#topNavSlim');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var navbarCombo = document.querySelector('#navbarCombo');
+        var navbarComboSlim = document.querySelector('#navbarComboSlim');
+        var dualNav = document.querySelector('#dualNav');
+
+        var documentElement = document.documentElement;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+
+        if (navbarPosition === 'dual-nav') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          dualNav.removeAttribute('style');
+          documentElement.classList.add('dual-nav');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          topNavSlim.style.display = 'block';
+          navbarVertical.style.display = 'inline-block';
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+          navbarTopSlim.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+           navbarTop.remove();
+          topNavSlim.remove();
+          navbarCombo.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+          topNavSlim.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarTop.removeAttribute('style');
+          documentElement.classList.add('navbar-horizontal');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.remove();
+          navbarCombo.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          documentElement.classList.add('navbar-combo')
+
+        } else {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarVertical.removeAttribute('style');
+        }
+
+        var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+        var navbarTop = document.querySelector('.navbar-top');
+        if (navbarTopStyle === 'darker') {
+          navbarTop.classList.add('navbar-darker');
+        }
+
+        var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        if (navbarVerticalStyle === 'darker') {
+          navbarVertical.classList.add('navbar-darker');
+        }
+      </script>
+
+    <div class="content">
+        <div class="row gy-3 mb-6 justify-content-between">
+            <div class="col-md-9 col-auto">
+              <h2 class="mb-2 text-1100">Program's Overview</h2>
+              <h5 class="text-700 fw-semi-bold">Status as at FY23 - Q4 -  <span th:utext="${today}"></span> </h5>
+            </div>
+            <div class="col-md-3 col-auto">
+               <span class="fs-4 lh-1 uil uil-users-alt text-success-500"></span>   
+                <h4 class="mb-2 text-1100">Active OnART - 60,000</h2>
+            </div>
+        </div>
+
+        <div class="row mb-3 gy-12">
+            <div class="col-12 col-xxl-2">
+              <div class="row align-items-center g-3 g-xxl-0 h-100 align-content-between">
+                <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+                  <div class="d-flex align-items-center">
+                    <span class="fs-4 lh-1 uil uil-books text-primary-500"></span>
+                    <div class="ms-2">
+                      <div class="d-flex align-items-end">
+                        <h2 class="mb-0 me-2">
+                            <span th:utext="${counties}"></span>
+                        </h2>
+                        <span class="fs-1 fw-semi-bold text-900">Counties</span>
+                      </div>
+                     <!-- <p class="text-800 fs--1 mb-0">Awating processing</p> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+                  <div class="d-flex align-items-center">
+                    <span class="fs-4 lh-1 uil uil-map-marker-plus text-success-500"></span>
+                    <div class="ms-2">
+                      <div class="d-flex align-items-end">
+                        <h2 class="mb-0 me-2">
+                            <span th:utext="${subcounties}"></span>
+                        </h2>
+                        <span class="fs-1 fw-semi-bold text-900">Sub Counties</span>
+                      </div>
+                     <!--<p class="text-800 fs--1 mb-0">Working hard</p> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+                  <div class="d-flex align-items-center">
+                    <span class="fs-4 lh-1 uil uil-map-pin text-warning-500"></span>
+                    <div class="ms-2">
+                      <div class="d-flex align-items-end">
+                        <h2 class="mb-0 me-2">
+                            <span th:utext="${wards}"></span>
+                        </h2>
+                        <span class="fs-1 fw-semi-bold text-900">Wards</span>
+                      </div>
+                     <!-- <p class="text-800 fs--1 mb-0">Soon to be cleared</p> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+                  <div class="d-flex align-items-center">
+                    <span class="fs-4 lh-1 uil uil-medical-square-full text-danger-500"></span>
+                    <div class="ms-2">
+                      <div class="d-flex align-items-end">
+                        <h2 class="mb-0 me-2"> 
+                            <span th:utext="${facilities}"></span>
+                        </h2>
+                        <span class="fs-1 fw-semi-bold text-900">Facilities</span>
+                      </div>
+                       <p class="text-800 fs--1 mb-0"> <b>AMRS - <span th:utext="${amrs}"></span> | KenyaEMR - <span th:utext="${kenyaemr}"></span> </b></p> 
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+        </div>
+        <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white pt-7 pb-3 border-y border-300">
+            <div class="row">
+              <div class="col-12 col-xl-7 col-xxl-6">
+                <div class="row g-3 mb-3">
+                  <div class="col-12 col-md-6">
+                    <h3 class="text-1100 text-nowrap">County OnART Distribution</h3>
+                  <!--  <p class="text-700 mb-md-7">Newly found and yet to be solved</p> -->
+                    <div class="d-flex align-items-center justify-content-between">
+                      <p class="mb-0 fw-bold">County </p>
+                      <p class="mb-0 fs--1">Total Current OnART <span class="fw-bold">257</span></p>
+                      
+                    </div>
+                    <hr class="bg-200 mb-2 mt-2" />
+                    <div class="d-flex align-items-center mb-1">
+                      <span class="d-inline-block bg-info-300 bullet-item me-2"></span>
+                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Product design</p>
+                      <h5 class="mb-0 text-900">78</h5>
+                    </div>
+                    <div class="d-flex align-items-center mb-1"><span class="d-inline-block bg-warning-300 bullet-item me-2"></span>
+                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Development</p>
+                      <h5 class="mb-0 text-900">63</h5>
+                    </div>
+                    <div class="d-flex align-items-center mb-1"><span class="d-inline-block bg-danger-300 bullet-item me-2"></span>
+                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">QA &amp; Testing</p>
+                      <h5 class="mb-0 text-900">56</h5>
+                    </div>
+                    <div class="d-flex align-items-center mb-1"><span class="d-inline-block bg-success-300 bullet-item me-2"></span>
+                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Customer queries</p>
+                      <h5 class="mb-0 text-900">36</h5>
+                    </div>
+                    <div class="d-flex align-items-center"><span class="d-inline-block bg-primary bullet-item me-2"></span>
+                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">R &amp; D</p>
+                      <h5 class="mb-0 text-900">24</h5>
+                    </div><button class="btn btn-outline-primary mt-5">See Details<span class="fas fa-angle-right ms-2 fs--2 text-center"></span></button>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="position-relative mb-sm-4 mb-xl-0">
+                      <div class="echart-issue-chart" style="min-height:390px;width:100%" id="divChart"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-xl-5 col-xxl-6">
+                <h3>Facilities Distribution</h3>
+               <!-- <p class="text-700 mb-0 mb-xl-3">Deadline &amp; progress</p> -->
+                <div class="echart-zero-burnout-chart" style="min-height:320px;width:100%" id="divTree" ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div th:insert="~{common/footer}"></div>
+    
+
+</main>
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+
+
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/fontawesome/all.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script th:src="@{/themes/vendors/list.js/list.min.js}"></script>
+<script th:src="@{/themes/vendors/feather-icons/feather.min.js}"></script>
+<script th:src="@{/themes/vendors/dayjs/dayjs.min.js}"></script>
+<script th:src="@{/themes/assets/js/phoenix.js}"></script>
+<script th:src="@{/themes/vendors/echarts/echarts.min.js}"></script>
+<script th:src="@{/themes/vendors/leaflet/leaflet.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
+<script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
+
+<script>
+  var chartDom = document.getElementById('divChart');
+  var myChart = echarts.init(chartDom);
+  var option;
+  
+  option = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+      data: [
+        'Direct',
+        'Marketing',
+        'Search Engine',
+        'Email',
+        'Union Ads',
+        'Video Ads',
+        'Baidu',
+        'Google',
+        'Bing',
+        'Others'
+      ]
+    },
+    series: [
+      {
+        name: 'Counties',
+        type: 'pie',
+        selectedMode: 'single',
+        radius: [0, '30%'],
+        label: {
+          position: 'inner',
+          fontSize: 14
+        },
+        labelLine: {
+          show: false
+        },
+        data: [
+          { value: 1548, name: 'Kericho' },
+          { value: 775, name: 'UG' },
+          { value: 679, name: 'TZ', selected: true }
+        ]
+      },
+      {
+        name: 'Access From',
+        type: 'pie',
+        radius: ['45%', '60%'],
+        labelLine: {
+          length: 30
+        },
+        label: {
+          formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+          backgroundColor: '#F6F8FC',
+          borderColor: '#8C8D8E',
+          borderWidth: 1,
+          borderRadius: 4,
+          rich: {
+            a: {
+              color: '#6E7079',
+              lineHeight: 22,
+              align: 'center'
+            },
+            hr: {
+              borderColor: '#8C8D8E',
+              width: '100%',
+              borderWidth: 1,
+              height: 0
+            },
+            b: {
+              color: '#4C5058',
+              fontSize: 14,
+              fontWeight: 'bold',
+              lineHeight: 33
+            },
+            per: {
+              color: '#fff',
+              backgroundColor: '#4C5058',
+              padding: [3, 4],
+              borderRadius: 4
+            }
+          }
+        },
+        data: [
+          { value: 1048, name: 'Baidu' },
+          { value: 335, name: 'Direct' },
+          { value: 310, name: 'Email' },
+          { value: 251, name: 'Google' },
+          { value: 234, name: 'Union Ads' },
+          { value: 147, name: 'Bing' },
+          { value: 135, name: 'Video Ads' },
+          { value: 102, name: 'Others' }
+        ]
+      }
+    ]
+  };
+  
+  if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+  
+  window.addEventListener('resize', myChart.resize);
+  
+  </script>
+  <script>
+
+var chartDom = document.getElementById('divTree');
+var myChart = echarts.init(chartDom);
+var option;
+
+option = {
+  title: {
+    text: 'EMR Distribution',
+    subtext: 'Count of EMR & Paper Facilities',
+    left: 'center'
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left'
+  },
+  series: [
+    {
+      name: 'Total Facilities',
+      type: 'pie',
+      radius: '50%',
+      data: [
+        { value: 1048, name: 'AMRS' },
+        { value: 735, name: 'KenyaEMR'},
+        { value: 735, name: 'Paper'}
+
+      ],
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+  
+  window.addEventListener('resize', myChart.resize);
+  </script>
+
+</body>
+</html>
