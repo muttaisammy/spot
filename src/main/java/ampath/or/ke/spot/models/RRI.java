@@ -41,16 +41,19 @@ public class RRI {
     @Column(name = "period")
     private int period;
 
-    @Column(name="created_by")
+    @Column(name = "tx_new_surge")
+    private int tx_new_surge;
+
+    @Column(name = "created_by")
     private int created_by;
 
-    @Column(name="created_on")
+    @Column(name = "created_on")
     private Date created_on;
 
-    @Column(name="modified_by", nullable=true)
+    @Column(name = "modified_by", nullable = true)
     private int modified_by;
 
-    @Column(name="modified_on", nullable=true)
+    @Column(name = "modified_on", nullable = true)
     private Date modified_on;
 
     public int getId() {
@@ -147,5 +150,13 @@ public class RRI {
 
     public void setModified_on(Date modified_on) {
         this.modified_on = modified_on;
+    }
+
+    public int getTx_new_surge() {
+        return tx_new_surge;
+    }
+
+    public void setTx_new_surge(int tx_new_surge) {
+        this.tx_new_surge = tx_new_surge;
     }
 }
