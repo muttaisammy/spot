@@ -5,79 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cea0b5ca-52e0-455f-9fb1-af040641ac8a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/RRI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/RRI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/AppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/AppInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/SpotApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/SpotApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/config/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/config/SecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/config/WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/config/WebMvcConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/ApplicationMailer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/ApplicationMailer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/DashboardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/DataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/DataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/DatabaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/DatabaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/FacilitiesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/FacilitiesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/HTSController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/HTSController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/RRIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/RRIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/Rest/FacilitiesAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/Rest/FacilitiesAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/Rest/RRIRestAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/Rest/RRIRestAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/RootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/RootController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/SMTPController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/SMTPController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/SystemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/SystemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/AppointmentsTracker$AppointmentsTrackerBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/AppointmentsTracker$AppointmentsTrackerBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/AppointmentsTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/AppointmentsTracker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/County$CountyBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/County$CountyBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/County.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/County.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Facilities$FacilitiesBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Facilities$FacilitiesBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Facilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Facilities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Periods$PeriodsBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Periods$PeriodsBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Periods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Periods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Programs$ProgramsBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Programs$ProgramsBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Programs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Programs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/RRI$RRIBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/RRI$RRIBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/RRI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/RRI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Role$RoleBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Role$RoleBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SMTPServer$SMTPServerBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SMTPServer$SMTPServerBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SMTPServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SMTPServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SubCounty$SubCountyBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SubCounty$SubCountyBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SubCounty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SubCounty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SyncTracker$SyncTrackerBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SyncTracker$SyncTrackerBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SyncTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/SyncTracker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/User$UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Ward$WardBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Ward$WardBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Ward.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/models/Ward.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/AppointmentsTrackerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/AppointmentsTrackerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/CountiesRespository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/CountiesRespository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/FacilitiesRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/FacilitiesRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/PeriodRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/PeriodRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/ProgramRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/ProgramRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/RRIRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/RRIRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/RoleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/SMTPServerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/SMTPServerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/SubCountyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/SubCountyRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/SyncTrackerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/SyncTrackerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/WardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/repositories/WardRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/AppointmentsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/AppointmentsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/CountiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/CountiesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/CustomUserDetailsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/FacilitiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/FacilitiesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/PeriodServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/PeriodServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/ProgramsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/ProgramsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/RRIService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/RRIService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/RoleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/SMTPServerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/SMTPServerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/SubCountiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/SubCountiesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/SyncTrackerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/SyncTrackerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/WardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/WardService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/tasks/AppointmentsTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/tasks/AppointmentsTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/utils/GlobalVars.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/utils/GlobalVars.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/utils/HtmlEmails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/utils/HtmlEmails.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,9 +19,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JpbToolWindowState">
-    <option name="isToolWindowVisible" value="false" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -98,12 +27,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/directorict/rugute/spot/src/main/resources"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
