@@ -44,6 +44,24 @@ public class RRI {
     @Column(name = "tx_new_surge")
     private int tx_new_surge;
 
+    @Column(name = "prep_new_surge")
+    private int prep_new_surge;
+
+    @Column(name = "prep_new_pbfw")
+    private int prep_new_pbfw;
+
+    @Column(name = "opd_workload")
+    private int opd_workload;
+
+    @Column(name = "no_of_clients_screened_hp")
+    private int no_of_clients_screened_hp;
+
+    @Column(name = "daily_gbv_cases_identified_sgbv")
+    private int daily_gbv_cases_identified_sgbv;
+
+    @Column(name = "daily_gbv_cases_identified_physical_or_emotional")
+    private int daily_gbv_cases_identified_physical_or_emotional;
+
     @Column(name = "created_by")
     private int created_by;
 
@@ -158,5 +176,54 @@ public class RRI {
 
     public void setTx_new_surge(int tx_new_surge) {
         this.tx_new_surge = tx_new_surge;
+    }
+
+    public int getPrep_new_surge() {
+        return prep_new_surge;
+    }
+
+    public void setPrep_new_surge(int prep_new_surge) {
+        this.prep_new_surge = prep_new_surge;
+    }
+
+    public int getPrep_new_pbfw() {
+        return prep_new_pbfw;
+    }
+
+    public void setPrep_new_pbfw(int prep_new_pbfw) {
+        this.prep_new_pbfw = prep_new_pbfw;
+    }
+
+    public int getOpd_workload() {
+        return opd_workload;
+    }
+
+    public void setOpd_workload(int opd_workload) {
+        this.opd_workload = opd_workload;
+    }
+
+    public int getNo_of_clients_screened_hp() {
+        return no_of_clients_screened_hp;
+    }
+
+    public void setNo_of_clients_screened_hp(int no_of_clients_screened_hp) {
+        this.no_of_clients_screened_hp = no_of_clients_screened_hp;
+    }
+
+    public int getDaily_gbv_cases_identified_sgbv() {
+        return daily_gbv_cases_identified_sgbv;
+    }
+
+    public void setDaily_gbv_cases_identified_sgbv(int daily_gbv_cases_identified_sgbv) {
+        this.daily_gbv_cases_identified_sgbv = daily_gbv_cases_identified_sgbv;
+    }
+
+    public int getDaily_gbv_cases_identified_physical_or_emotional() {
+        return daily_gbv_cases_identified_physical_or_emotional;
+    }
+
+    public void setDaily_gbv_cases_identified_physical_or_emotional(
+            int daily_gbv_cases_identified_physical_or_emotional) {
+        this.daily_gbv_cases_identified_physical_or_emotional = daily_gbv_cases_identified_physical_or_emotional;
     }
 }
