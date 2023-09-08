@@ -58,6 +58,11 @@ public class FacilitiesService {
     public List<Object> CountEMRS(String emr){
         return  facilitiesRepository.CountEMRS(emr);
     }
+    public List<Object> EMRDistribution(){
+        return  facilitiesRepository.EMRDistribution();
+    }
+
+
 
     
 
