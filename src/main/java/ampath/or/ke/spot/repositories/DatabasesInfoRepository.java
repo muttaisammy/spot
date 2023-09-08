@@ -11,7 +11,7 @@ public interface DatabasesInfoRepository extends JpaRepository<DatabasesInfo, Lo
 
     DatabasesInfo findByMflcode(String qid);
 
-    List<DatabasesInfo> findByFacility_name(String qid);
+    List<DatabasesInfo> findByFacilityname(String qid);
 
     DatabasesInfo findById(int qid);
 

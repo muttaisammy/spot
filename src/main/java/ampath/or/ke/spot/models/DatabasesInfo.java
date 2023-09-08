@@ -14,8 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "databasesinfo")
-
-public class DatabasesInfo {
+ public class DatabasesInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -25,7 +24,7 @@ public class DatabasesInfo {
     private String uuid;
 
     @Column(name = "facility_name")
-    private String facility_name;
+    private String facilityname;
 
     @Column(name = "url")
     private String url;
@@ -40,7 +39,7 @@ public class DatabasesInfo {
     private Date lastencounter;
 
     @Column(name = "dbsize")
-    private int dbsize;
+    private String dbsize;
 
     @Column(name = "dbname")
     private String dbname;
@@ -73,12 +72,12 @@ public class DatabasesInfo {
         this.uuid = uuid;
     }
 
-    public String getFacility_name() {
-        return facility_name;
+    public String getFacilityname() {
+        return facilityname;
     }
 
-    public void setFacility_name(String facility_name) {
-        this.facility_name = facility_name;
+    public void setFacilityname(String facilityname) {
+        this.facilityname = facilityname;
     }
 
     public String getUrl() {
@@ -113,11 +112,11 @@ public class DatabasesInfo {
         this.lastencounter = lastencounter;
     }
 
-    public int getDbsize() {
+    public String getDbsize() {
         return dbsize;
     }
 
-    public void setDbsize(int dbsize) {
+    public void setDbsize(String dbsize) {
         this.dbsize = dbsize;
     }
 

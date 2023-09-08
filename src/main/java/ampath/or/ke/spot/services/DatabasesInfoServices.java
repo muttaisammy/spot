@@ -32,7 +32,7 @@ public class DatabasesInfoServices {
     }
 
     public List<DatabasesInfo> getByFacility(String facility_name) {
-        return databasesinfoRepository.findByFacility_name(facility_name);
+        return databasesinfoRepository.findByFacilityname(facility_name);
     }
 
     public DatabasesInfo getRRIById(int id) {

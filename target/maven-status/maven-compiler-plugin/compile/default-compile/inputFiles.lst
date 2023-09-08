@@ -1,5 +1,6 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/WardRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/AppointmentsService.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/DatabasesInfoServices.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/RRIService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/SMTPServerService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/SubCounty.java
@@ -8,6 +9,7 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/Rest/RRIRestAPI.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/utils/GlobalVars.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/tasks/AppointmentsTask.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/DatabasesInfoRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/SyncTrackerRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Facilities.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Programs.java
@@ -55,3 +57,4 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/AuthController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/DashboardController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/HTSController.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/DatabasesInfo.java
