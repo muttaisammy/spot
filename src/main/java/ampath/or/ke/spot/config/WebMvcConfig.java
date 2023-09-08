@@ -51,6 +51,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/bootstrap/4.0.0/");
         registry.addResourceHandler("/resources/jquery/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/jquery/3.0.0/");
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     @Bean(name = "jdbcTemplate")
@@ -74,14 +79,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         emailTemplateResolver.setOrder(1);
         return emailTemplateResolver;
     }
- /*    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
-        .addResourceLocations("classpath:/META-INF/resources/");
 
-        registry.addResourceHandler("/webjars/**")
-        .addResourceLocations("classpath:/META-INF/resources/webjars/");
-    } */
    /* @Bean(name = MultipartFilter.DEFAULT_MULTIPART_RESOLVER_BEAN_NAME)
     protected MultipartResolver getMultipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
