@@ -28,8 +28,9 @@ public class FacilitiesAPI {
  @Autowired
     public FacilitiesService facilitiesService;
 
-   @GetMapping("/getall")
-    public String EMRlist() throws Exception {
+  // @GetMapping("/getall",produces = "application/json")
+   @RequestMapping(value="/getall", method = RequestMethod.GET,produces = "application/json")//, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+   public String EMRlist() throws Exception {
         String output = "";
         Date nowDate = new Date();
         List<?>  emrs  = facilitiesService.EMRDistribution();
@@ -38,9 +39,10 @@ public class FacilitiesAPI {
        for (int x=0;x<emrs.size();x++) {
            JsonObject json = new JsonObject();
            String emr = Array.get(emrs.get(x), 0).toString();
-           String cunt = Array.get(emrs.get(x), 1).toString();
-           json.addProperty("name",emr);
+           int cunt = Integer.parseInt(Array.get(emrs.get(x), 1).toString());
+
            json.addProperty("value",cunt);
+           json.addProperty("name",emr);
 
            jsonArray.put(json);
 
