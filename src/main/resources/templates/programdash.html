@@ -308,8 +308,7 @@
                 </div>
               </div>
               <div class="col-12 col-xl-5 col-xxl-6">
-                <h3>Facilities Distribution</h3>
-               <!-- <p class="text-700 mb-0 mb-xl-3">Deadline &amp; progress</p> -->
+                <h3>EMR Distribution</h3>
                 <div class="echart-zero-burnout-chart" style="min-height:320px;width:100%" id="divTree" ></div>
               </div>
             </div>
@@ -345,7 +344,11 @@
 <script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
 <script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
 <script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
-
+<script>
+    function replacer(key, value) {
+      return value.replace(/[^\w\s]/gi, '');
+    }
+</script>
 <script>
   var chartDom = document.getElementById('divChart');
   var myChart = echarts.init(chartDom);
@@ -450,8 +453,24 @@
   
   </script>
   <script>
+  var dataArr = [];
  $.get('/api/v1/facilities/getall').done(function(data) {
   alert(data);
+
+   var datavalue = [];
+        for(var i = 0; i < data.length; i++) {
+           var item = data[i];
+          // datavalue.push("\""+item[0]+"\"");
+          // value.push("\""+item[1]+"\"");
+       }
+  let xx = JSON.stringify(data);
+  var result_category = xx.toString();
+  alert(result_category);
+  let xxx = JSON.stringify(xx, replacer);
+  // let newdata = xx.replace('"', '');
+  // let newdata = "["+ data.replace('"', '')+"]";
+  alert(xxx);
+
         var chartDom = document.getElementById('divTree');
         var myChart = echarts.init(chartDom);
         var option;
@@ -474,7 +493,9 @@
               name: 'Total Facilities',
               type: 'pie',
               radius: '50%',
-              data: data,
+              data: data.map(function(item) {
+                    return item.value;
+                }),
               emphasis: {
                 itemStyle: {
                   shadowBlur: 10,
@@ -494,6 +515,7 @@
          // alert(data);
  });
   </script>
+
 
 </body>
 </html>
