@@ -1,3 +1,7 @@
 Dockerfile
-src/main/resources/app
+src/main/resources/application.properties
 /.idea/workspace.xml
+ReadMe
+.gitignore
+/target/
+!.mvn/wrapper/maven-wrapper.jar

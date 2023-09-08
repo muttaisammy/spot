@@ -28,6 +28,10 @@ public interface FacilitiesRepository extends JpaRepository<Facilities, Long> {
 
     @Query("SELECT distinct(ward) FROM Facilities")
     List<Object> DistinctWard();
+    @Query("SELECT emr,count(emr) \n" +
+            "FROM Facilities \n" +
+            "group by emr")
+    List<Object> EMRDistribution();
 
     @Query("SELECT m FROM Facilities m WHERE m.emr LIKE %:emr%")
     List<Object> CountEMRS(String emr);

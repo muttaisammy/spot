@@ -11,28 +11,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ampath.or.ke.spot.services.FacilitiesService;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @RestController
-@RequestMapping("/rest/v1/api/")
+@RequestMapping("/rest/v1/api/facilities")
+@EnableSwagger2
 public class FacilitiesAPI {
 
  @Autowired
     public FacilitiesService facilitiesService;
-
-    /*@ResponseBody
-    @RequestMapping(value = "facilities", method = RequestMethod.GET);
+ ;
+   @ResponseBody
     public String EMRlist() throws Exception {
         String output = "";
         Date nowDate = new Date();
-        String pattern = "yyyy-MM-dd hh:mm:ss";
-        List<Object>  emrs  = facilitiesService.CountEMRS(pattern);
+        List<Object>  emrs  = facilitiesService.EMRDistribution();
 
-        //  System.out.println(data);
         JSONArray jsonArray = new JSONArray(emrs);
 
-        JSONArray filteredObjects =  new JSONArray();
-        return String xx="0";
+
+        return jsonArray.toString();
     }
-    */
     
 }
