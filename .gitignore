@@ -5,3 +5,7 @@ ReadMe
 .gitignore
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+.idea/
+.vscode/
+target/
+.gitignore
