@@ -158,6 +158,8 @@ public class DataController {
                     double missedappointment = 0.0;
                     double bringbacksurge = 0.0;
                     double broughtbacksurge = 0.0;
+                    double targettobringback = 0.0;
+                    double numberbroughtback = 0.0;
                     double viralloaddone = 0.0;
                     double newancvisits = 0.0;
                     double kpsatanc1 = 0.0;
@@ -340,420 +342,436 @@ public class DataController {
                         broughtbacksurge = dataRow.getCell(17).getNumericCellValue();
                     }
 
-                    Cell viralloaddonecell = dataRow.getCell(18);
+                    Cell targettobringbackcell = dataRow.getCell(18);
+
+                    if (targettobringbackcell == null) {
+                        targettobringback = 0.0;
+                    } else {
+                        targettobringback = dataRow.getCell(18).getNumericCellValue();
+                    }
+
+                    Cell numberbroughtbackcell = dataRow.getCell(19);
+
+                    if (numberbroughtbackcell == null) {
+                        numberbroughtback = 0.0;
+                    } else {
+                        numberbroughtback = dataRow.getCell(19).getNumericCellValue();
+                    }
+
+                    Cell viralloaddonecell = dataRow.getCell(20);
 
                     if (viralloaddonecell == null) {
                         viralloaddone = 0.0;
                     } else {
-                        viralloaddone = dataRow.getCell(18).getNumericCellValue();
+                        viralloaddone = dataRow.getCell(20).getNumericCellValue();
                     }
 
-                    Cell newancvisitscell = dataRow.getCell(19);
+                    Cell newancvisitscell = dataRow.getCell(21);
 
                     if (newancvisitscell == null) {
                         newancvisits = 0.0;
                     } else {
-                        newancvisits = dataRow.getCell(19).getNumericCellValue();
+                        newancvisits = dataRow.getCell(21).getNumericCellValue();
                     }
 
-                    Cell kpsatanc1cell = dataRow.getCell(20);
+                    Cell kpsatanc1cell = dataRow.getCell(22);
 
                     if (kpsatanc1cell == null) {
                         kpsatanc1 = 0.0;
                     } else {
-                        kpsatanc1 = dataRow.getCell(20).getNumericCellValue();
+                        kpsatanc1 = dataRow.getCell(22).getNumericCellValue();
                     }
 
-                    Cell testedatanc1cell = dataRow.getCell(21);
+                    Cell testedatanc1cell = dataRow.getCell(23);
 
                     if (testedatanc1cell == null) {
                         testedatanc1 = 0.0;
                     } else {
-                        testedatanc1 = dataRow.getCell(21).getNumericCellValue();
+                        testedatanc1 = dataRow.getCell(23).getNumericCellValue();
                     }
 
-                    Cell syphilisatanc1hivposcell = dataRow.getCell(22);
+                    Cell syphilisatanc1hivposcell = dataRow.getCell(24);
 
                     if (syphilisatanc1hivposcell == null) {
                         syphilisatanc1hivpos = 0.0;
                     } else {
-                        syphilisatanc1hivpos = dataRow.getCell(22).getNumericCellValue();
+                        syphilisatanc1hivpos = dataRow.getCell(24).getNumericCellValue();
                     }
 
-                    Cell syphilisat1stanccell = dataRow.getCell(23);
+                    Cell syphilisat1stanccell = dataRow.getCell(25);
 
                     if (syphilisat1stanccell == null) {
                         syphilisat1stanc = 0.0;
                     } else {
-                        syphilisat1stanc = dataRow.getCell(23).getNumericCellValue();
+                        syphilisat1stanc = dataRow.getCell(25).getNumericCellValue();
                     }
 
-                    Cell eligibleforvltestcell = dataRow.getCell(24);
+                    Cell eligibleforvltestcell = dataRow.getCell(26);
 
                     if (eligibleforvltestcell == null) {
                         eligibleforvltest = 0.0;
                     } else {
-                        eligibleforvltest = dataRow.getCell(24).getNumericCellValue();
+                        eligibleforvltest = dataRow.getCell(26).getNumericCellValue();
                     }
 
-                    Cell vltestsdonecell = dataRow.getCell(25);
+                    Cell vltestsdonecell = dataRow.getCell(27);
 
                     if (vltestsdonecell == null) {
                         vltestsdone = 0.0;
                     } else {
-                        vltestsdone = dataRow.getCell(25).getNumericCellValue();
+                        vltestsdone = dataRow.getCell(27).getNumericCellValue();
                     }
 
-                    Cell initialtestslessthan8wkscell = dataRow.getCell(26);
+                    Cell initialtestslessthan8wkscell = dataRow.getCell(28);
 
                     if (initialtestslessthan8wkscell == null) {
                         initialtestslessthan8wks = 0.0;
                     } else {
-                        initialtestslessthan8wks = dataRow.getCell(26).getNumericCellValue();
+                        initialtestslessthan8wks = dataRow.getCell(28).getNumericCellValue();
                     }
 
-                    Cell initialtests8wksto12monthscell = dataRow.getCell(27);
+                    Cell initialtests8wksto12monthscell = dataRow.getCell(29);
 
                     if (initialtests8wksto12monthscell == null) {
                         initialtests8wksto12months = 0.0;
                     } else {
-                        initialtests8wksto12months = dataRow.getCell(27).getNumericCellValue();
+                        initialtests8wksto12months = dataRow.getCell(29).getNumericCellValue();
                     }
 
-                    Cell totaleidcell = dataRow.getCell(28);
+                    Cell totaleidcell = dataRow.getCell(30);
 
                     if (totaleidcell == null) {
                         totaleid = 0.0;
                     } else {
-                        totaleid = dataRow.getCell(28).getNumericCellValue();
+                        totaleid = dataRow.getCell(30).getNumericCellValue();
                     }
 
-                    Cell eidposcell = dataRow.getCell(29);
+                    Cell eidposcell = dataRow.getCell(31);
 
                     if (eidposcell == null) {
                         eidpos = 0.0;
                     } else {
-                        eidpos = dataRow.getCell(29).getNumericCellValue();
+                        eidpos = dataRow.getCell(31).getNumericCellValue();
                     }
 
-                    Cell bringbacktargetcell = dataRow.getCell(30);
+                    Cell bringbacktargetcell = dataRow.getCell(32);
 
                     if (bringbacktargetcell == null) {
                         bringbacktarget = 0.0;
                     } else {
-                        bringbacktarget = dataRow.getCell(30).getNumericCellValue();
+                        bringbacktarget = dataRow.getCell(32).getNumericCellValue();
                     }
 
-                    Cell broughtbackamongiitcell = dataRow.getCell(31);
+                    Cell broughtbackamongiitcell = dataRow.getCell(33);
 
                     if (broughtbackamongiitcell == null) {
                         broughtbackamongiit = 0.0;
                     } else {
-                        broughtbackamongiit = dataRow.getCell(31).getNumericCellValue();
+                        broughtbackamongiit = dataRow.getCell(33).getNumericCellValue();
                     }
 
-                    Cell determinestockathandcell = dataRow.getCell(32);
+                    Cell determinestockathandcell = dataRow.getCell(34);
 
                     if (determinestockathandcell == null) {
                         determinestockathand = 0.0;
                     } else {
-                        determinestockathand = dataRow.getCell(32).getNumericCellValue();
+                        determinestockathand = dataRow.getCell(34).getNumericCellValue();
                     }
 
-                    Cell responsestockathandcell = dataRow.getCell(33);
+                    Cell responsestockathandcell = dataRow.getCell(35);
 
                     if (responsestockathandcell == null) {
                         responsestockathand = 0.0;
                     } else {
-                        responsestockathand = dataRow.getCell(33).getNumericCellValue();
+                        responsestockathand = dataRow.getCell(35).getNumericCellValue();
                     }
 
-                    Cell duokitathandcell = dataRow.getCell(34);
+                    Cell duokitathandcell = dataRow.getCell(36);
 
                     if (duokitathandcell == null) {
                         duokitathand = 0.0;
                     } else {
-                        duokitathand = dataRow.getCell(34).getNumericCellValue();
+                        duokitathand = dataRow.getCell(36).getNumericCellValue();
                     }
 
-                    Cell dbsfilterpaperscell = dataRow.getCell(35);
+                    Cell dbsfilterpaperscell = dataRow.getCell(37);
 
                     if (dbsfilterpaperscell == null) {
                         dbsfilterpapers = 0.0;
                     } else {
-                        dbsfilterpapers = dataRow.getCell(35).getNumericCellValue();
+                        dbsfilterpapers = dataRow.getCell(37).getNumericCellValue();
                     }
 
-                    Cell cxcascreenedcell = dataRow.getCell(36);
+                    Cell cxcascreenedcell = dataRow.getCell(38);
 
                     if (cxcascreenedcell == null) {
                         cxcascreened = 0.0;
                     } else {
-                        cxcascreened = dataRow.getCell(36).getNumericCellValue();
+                        cxcascreened = dataRow.getCell(38).getNumericCellValue();
                     }
 
-                    Cell cxcascreenedposcell = dataRow.getCell(37);
+                    Cell cxcascreenedposcell = dataRow.getCell(39);
 
                     if (cxcascreenedposcell == null) {
                         cxcascreenedpos = 0.0;
                     } else {
-                        cxcascreenedpos = dataRow.getCell(37).getNumericCellValue();
+                        cxcascreenedpos = dataRow.getCell(39).getNumericCellValue();
                     }
 
-                    Cell cxcareceivedtreatmentcell = dataRow.getCell(38);
+                    Cell cxcareceivedtreatmentcell = dataRow.getCell(40);
 
                     if (cxcareceivedtreatmentcell == null) {
                         cxcareceivedtreatment = 0.0;
                     } else {
-                        cxcareceivedtreatment = dataRow.getCell(38).getNumericCellValue();
+                        cxcareceivedtreatment = dataRow.getCell(40).getNumericCellValue();
                     }
 
-                    Cell cxcasuspectedcell = dataRow.getCell(39);
+                    Cell cxcasuspectedcell = dataRow.getCell(41);
 
                     if (cxcasuspectedcell == null) {
                         cxcasuspected = 0.0;
                     } else {
-                        cxcasuspected = dataRow.getCell(39).getNumericCellValue();
+                        cxcasuspected = dataRow.getCell(41).getNumericCellValue();
                     }
 
-                    Cell currneverontptcell = dataRow.getCell(40);
+                    Cell currneverontptcell = dataRow.getCell(42);
 
                     if (currneverontptcell == null) {
                         currneverontpt = 0.0;
                     } else {
-                        currneverontpt = dataRow.getCell(40).getNumericCellValue();
+                        currneverontpt = dataRow.getCell(42).getNumericCellValue();
                     }
 
-                    Cell screenednegfortbcell = dataRow.getCell(41);
+                    Cell screenednegfortbcell = dataRow.getCell(43);
 
                     if (screenednegfortbcell == null) {
                         screenednegfortb = 0.0;
                     } else {
-                        screenednegfortb = dataRow.getCell(41).getNumericCellValue();
+                        screenednegfortb = dataRow.getCell(43).getNumericCellValue();
                     }
 
-                    Cell startedtpttxnewcell = dataRow.getCell(42);
+                    Cell startedtpttxnewcell = dataRow.getCell(44);
 
                     if (startedtpttxnewcell == null) {
                         startedtpttxnew = 0.0;
                     } else {
-                        startedtpttxnew = dataRow.getCell(42).getNumericCellValue();
+                        startedtpttxnew = dataRow.getCell(44).getNumericCellValue();
                     }
 
-                    Cell startedtpttxcurrcell = dataRow.getCell(43);
+                    Cell startedtpttxcurrcell = dataRow.getCell(45);
 
                     if (startedtpttxcurrcell == null) {
                         startedtpttxcurr = 0.0;
                     } else {
-                        startedtpttxcurr = dataRow.getCell(43).getNumericCellValue();
+                        startedtpttxcurr = dataRow.getCell(45).getNumericCellValue();
                     }
 
-                    Cell startedtptcell = dataRow.getCell(44);
+                    Cell startedtptcell = dataRow.getCell(46);
 
                     if (startedtptcell == null) {
                         startedtpt = 0.0;
                     } else {
-                        startedtpt = dataRow.getCell(44).getNumericCellValue();
+                        startedtpt = dataRow.getCell(46).getNumericCellValue();
                     }
 
-                    Cell daily1st95childrentestedcell = dataRow.getCell(45);
+                    Cell daily1st95childrentestedcell = dataRow.getCell(47);
 
                     if (daily1st95childrentestedcell == null) {
                         daily1st95childrentested = 0.0;
                     } else {
-                        daily1st95childrentested = dataRow.getCell(45).getNumericCellValue();
+                        daily1st95childrentested = dataRow.getCell(47).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95cacxtargetedwracell = dataRow.getCell(46);
+                    Cell daily2ndand3rd95cacxtargetedwracell = dataRow.getCell(48);
 
                     if (daily2ndand3rd95cacxtargetedwracell == null) {
                         daily2ndand3rd95cacxtargetedwra = 0.0;
                     } else {
-                        daily2ndand3rd95cacxtargetedwra = dataRow.getCell(46).getNumericCellValue();
+                        daily2ndand3rd95cacxtargetedwra = dataRow.getCell(48).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95eligibleforvltestcell = dataRow.getCell(47);
+                    Cell daily2ndand3rd95eligibleforvltestcell = dataRow.getCell(49);
 
                     if (daily2ndand3rd95eligibleforvltestcell == null) {
                         daily2ndand3rd95eligibleforvltest = 0.0;
                     } else {
-                        daily2ndand3rd95eligibleforvltest = dataRow.getCell(47).getNumericCellValue();
+                        daily2ndand3rd95eligibleforvltest = dataRow.getCell(49).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95hpv10to14yrseligiblecell = dataRow.getCell(48);
+                    Cell daily2ndand3rd95hpv10to14yrseligiblecell = dataRow.getCell(50);
 
                     if (daily2ndand3rd95hpv10to14yrseligiblecell == null) {
                         daily2ndand3rd95hpv10to14yrseligible = 0.0;
                     } else {
-                        daily2ndand3rd95hpv10to14yrseligible = dataRow.getCell(48).getNumericCellValue();
+                        daily2ndand3rd95hpv10to14yrseligible = dataRow.getCell(50).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95hpv10to14yrs95vaccinatedcell = dataRow.getCell(49);
+                    Cell daily2ndand3rd95hpv10to14yrs95vaccinatedcell = dataRow.getCell(51);
 
                     if (daily2ndand3rd95hpv10to14yrs95vaccinatedcell == null) {
                         daily2ndand3rd95hpv10to14yrs95vaccinated = 0.0;
                     } else {
-                        daily2ndand3rd95hpv10to14yrs95vaccinated = dataRow.getCell(49).getNumericCellValue();
+                        daily2ndand3rd95hpv10to14yrs95vaccinated = dataRow.getCell(51).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95newlyiitcell = dataRow.getCell(50);
+                    Cell daily2ndand3rd95newlyiitcell = dataRow.getCell(52);
 
                     if (daily2ndand3rd95newlyiitcell == null) {
                         daily2ndand3rd95newlyiit = 0.0;
                     } else {
-                        daily2ndand3rd95newlyiit = dataRow.getCell(50).getNumericCellValue();
+                        daily2ndand3rd95newlyiit = dataRow.getCell(52).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95tbcccscreenedcell = dataRow.getCell(51);
+                    Cell daily2ndand3rd95tbcccscreenedcell = dataRow.getCell(53);
 
                     if (daily2ndand3rd95tbcccscreenedcell == null) {
                         daily2ndand3rd95tbcccscreened = 0.0;
                     } else {
-                        daily2ndand3rd95tbcccscreened = dataRow.getCell(51).getNumericCellValue();
+                        daily2ndand3rd95tbcccscreened = dataRow.getCell(53).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95tbcccworkloadcell = dataRow.getCell(52);
+                    Cell daily2ndand3rd95tbcccworkloadcell = dataRow.getCell(54);
 
                     if (daily2ndand3rd95tbcccworkloadcell == null) {
                         daily2ndand3rd95tbcccworkload = 0.0;
                     } else {
-                        daily2ndand3rd95tbcccworkload = dataRow.getCell(52).getNumericCellValue();
+                        daily2ndand3rd95tbcccworkload = dataRow.getCell(54).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95tbopdscreenedcell = dataRow.getCell(53);
+                    Cell daily2ndand3rd95tbopdscreenedcell = dataRow.getCell(55);
 
                     if (daily2ndand3rd95tbopdscreenedcell == null) {
                         daily2ndand3rd95tbopdscreened = 0.0;
                     } else {
-                        daily2ndand3rd95tbopdscreened = dataRow.getCell(53).getNumericCellValue();
+                        daily2ndand3rd95tbopdscreened = dataRow.getCell(55).getNumericCellValue();
                     }
 
-                    Cell daily2ndand3rd95tbopdworkloadcell = dataRow.getCell(54);
+                    Cell daily2ndand3rd95tbopdworkloadcell = dataRow.getCell(56);
 
                     if (daily2ndand3rd95tbopdworkloadcell == null) {
                         daily2ndand3rd95tbopdworkload = 0.0;
                     } else {
-                        daily2ndand3rd95tbopdworkload = dataRow.getCell(54).getNumericCellValue();
+                        daily2ndand3rd95tbopdworkload = dataRow.getCell(56).getNumericCellValue();
                     }
 
-                    Cell otherhivtestscell = dataRow.getCell(55);
+                    Cell otherhivtestscell = dataRow.getCell(57);
 
                     if (otherhivtestscell == null) {
                         otherhivtests = 0.0;
                     } else {
-                        otherhivtests = dataRow.getCell(55).getNumericCellValue();
+                        otherhivtests = dataRow.getCell(57).getNumericCellValue();
                     }
 
-                    Cell knownstatuskpplustestedcell = dataRow.getCell(56);
+                    Cell knownstatuskpplustestedcell = dataRow.getCell(58);
 
                     if (knownstatuskpplustestedcell == null) {
                         knownstatuskpplustested = 0.0;
                     } else {
-                        knownstatuskpplustested = dataRow.getCell(56).getNumericCellValue();
+                        knownstatuskpplustested = dataRow.getCell(58).getNumericCellValue();
                     }
 
-                    Cell pmtctstattdcell = dataRow.getCell(57);
+                    Cell pmtctstattdcell = dataRow.getCell(59);
 
                     if (pmtctstattdcell == null) {
                         pmtctstattd = 0.0;
                     } else {
-                        pmtctstattd = dataRow.getCell(57).getNumericCellValue();
+                        pmtctstattd = dataRow.getCell(59).getNumericCellValue();
                     }
 
-                    Cell tptcummulativecell = dataRow.getCell(58);
+                    Cell tptcummulativecell = dataRow.getCell(60);
 
                     if (tptcummulativecell == null) {
                         tptcummulative = 0.0;
                     } else {
-                        tptcummulative = dataRow.getCell(58).getNumericCellValue();
+                        tptcummulative = dataRow.getCell(60).getNumericCellValue();
                     }
 
-                    Cell completedtptcell = dataRow.getCell(59);
+                    Cell completedtptcell = dataRow.getCell(61);
 
                     if (completedtptcell == null) {
                         completedtpt = 0.0;
                     } else {
-                        completedtpt = dataRow.getCell(59).getNumericCellValue();
+                        completedtpt = dataRow.getCell(61).getNumericCellValue();
                     }
 
-                    Cell completedtpttxnewcell = dataRow.getCell(60);
+                    Cell completedtpttxnewcell = dataRow.getCell(62);
 
                     if (completedtpttxnewcell == null) {
                         completedtpttxnew = 0.0;
                     } else {
-                        completedtpttxnew = dataRow.getCell(60).getNumericCellValue();
+                        completedtpttxnew = dataRow.getCell(62).getNumericCellValue();
                     }
 
-                    Cell completedtpttxcurrcell = dataRow.getCell(61);
+                    Cell completedtpttxcurrcell = dataRow.getCell(63);
 
                     if (completedtpttxcurrcell == null) {
                         completedtpttxcurr = 0.0;
                     } else {
-                        completedtpttxcurr = dataRow.getCell(61).getNumericCellValue();
+                        completedtpttxcurr = dataRow.getCell(63).getNumericCellValue();
                     }
 
-                    Cell missedhivtestingtargetcell = dataRow.getCell(62);
+                    Cell missedhivtestingtargetcell = dataRow.getCell(64);
 
                     if (missedhivtestingtargetcell == null) {
                         missedhivtestingtarget = 0.0;
                     } else {
-                        missedhivtestingtarget = dataRow.getCell(62).getNumericCellValue();
+                        missedhivtestingtarget = dataRow.getCell(64).getNumericCellValue();
                     }
 
-                    Cell reachedandaccountedcell = dataRow.getCell(63);
+                    Cell reachedandaccountedcell = dataRow.getCell(65);
 
                     if (reachedandaccountedcell == null) {
                         reachedandaccounted = 0.0;
                     } else {
-                        reachedandaccounted = dataRow.getCell(63).getNumericCellValue();
+                        reachedandaccounted = dataRow.getCell(65).getNumericCellValue();
                     }
 
-                    Cell newiitclientscell = dataRow.getCell(64);
+                    Cell newiitclientscell = dataRow.getCell(66);
 
                     if (newiitclientscell == null) {
                         newiitclients = 0.0;
                     } else {
-                        newiitclients = dataRow.getCell(64).getNumericCellValue();
+                        newiitclients = dataRow.getCell(66).getNumericCellValue();
                     }
 
-                    Cell tptuptakeeligiblefortptcell = dataRow.getCell(65);
+                    Cell tptuptakeeligiblefortptcell = dataRow.getCell(69);
 
                     if (tptuptakeeligiblefortptcell == null) {
                         tptuptakeeligiblefortpt = 0.0;
                     } else {
-                        tptuptakeeligiblefortpt = dataRow.getCell(65).getNumericCellValue();
+                        tptuptakeeligiblefortpt = dataRow.getCell(67).getNumericCellValue();
                     }
 
-                    Cell tptuptakestartedontptcell = dataRow.getCell(66);
+                    Cell tptuptakestartedontptcell = dataRow.getCell(68);
 
                     if (tptuptakestartedontptcell == null) {
                         tptuptakestartedontpt = 0.0;
                     } else {
-                        tptuptakestartedontpt = dataRow.getCell(66).getNumericCellValue();
+                        tptuptakestartedontpt = dataRow.getCell(68).getNumericCellValue();
                     }
 
-                    Cell prepnewagywcell = dataRow.getCell(67);
+                    Cell prepnewagywcell = dataRow.getCell(69);
 
                     if (prepnewagywcell == null) {
                         prepnewagyw = 0.0;
                     } else {
-                        prepnewagyw = dataRow.getCell(67).getNumericCellValue();
+                        prepnewagyw = dataRow.getCell(69).getNumericCellValue();
                     }
 
-                    Cell weekcell = dataRow.getCell(68);
+                    Cell weekcell = dataRow.getCell(70);
 
                     if (weekcell == null) {
                         week = 0.0;
                     } else {
-                        week = dataRow.getCell(68).getNumericCellValue();
+                        week = dataRow.getCell(70).getNumericCellValue();
                     }
 
-                    Cell monthcell = dataRow.getCell(69);
+                    Cell monthcell = dataRow.getCell(71);
 
                     if (monthcell == null) {
                         month = 0.0;
                     } else {
-                        month = dataRow.getCell(69).getNumericCellValue();
+                        month = dataRow.getCell(71).getNumericCellValue();
                     }
 
                     String mflcode = nmflcode.substring(0, nmflcode.length() - 2);
