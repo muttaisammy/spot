@@ -61,10 +61,19 @@ public class FacilitiesService {
     public List<Object> EMRDistribution(){
         return  facilitiesRepository.EMRDistribution();
     }
+    public List<Object> ARTDistribution(){
+        return  facilitiesRepository.ARTDistribution();
+    }
+    public List<Facilities> searchByFnameLike(String id){
+        return  facilitiesRepository.searchByFnameLike(id);
+    }
+    public List<Facilities> KenyaEMRFacilities(String id){
+        return  facilitiesRepository.findByEmr(id);
+    }
 
 
 
-    
+
 
 
 }

@@ -15,4 +15,6 @@ public interface DatabasesInfoRepository extends JpaRepository<DatabasesInfo, Lo
 
     DatabasesInfo findById(int qid);
 
+    DatabasesInfo findByDbname(String dbname);
+
 }

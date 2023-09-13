@@ -16,6 +16,7 @@
     <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
     <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
     <script th:src="@{/themes/assets/js/config.js}"></script>
+    <link rel="stylesheet" th:href="@{/themes/jtoaster/jquery.toast.css}" />
     <script>
       window.config.set({
         phoenixNavbarTopShape: 'slim',
@@ -41,6 +42,8 @@
     <script th:src="@{/themes/highcharts/code/modules/export-data.js}"></script>
     <script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script th:src="@{/themes/jtoaster/jquery.toast.min.js}"></script>
+    <script th:src="@{/themes/data/dbupload.js}"></script>
     <style>
         .containers {
           display: flex; /* or inline-flex */
@@ -66,7 +69,7 @@
         var linkRTL = document.getElementById('style-rtl');
         var userLinkRTL = document.getElementById('user-style-rtl');
         linkRTL.setAttribute('disabled', true);
-        userLinkRTL.setAttribute('disabled', true);
+       // userLinkRTL.setAttribute('disabled', true);
       }
     </script>
     <link th:href="@{/themes/vendors/leaflet/leaflet.css}" rel="stylesheet">
@@ -192,21 +195,58 @@
         <div class="modal-dialog">
          <div class="modal-content">
            <div class="modal-header">
-             <h5 class="modal-title" id="staticBackdropLabel">User Details</h5>
+             <h5 class="modal-title" id="staticBackdropLabel">KenyaEMR Database Upload</h5>
              <button class="btn p-1" type="button" data-bs-dismiss="modal" aria-label="Close">
                <span class="fas fa-times fs--1"></span>
              </button>
            </div>
            <div class="modal-body">
-            
-                 <form class="row g-3 mb-12" id="adduser" th:action="@{/system/users/createaccount}" th:object="${users}" method="POST">
+                 <form class="row g-3 mb-12" name="upload" id="upload">
+                     <div class="form-group">
+                         <label for="facility">Facility</label>
+                         <datalist id="suggestions">
+                             <option th:each="i : ${facility}" th:value="${#numbers.formatInteger(i.mflcode,0)}" th:text="${i.facilityname}"></option>
+                         </datalist>
+                         <input  id="facility" name="facility"  autoComplete="on" list="suggestions" required="required" class="form-control col-md-10 col-xs-12"/>
+                     </div>
+                     <div class="containers">
+                         <div class="item">
+                             <div class="form-group">
+                                 <div class="form-group">
+                                     <label for="month">Month</label>
+                                     <select  id="month" name="month" required="required" class="form-control col-md-10 col-xs-12" >
+                                         <option th:value="''" th:text="Select"></option>
+                                         <option th:each="i : ${months}" th:value="${i.shortname}" th:text="${i.monthname}"></option>
+                                     </select>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="item">
+                             <div class="form-group">
+                                 <label for="year">Year</label>
+                                 <select  id="year" name="year" required="required" class="form-control col-md-10 col-xs-12" >
+                                     <option th:value="''" th:text="Select"></option>
+                                     <option th:each="i : ${years}" th:value="${i.year}" th:text="${i.year}"></option>
+                                 </select>
+                             </div>
+                         </div>
+
+                     </div>
+                     <div class="form-group">
+                         <label for="filename">Choose Database</label> </br>
+                         <input type="file" id="filename" name="filename" accept=".sql" enctype="multipart/form-data" required="required" />
+                     </div>
+
+                         <button class="btn btn-primary" id="saveprogram">Submit</button>
 
                  </form>
-            </div>
-        
+
+           </div>
          </div>
-       </div>  
-       </div>
+        </div>
+      </div>
+
 
 
     <div class="content">
@@ -240,30 +280,31 @@
                   <table class="table table-sm fs--1 mb-0">
                     <thead>
                       <tr></tr>
-                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">MFLCODE</th>
-                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Facility</th>
-                      <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Database Name</th>
-                        <th class="sort align-middle" scope="col" data-sort="email" style="width:15%; min-width:100px;">Last Encounter Date</th>
-                        <th class="sort align-middle pe-3" scope="col" data-sort="mobile_number" style="width:20%; min-width:100px;">Size</th>
-                        <th>Status</th>
-                        <th  data-sort="last_active">Action</th>
+                        <th class="sort border-top" scope="col" data-sort="mflvode">MFLCODE</th>
+                        <th class="sort border-top" scope="col" data-sort="facilityname">Facility</th>
+                        <th class="sort border-top" scope="col" data-sort="dbname">Database Name</th>
+                        <th class="sort border-top" scope="col" data-sort="email">Last Encounter Date</th>
+                        <th class="sort border-top" scope="col" data-sort="size">Size</th>
+                        <th class="sort border-top" scope="col" data-sort="status">Status</th>
+                        <th class="sort text-end align-middle pe-0 border-top" scope="col">Action</th>
                       
                     </tr>
                     </thead>
                     <tbody class="list" id="members-table-body">
                       <tr th:each="obj : ${dbs}" class="hover-actions-trigger btn-reveal-trigger position-static">
-                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
-                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.facilityname}"></span></td><td class="customer align-middle white-space-nowrap"><span th:text="${obj.dbname}"></span></td>
-                        <td class="email align-middle white-space-nowrap"><span th:text="${obj.lastencounter}"></span></td>
-                        <td class="mobile_number align-middle white-space-nowrap"><span th:text="${obj.dbsize}"></span></td>
-                        <td><span th:text="${obj.status}"></span></td>
-                        <td class="align-middle text-end white-space-nowrap pe-0 action">
+                        <td class="align-middle mflvode"><span th:text="${obj.mflcode}"></span></td>
+                        <td class="align-middle facilityname"><span th:text="${obj.facilityname}"></span></td>
+                        <td class="align-middle dbname"><span th:text="${obj.dbname}"></span></td>
+                        <td class="align-middle lastencounter"><span th:text="${obj.lastencounter}"></span></td>
+                        <td class="align-middle size"><span th:text="${obj.dbsize}"></span></td>
+                        <td class="align-middle status"><span th:text="${obj.status}"></span></td>
+                        <td class="align-middle white-space-nowrap text-end pe-0">
                           <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2"></span></button>
                             <div class="dropdown-menu dropdown-menu-end py-2">
-                              <a  class="dropdown-item" th:id="roles" th:name="roles" th:href="@{'/admin/hrsettings/editbanks/edit/' + ${obj.id}}" onclick="return confirm('Are you sure you want to Edit?')">View Roles</a>
-                              <a  class="dropdown-item" th:id="roles" th:name="roles" th:href="@{'/admin/hrsettings/editbanks/edit/' + ${obj.id}}" onclick="return confirm('Are you sure you want to Reset Password?')">Reset Password</a>
+                              <a  class="dropdown-item" th:id="restore" th:name="restore" th:href="@{'/database/restore/'+ ${obj.dbname}}" onclick="return confirm('Are you sure you want to Restore the Database?')">Restore </a>
+                              <a  class="dropdown-item" th:id="download" th:name="download" th:href="@{'/database/download/'+ ${obj.dbname}}" onclick="return confirm('Are you sure you want to Download')">Download</a>
                               <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-danger" th:href="@{'/admin/hrsettings/editbanks/delete/'+ ${obj.id}}" onclick="return confirm('Are you sure perform the action?')">De/Re-activate</a>
+                                <a class="dropdown-item text-danger" th:href="@{'/database/drop/'+${obj.dbname}}" onclick="return confirm('Are you sure perform the action?')">Drop/Delete</a>
                               </div>
                           </div>
                         </td>
@@ -294,11 +335,12 @@
             </div>
           </div>
         </div>
-       
 
+        </div>
 
       <div th:insert="~{common/footer}"></div>
     </div>
+
 
 </main><!-- ===============================================-->
 <!--    End of Main Content-->

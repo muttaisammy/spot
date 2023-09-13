@@ -179,6 +179,7 @@ public class DataController {
                         rri.setHst_pos((int) pos);
                         rri.setHst_tst((int) tst);
                         rri.setHst_link((int) hstlink);
+                        //rri.setPrep_new_surge();
                         rri.setCreated_by(userdetails.getId());
                         rri.setCreated_on(nowDate);
 

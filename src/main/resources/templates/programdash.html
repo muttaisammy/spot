@@ -278,27 +278,18 @@
                       
                     </div>
                     <hr class="bg-200 mb-2 mt-2" />
-                    <div class="d-flex align-items-center mb-1">
-                      <span class="d-inline-block bg-info-300 bullet-item me-2"></span>
-                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Product design</p>
-                      <h5 class="mb-0 text-900">78</h5>
-                    </div>
-                    <div class="d-flex align-items-center mb-1"><span class="d-inline-block bg-warning-300 bullet-item me-2"></span>
-                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Development</p>
-                      <h5 class="mb-0 text-900">63</h5>
-                    </div>
-                    <div class="d-flex align-items-center mb-1"><span class="d-inline-block bg-danger-300 bullet-item me-2"></span>
-                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">QA &amp; Testing</p>
-                      <h5 class="mb-0 text-900">56</h5>
-                    </div>
-                    <div class="d-flex align-items-center mb-1"><span class="d-inline-block bg-success-300 bullet-item me-2"></span>
-                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Customer queries</p>
-                      <h5 class="mb-0 text-900">36</h5>
-                    </div>
-                    <div class="d-flex align-items-center"><span class="d-inline-block bg-primary bullet-item me-2"></span>
-                      <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">R &amp; D</p>
-                      <h5 class="mb-0 text-900">24</h5>
-                    </div><button class="btn btn-outline-primary mt-5">See Details<span class="fas fa-angle-right ms-2 fs--2 text-center"></span></button>
+                      <table class="table table-sm fs--1 mb-0">
+                          <tbody class="list" id="members-table-body">
+                              <tr th:each="obj : ${onart}">
+
+                                  <td class="customer align-middle white-space-nowrap"><span th:text="${obj[0]}"></span></td>
+                                  <td><h5 class="mb-0 text-900"><span th:text="${obj[1]}"></span></h5></td>
+
+
+                              </tr>
+                          </tbody>
+                      </table>
+                      <button class="btn btn-outline-primary mt-5">See Details<span class="fas fa-angle-right ms-2 fs--2 text-center"></span></button>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="position-relative mb-sm-4 mb-xl-0">
@@ -344,13 +335,15 @@
 <script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
 <script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
 <script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
+<script th:src="@{/themes/data/emrs.js}"></script>
+<script th:src="@{/themes/data/emrs.js}"></script>
 <script>
     function replacer(key, value) {
       return value.replace(/[^\w\s]/gi, '');
     }
 </script>
 <script>
-  var chartDom = document.getElementById('divChart');
+ /* var chartDom = document.getElementById('divChart');
   var myChart = echarts.init(chartDom);
   var option;
   
@@ -450,71 +443,9 @@
   }
   
   window.addEventListener('resize', myChart.resize);
-  
+  */
   </script>
-  <script>
-  var dataArr = [];
- $.get('/api/v1/facilities/getall').done(function(data) {
-  alert(data);
 
-   var datavalue = [];
-        for(var i = 0; i < data.length; i++) {
-           var item = data[i];
-          // datavalue.push("\""+item[0]+"\"");
-          // value.push("\""+item[1]+"\"");
-       }
-  let xx = JSON.stringify(data);
-  var result_category = xx.toString();
-  alert(result_category);
-  let xxx = JSON.stringify(xx, replacer);
-  // let newdata = xx.replace('"', '');
-  // let newdata = "["+ data.replace('"', '')+"]";
-  alert(xxx);
-
-        var chartDom = document.getElementById('divTree');
-        var myChart = echarts.init(chartDom);
-        var option;
-
-        option = {
-          title: {
-            text: 'EMR Distribution',
-            subtext: 'Count of EMR & Paper Facilities',
-            left: 'center'
-          },
-          tooltip: {
-            trigger: 'item'
-          },
-          legend: {
-            orient: 'vertical',
-            left: 'left'
-          },
-          series: [
-            {
-              name: 'Total Facilities',
-              type: 'pie',
-              radius: '50%',
-              data: data.map(function(item) {
-                    return item.value;
-                }),
-              emphasis: {
-                itemStyle: {
-                  shadowBlur: 10,
-                  shadowOffsetX: 0,
-                  shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-              }
-            }
-          ]
-        };
-
-        if (option && typeof option === 'object') {
-            myChart.setOption(option);
-          }
-
-          window.addEventListener('resize', myChart.resize);
-         // alert(data);
- });
-  </script>
 
 
 </body>

@@ -13,8 +13,20 @@
         <ul class="navbar-nav navbar-nav-top" data-dropdown-on-hover="data-dropdown-on-hover">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle lh-1" th:href="@{/spot/dashboard}" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-                        <span class="uil fs-0 me-2 uil-chart-pie">
-                        </span>Home</a>
+                        <span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
+                <ul class="dropdown-menu navbar-dropdown-caret">
+                    <li class="dropdown">
+                        <a class="dropdown-item" th:href="@{/spot/dashboard}">
+                            <div class="dropdown-item-wrapper">
+                                <span><span class="me-2 uil" data-feather="calendar"></span>
+                                      Program Dashboard
+                                </span>
+                            </div>
+
+                        </a>
+
+                    </li>
+                </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
@@ -80,6 +92,8 @@
                                         <span class="me-2" data-feather="file-text" style="stroke-width:2;"></span>
                                         <h6 class="dropdown-item-title">1st 95</h6>
                                     </div>
+
+                                    <a class="dropdown-link" th:href="@{/spot/analytics}">BI Dashboards</a>
                                     <a class="dropdown-link" th:href="@{/hts/dashboard}">HTS</a>
                                     <a class="dropdown-link" href="#">PreP</a>
                                     <a class="dropdown-link" href="#">GBV</a>
@@ -105,7 +119,7 @@
                                         <span class="me-2" data-feather="tool" style="stroke-width:2;"></span>
                                         <h6 class="dropdown-item-title">Other Reports</h6>
                                     </div>
-                                    <a class="dropdown-link" href="#">RRI Dashboard</a>
+                                    <a class="dropdown-link" th:href="@{/spot/RRI_dashboard}">RRI Dashboard</a>
                                     <a class="dropdown-link" href="#">Coming Soon </a>
                                 
                                 </div> 

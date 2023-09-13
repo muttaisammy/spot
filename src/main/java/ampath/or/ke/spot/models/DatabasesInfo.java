@@ -32,8 +32,11 @@ import java.util.Date;
     @Column(name = "mflcode")
     private String mflcode;
 
-    @Column(name = "status")
-    private int status;
+    @Column(name="status")
+    private String status;
+
+    @Column(name="reuploaded")
+    private String reuploaded;
 
     @Column(name = "lastencounter")
     private Date lastencounter;
@@ -96,11 +99,11 @@ import java.util.Date;
         this.mflcode = mflcode;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -158,5 +161,13 @@ import java.util.Date;
 
     public void setModified_on(Date modified_on) {
         this.modified_on = modified_on;
+    }
+
+    public String getReuploaded() {
+        return reuploaded;
+    }
+
+    public void setReuploaded(String reuploaded) {
+        this.reuploaded = reuploaded;
     }
 }

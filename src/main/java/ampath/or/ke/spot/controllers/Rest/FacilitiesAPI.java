@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import ampath.or.ke.spot.services.FacilitiesService;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import javax.servlet.http.HttpSession;
+
 
 @EnableSwagger2
 @RestController
@@ -30,53 +32,66 @@ public class FacilitiesAPI {
 
   // @GetMapping("/getall",produces = "application/json")
    @RequestMapping(value="/getall", method = RequestMethod.GET,produces = "application/json")//, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-   public String EMRlist() throws Exception {
-        String output = "";
-        Date nowDate = new Date();
-        List<?>  emrs  = facilitiesService.EMRDistribution();
+   public String EMRlist(HttpSession session) throws Exception {
        JSONArray jsonArray = new JSONArray();
-       String jssons="";
-       for (int x=0;x<emrs.size();x++) {
+       if (session.getAttribute("company") != null && session.getAttribute("user") != null) {
+           String output = "";
+           Date nowDate = new Date();
+           List<?> emrs = facilitiesService.EMRDistribution();
+
+           String jssons = "";
+           for (int x = 0; x < emrs.size(); x++) {
+               JsonObject json = new JsonObject();
+               String emr = Array.get(emrs.get(x), 0).toString();
+               int cunt = Integer.parseInt(Array.get(emrs.get(x), 1).toString());
+
+               json.addProperty("value", cunt);
+               json.addProperty("name", emr);
+
+               jsonArray.put(json);
+
+           }
+       }else{
            JsonObject json = new JsonObject();
-           String emr = Array.get(emrs.get(x), 0).toString();
-           int cunt = Integer.parseInt(Array.get(emrs.get(x), 1).toString());
-
-           json.addProperty("value",cunt);
-           json.addProperty("name",emr);
-
+           json.addProperty("error", "Authetications is Required");
            jsonArray.put(json);
 
        }
 
+
         return jsonArray.toString();
     }
-    /*
-    ObjectMapper objectMapper = new ObjectMapper();
-        //Set pretty printing of json
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+    @RequestMapping(value="/gettx_curr", method = RequestMethod.GET,produces = "application/json")//, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String ARTDistribution(HttpSession session) throws Exception {
+        JSONArray jsonArray = new JSONArray();
+        if (session.getAttribute("company") != null && session.getAttribute("user") != null) {
+            String output = "";
+            Date nowDate = new Date();
+            List<?> emrs = facilitiesService.ARTDistribution();
 
-        //Define map which will be converted to JSON
-        List<Person> personList = Stream.of(
-                new Person("Mike", "harvey", 34),
-                new Person("Nick", "young", 75),
-                new Person("Jack", "slater", 21 ),
-                new Person("gary", "hudson", 55))
-                .collect(Collectors.toList());
+            String jssons = "";
+            for (int x = 0; x < emrs.size(); x++) {
+                JsonObject json = new JsonObject();
+                String county = Array.get(emrs.get(x), 0).toString();
+                int cunt = Integer.parseInt(Array.get(emrs.get(x), 1).toString());
 
-        //1. Convert List of Person objects to JSON
-        String arrayToJson = objectMapper.writeValueAsString(personList);
-        System.out.println("1. Convert List of person objects to JSON :");
-        System.out.println(arrayToJson);
+                json.addProperty("value", cunt);
+                json.addProperty("name", county);
 
-        //2. Convert JSON to List of Person objects
-        //Define Custom Type reference for List<Person> type
-        TypeReference<List<Person>> mapType = new TypeReference<List<Person>>() {};
-        List<Person> jsonToPersonList = objectMapper.readValue(arrayToJson, mapType);
-        System.out.println("\n2. Convert JSON to List of person objects :");
+                jsonArray.put(json);
 
-        //Print list of person objects output using Java 8
-        jsonToPersonList.forEach(System.out::println);
+            }
+        }else{
+            JsonObject json = new JsonObject();
+            json.addProperty("error", "Authetications is Required");
+            jsonArray.put(json);
+
+        }
+
+
+        return jsonArray.toString();
     }
-     */
+
+
 }
 
