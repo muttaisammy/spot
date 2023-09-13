@@ -18,24 +18,22 @@ public class DatabasesInfoServices {
     public DatabasesInfoServices(DatabasesInfoRepository databasesinfoRepository) {
         this.databasesinfoRepository = databasesinfoRepository;
     }
-
     public DatabasesInfo save(DatabasesInfo databasesinfo) {
         return databasesinfoRepository.save(databasesinfo);
     }
-
     public void delete(DatabasesInfo dataset) {
         databasesinfoRepository.delete(dataset);
     }
-
     public List<DatabasesInfo> getAllDataset() {
         return databasesinfoRepository.findAll();
     }
-
     public List<DatabasesInfo> getByFacility(String facility_name) {
         return databasesinfoRepository.findByFacilityname(facility_name);
-    }
-
-    public DatabasesInfo getRRIById(int id) {
+    }public DatabasesInfo getRRIById(int id) {
         return databasesinfoRepository.findById(id);
     }
+    public DatabasesInfo getByDbname(String dbname){
+        return  databasesinfoRepository.findByDbname(dbname);
+    }
+
 }

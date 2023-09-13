@@ -188,160 +188,114 @@
           navbarVertical.classList.add('navbar-darker');
         }
       </script>
-      <div class="modal fade" id="staticBackdrop" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-         <div class="modal-content">
-           <div class="modal-header">
-             <h5 class="modal-title" id="staticBackdropLabel">User Details</h5>
-             <button class="btn p-1" type="button" data-bs-dismiss="modal" aria-label="Close">
-               <span class="fas fa-times fs--1"></span>
-             </button>
-           </div>
-           <div class="modal-body">
-            
-                 <form class="row g-3 mb-12" id="adduser" th:action="@{/system/users/createaccount}" th:object="${users}" method="POST">
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="username"  th:field="*{username}"  type="text" placeholder="Username" />
-                      <label for="username">Username</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="full_name" type="text" th:field="*{full_name}"  placeholder="Full Name" />
-                      <label for="full_name">Full Name</label>
-                    </div>
-                  </div>
-                   <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="email" type="text" th:field="*{email}"  placeholder="E-mail" />
-                      <label for="email">E-mail</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="phone" type="text" th:field="*{phone}"  placeholder="Phone Number" />
-                      <label for="phone">Phone Number</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <select class="form-select"  id="program"  th:field="*{pid}"  name="program" required="required">
-                       <!-- <option th:value="''" th:text="Select"></option> -->
-                        <option th:each="i : ${partner}" th:value="${i.id}" th:text="${i.programname}"></option>
-                    </select>
-                  
-                      <label for="program">Partner</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <select class="form-select"  id="county" name="county" th:field="*{cid}"  required="required">
-                      <!-- <option th:value="''" value="0" th:text="Select"></option>-->
-                        <option th:each="i : ${counties}" th:value="${i.id}" th:text="${i.county}"></option>
-                    </select>
-                  
-                      <label for="county">County</label>
-                    </div>
-                  </div>
-                  <button class="btn btn-primary" type="submit">Save</button>
-                 </form>
-            </div>
-        
-         </div>
-       </div>  
-       </div>
 
     <div class="content">
-
-        </br>
-        
-        <div id="users" data-list='{"valueNames":["username","full_name","email","phone","pid","status","status","status","status"],"page":10,"pagination":true}'>
-          <div class="row align-items-center justify-content-between g-3 mb-4">
-            <div class="col col-auto">
-              <div class="search-box">
-                <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
-                  <input class="form-control search-input search" type="search" placeholder="Search Users" aria-label="Search" />
-                  <span class="fas fa-search search-box-icon"></span>
-                </form>
-              </div>
+        <form class="row g-3 mb-6">
+            <div class="col-sm-6 col-md-2">
+                <div class="form-floating">
+                    <select class="form-select"  id="period" name="partner" required="required" >
+                        <option th:value="''" th:text="Select"></option>
+                        <option th:each="i : ${period}" th:value="${i.id}" th:text="${i.month}"></option>
+                    </select>
+                    <label for="partner">Period</label>
+                </div>
             </div>
-            <div class="col-auto">
-              <div class="d-flex align-items-center">
-                <button class="btn btn-link text-900 me-4 px-0">
-                  <span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button>
-                  <button class="btn btn-primary" data-bs-target="#staticBackdrop"  data-bs-toggle="modal">
-                    <span class="fas fa-plus me-2"></span>Add User</button></div>
+            <div class="col-sm-6 col-md-2">
+                <div class="form-floating">
+                    <select class="form-select"  id="partner" name="partner" required="required" >
+                        <option th:value="''" th:text="Select"></option>
+                        <option th:each="i : ${partner}" th:value="${i.id}" th:text="${i.programname}"></option>
+                    </select>
+                    <label for="partner">Partner</label>
+                </div>
             </div>
-         
-            
-
-
-            <div class="mx-n4 mx-lg-n6 px-4 px-lg-6 mb-9 bg-white border-y border-300 mt-2 position-relative top-1"> 
-
-               <div class="table-responsive scrollbar ms-n1 ps-1">
-                  <table class="table table-sm fs--1 mb-0">
-                    <thead>
-                      <tr></tr>
-                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Username</th>
-                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Full Name</th>
-                        <th class="sort align-middle" scope="col" data-sort="email" style="width:15%; min-width:100px;">Email</th>
-                        <th class="sort align-middle pe-3" scope="col" data-sort="mobile_number" style="width:20%; min-width:100px;">Phone Number</th>
-                        <th class="sort align-middle" scope="col" data-sort="city" style="width:10%;">Program</th>
-                        <th>Status</th>
-                        <th  data-sort="last_active">Action</th>
-                      
-                    </tr>
-                    </thead>
-                    <tbody class="list" id="members-table-body">
-                      <tr th:each="obj : ${userslist}" class="hover-actions-trigger btn-reveal-trigger position-static">
-                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.username}"></span></td>
-                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.full_name}"></span></td>
-                        <td class="email align-middle white-space-nowrap"><span th:text="${obj.email}"></span></td>
-                        <td class="mobile_number align-middle white-space-nowrap"><span th:text="${obj.phone}"></span></td>
-                        <td class="city align-middle white-space-nowrap"><span th:text="${obj.pid}"></span></td>
-                        <td><span th:text="${obj.status}"></span></td>
-                        <td class="align-middle text-end white-space-nowrap pe-0 action">
-                          <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                            <div class="dropdown-menu dropdown-menu-end py-2">
-                              <a  class="dropdown-item" th:id="roles" th:name="roles" th:href="@{'/admin/hrsettings/editbanks/edit/' + ${obj.id}}" onclick="return confirm('Are you sure you want to Edit?')">View Roles</a>
-                              <a  class="dropdown-item" th:id="roles" th:name="roles" th:href="@{'/admin/hrsettings/editbanks/edit/' + ${obj.id}}" onclick="return confirm('Are you sure you want to Reset Password?')">Reset Password</a>
-                              <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-danger" th:href="@{'/admin/hrsettings/editbanks/delete/'+ ${obj.id}}" onclick="return confirm('Are you sure perform the action?')">De/Re-activate</a>
-                              </div>
-                          </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                  </table>
-               </div>
-            <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
-              <div class="col-auto d-flex">
-                <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info"></p>
-                  <a class="fw-semi-bold" href="#!" data-list-view="*">
-                    View all
-                    <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span>
-                  </a>
-                  <a class="fw-semi-bold d-none" href="#!" data-list-view="less">
-                    View Less<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span>
-                  </a>
-              </div>
-              <div class="col-auto d-flex">
-                <button class="page-link" data-list-pagination="prev">
-                  <span class="fas fa-chevron-left"></span>
-                </button>
-                <ul class="mb-0 pagination"></ul>
-                <button class="page-link pe-0" data-list-pagination="next">
-                  <span class="fas fa-chevron-right"></span>
-                </button>
-              </div>
+            <div class="col-sm-6 col-md-2">
+                <div class="form-floating">
+                    <select class="form-select"  id="county" name="partner" required="required"  >
+                        <option th:value="''" th:text="Select"></option>
+                        <option th:each="i : ${counties}" th:value="${i.id}" th:text="${i.county}"></option>
+                    </select>
+                    <label for="county">County</label></div>
             </div>
-          </div>
+            <div class="col-sm-6 col-md-2">
+                <div class="form-floating">
+                    <select class="form-select"  id="subcounty" name="partner" required="required" data-choices="data-choices" data-options='{"removeItemButton":true,"placeholder":true}' >
+                        <option th:value="''" th:text="Select"></option>
+                        <option th:each="i : ${subcounty}" th:value="${i.id}" th:text="${i.subcounty}"></option>
+                    </select>
+                    <label for="subcounty">Sub County</label></div>
+            </div>
+            <div class="col-sm-6 col-md-2">
+                <div class="form-floating">
+                    <select class="form-select"  id="ward" name="partner" required="required" >
+                        <option th:value="''" th:text="Select"></option>
+                        <option th:each="i : ${ward}" th:value="${i.id}" th:text="${i.ward}"></option>
+                    </select>
+                    <label for="ward">Ward</label></div>
+            </div>
+            <div class="col-sm-3 col-md-2">
+                <div class="form-floating">
+                    <select class="form-select"  id="facility" name="partner" required="required">
+                        <option th:value="''" th:text="Select"></option>
+                        <option th:each="i : ${facility}" th:value="${i.id}" th:text="${i.facilityname}"></option>
+                    </select>
+                    <label for="floatingSelectTask">Facility </label></div>
+            </div>
+            <!-- <div class="col-sm-3 col-md-2">
+               <div class="form-floating"><select class="form-select" id="floatingSelectTask">
+                   <option selected="selected">Select task view</option>
+                   <option value="1">technical</option>
+                   <option value="2">external</option>
+                   <option value="3">organizational</option>
+                 </select><label for="floatingSelectTask">Defult task view</label></div>
+             </div> -->
+
+
+        </form>
+
+
+        <div class="col-12 col-xxl-6">
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <figure class="highcharts-figure">
+                                <div id="container"></div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <figure class="highcharts-figure">
+                                <div id="container2"></div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-       
 
 
-      <div th:insert="~{common/footer}"></div>
+        <div th:insert="~{common/footer}"></div>
     </div>
 
 </main><!-- ===============================================-->
@@ -351,6 +305,203 @@
 <!-- ===============================================-->
 <!--    JavaScripts-->
 <!-- ===============================================-->
+<script type="text/javascript">
+// Data retrieved https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature
+Highcharts.chart('container', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Monthly HTS_TST'
+    },
+    subtitle: {
+        text: 'Source: ' +
+            '<a href="https://amep.ampath.or.ke" ' +
+            'target="_blank">AMEP</a>'
+    },
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+    yAxis: {
+        title: {
+            text: 'No of Clients'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: 'HFR HTS_TST',
+        data: [16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, 35.5, 29.2,
+            22.0, 17.8]
+    }, {
+        name: 'HFR HTS_TST_POS',
+        data: [-2.9, -3.6, -0.6, 4.8, 10.2, 14.5, 17.6, 16.5, 12.0, 6.5,
+            2.0, -0.9]
+    },{
+        name: 'HFR HTS_TST_POS',
+        data: [5, 10, 30, 4.8, -10.2, 6, 7.6, 9.5, 6.0, 4.5,
+            8.0, 4]
+    }]
+});
+</script>
+<script type="text/javascript">
+
+
+$.get( "/hts/rriii", function( data ) {
+ //alert(data);
+ Object.values(data);
+const jsonData  = data;
+          Highcharts.chart('container3', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Monthly HST_TST Performances'
+            },
+            subtitle: {
+                text: 'Source: AMEP'
+            },
+            xAxis: {
+                categories: [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Target vs Performance'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+             series: jsonData,
+            series: [{
+                name: 'Target',
+                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4,
+                    194.1, 95.6, 54.4]
+
+            }, {
+                name: 'Performance',
+                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5,
+                    106.6, 92.3]
+
+            }]
+        });
+});
+
+		</script>
+<script type="text/javascript">
+$.get( "/hts/rri_iii", function( data ) {
+ //alert(data);
+ Object.values(data);
+const jsonData  = data;
+          Highcharts.chart('container2', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Monthly HST_TST Performances'
+            },
+            subtitle: {
+                text: 'Source: AMEP'
+            },
+            xAxis: {
+                categories: [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Target vs Performance'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+             series: jsonData,
+                xAxis: {
+                    categories: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Values'
+                    }
+                }
+        });
+});
+
+		</script>
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var options = {
+        chart: {
+            type: 'spline'
+        },
+        series: [{}]
+    };
+    Highcharts.ajax({
+        url: '/hts/rrii',
+        success: function(data) {
+            options.series[0].data = data;
+            Highcharts.Chart('container2', options);
+        }
+    });
+});
+</script> -->
 <script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
 <script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
 <script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>

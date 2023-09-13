@@ -16,6 +16,7 @@ public interface FacilitiesRepository extends JpaRepository<Facilities, Long> {
     Facilities findByFacilitynameContaining(String qid);
     Facilities findByFacilitynameLike(String qid);
     Facilities findByFacilitynameEndsWith(String director);
+    List<Facilities> findByEmr(String emr);
 
     @Query("SELECT distinct(facilityname) FROM Facilities")
     List<Object> DistinctFacilityname();
@@ -32,6 +33,11 @@ public interface FacilitiesRepository extends JpaRepository<Facilities, Long> {
             "FROM Facilities \n" +
             "group by emr")
     List<Object> EMRDistribution();
+
+    @Query("SELECT county,sum(txcurr) \n" +
+            "FROM Facilities \n" +
+            "group by county")
+    List<Object> ARTDistribution();
 
     @Query("SELECT m FROM Facilities m WHERE m.emr LIKE %:emr%")
     List<Object> CountEMRS(String emr);
