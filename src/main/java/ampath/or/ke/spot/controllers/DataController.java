@@ -210,8 +210,9 @@ public class DataController {
                     double tptuptakeeligiblefortpt = 0.0;
                     double tptuptakestartedontpt = 0.0;
                     double prepnewagyw = 0.0;
-                    double week = 0.0;
-                    double month = 0.0;
+                    String week = "";
+                    String month = "";
+                    double newsurge= 0.0;
 
                     Cell tstcell = dataRow.getCell(2);
 
@@ -226,8 +227,6 @@ public class DataController {
                         pos = 0.0;
                     } else {
                         pos = dataRow.getCell(3).getNumericCellValue();
-                        // pos = String.valueOf(dataRow.getCell(3).getNumericCellValue()).substring(0,
-                        // String.valueOf(dataRow.getCell(3).getNumericCellValue()).length() - 2);
 
                     }
                     Cell hstlinkcell = dataRow.getCell(4);
@@ -237,6 +236,17 @@ public class DataController {
                     } else {
                         hstlink = dataRow.getCell(4).getNumericCellValue();
                     }
+
+                    Cell newsurgecell = dataRow.getCell(5);
+
+                    if (newsurgecell == null) {
+                        newsurge = 0.0;
+                    } else {
+                        newsurge = dataRow.getCell(5).getNumericCellValue();
+                    }
+
+
+                    //Correct the indexes from Here
 
                     Cell prepnewsurgecell = dataRow.getCell(5);
 
@@ -784,8 +794,10 @@ public class DataController {
 
                     String mflcode = nmflcode.substring(0, nmflcode.length() - 2);
 
-                    System.out.println("Row" + x + " mfclode " + nmflcode + " nmflcode " + mflcode + " TST " + tst
+                  /*  System.out.println("Row" + x + " mfclode " + nmflcode + " nmflcode " + mflcode + " TST " + tst
                             + " POS " + pos + " LINK " + hstlink + " NEW_SURGE " + prepnewsurge);
+                    */
+
                     UUID uuid = UUID.randomUUID();
                     RRI rri = new RRI();
                     rri.setCategory(datatype);
@@ -793,9 +805,8 @@ public class DataController {
                     rri.setHst_pos((int) pos);
                     rri.setHst_tst((int) tst);
                     rri.setHst_link((int) hstlink);
+                    rri.setTx_new_surge((int) newsurge);
                     rri.setPrep_new_surge((int) prepnewsurge);
-                    rri.setCreated_by(userdetails.getId());
-                    rri.setCreated_on(nowDate);
                     rri.setPrep_new_pbfw((int) newpbfw);
                     rri.setOpd_workload((int) opdworkload);
                     rri.setNo_of_clients_screened_hp((int) noclientsscreened);
@@ -862,8 +873,10 @@ public class DataController {
                     rri.setDaily_pmtct_tpt_uptake_eligible_for_tpt((int) tptuptakeeligiblefortpt);
                     rri.setDaily_pmtct_tpt_uptake_started_on_tpt((int) tptuptakestartedontpt);
                     rri.setDaily_prep_new_agyw((int) prepnewagyw);
-                    rri.setWeek((int) week);
-                    rri.setMonth((int) month);
+                    rri.setWeek("");
+                    rri.setMonth("");
+                    rri.setCreated_by(userdetails.getId());
+                    rri.setCreated_on(nowDate);
                     rriService.save(rri);
 
                 }

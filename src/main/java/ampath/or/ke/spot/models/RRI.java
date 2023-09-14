@@ -243,10 +243,13 @@ public class RRI {
     private int daily_prep_new_agyw;
 
     @Column(name = "week")
-    private int week;
+    private String week;
 
     @Column(name = "month")
-    private int month;
+    private String month;
+
+    @Column(name = "year")
+    private String year;
 
     @Column(name = "created_by")
     private int created_by;
@@ -881,19 +884,43 @@ public class RRI {
         this.daily_prep_new_agyw = daily_prep_new_agyw;
     }
 
-    public int getWeek() {
+    public int getDaily_pmtct_vl_vl_tests_done() {
+        return daily_pmtct_vl_vl_tests_done;
+    }
+
+    public void setDaily_pmtct_vl_vl_tests_done(int daily_pmtct_vl_vl_tests_done) {
+        this.daily_pmtct_vl_vl_tests_done = daily_pmtct_vl_vl_tests_done;
+    }
+
+    public int getDaily_pmtct_first_response_stock_at_hand() {
+        return daily_pmtct_first_response_stock_at_hand;
+    }
+
+    public void setDaily_pmtct_first_response_stock_at_hand(int daily_pmtct_first_response_stock_at_hand) {
+        this.daily_pmtct_first_response_stock_at_hand = daily_pmtct_first_response_stock_at_hand;
+    }
+
+    public String getWeek() {
         return week;
     }
 
-    public void setWeek(int week) {
+    public void setWeek(String week) {
         this.week = week;
     }
 
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(String month) {
         this.month = month;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 }
