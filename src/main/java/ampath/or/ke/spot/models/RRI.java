@@ -113,6 +113,9 @@ public class RRI {
     @Column(name = "daily_pmtct_vl_eligible_for_vl_test")
     private int daily_pmtct_vl_eligible_for_vl_test;
 
+    @Column(name = "daily_pmtct_vl_vl_tests_done")
+    private int daily_pmtct_vl_vl_tests_done;
+
     @Column(name = "eid_eid_initial_tests_less_than_8_weeks")
     private int eid_eid_initial_tests_less_than_8_weeks;
 
@@ -133,6 +136,9 @@ public class RRI {
 
     @Column(name = "daily_pmtct_determine_stock_at_hand")
     private int daily_pmtct_determine_stock_at_hand;
+
+    @Column(name = "daily_pmtct_first_response_stock_at_hand")
+    private int daily_pmtct_first_response_stock_at_hand;
 
     @Column(name = "daily_pmtct_duo_kits_at_hand")
     private int daily_pmtct_duo_kits_at_hand;
@@ -221,8 +227,8 @@ public class RRI {
     @Column(name = "daily_pmtct_missed_hiv_testing_target")
     private int daily_pmtct_missed_hiv_testing_target;
 
-    @Column(name = "daily_pmtct_reached_and_ccounted")
-    private int daily_pmtct_reached_and_ccounted;
+    @Column(name = "daily_pmtct_reached_and_accounted")
+    private int daily_pmtct_reached_and_accounted;
 
     @Column(name = "daily_pmtct_iit_new_iit_clients")
     private int daily_pmtct_iit_new_iit_clients;
@@ -419,7 +425,8 @@ public class RRI {
         return second_visits_for_new_art_clients_honoured_surge;
     }
 
-    public void setSecond_visits_for_new_art_clients_honoured_surge(int second_visits_for_new_art_clients_honoured_surge) {
+    public void setSecond_visits_for_new_art_clients_honoured_surge(
+            int second_visits_for_new_art_clients_honoured_surge) {
         this.second_visits_for_new_art_clients_honoured_surge = second_visits_for_new_art_clients_honoured_surge;
     }
 
@@ -459,7 +466,8 @@ public class RRI {
         return clients_disengagement_targeted_to_bring_back_surge;
     }
 
-    public void setClients_disengagement_targeted_to_bring_back_surge(int clients_disengagement_targeted_to_bring_back_surge) {
+    public void setClients_disengagement_targeted_to_bring_back_surge(
+            int clients_disengagement_targeted_to_bring_back_surge) {
         this.clients_disengagement_targeted_to_bring_back_surge = clients_disengagement_targeted_to_bring_back_surge;
     }
 
@@ -523,7 +531,8 @@ public class RRI {
         return daily_pmtct_stat_and_syphillies_at_anc1_hiv_pos;
     }
 
-    public void setDaily_pmtct_stat_and_syphillies_at_anc1_hiv_pos(int daily_pmtct_stat_and_syphillies_at_anc1_hiv_pos) {
+    public void setDaily_pmtct_stat_and_syphillies_at_anc1_hiv_pos(
+            int daily_pmtct_stat_and_syphillies_at_anc1_hiv_pos) {
         this.daily_pmtct_stat_and_syphillies_at_anc1_hiv_pos = daily_pmtct_stat_and_syphillies_at_anc1_hiv_pos;
     }
 
@@ -723,7 +732,8 @@ public class RRI {
         return daily_2nd_and_3rd_95_hpv_10_to_14_yrs_vaccinated;
     }
 
-    public void setDaily_2nd_and_3rd_95_hpv_10_to_14_yrs_vaccinated(int daily_2nd_and_3rd_95_hpv_10_to_14_yrs_vaccinated) {
+    public void setDaily_2nd_and_3rd_95_hpv_10_to_14_yrs_vaccinated(
+            int daily_2nd_and_3rd_95_hpv_10_to_14_yrs_vaccinated) {
         this.daily_2nd_and_3rd_95_hpv_10_to_14_yrs_vaccinated = daily_2nd_and_3rd_95_hpv_10_to_14_yrs_vaccinated;
     }
 
@@ -831,12 +841,12 @@ public class RRI {
         this.daily_pmtct_missed_hiv_testing_target = daily_pmtct_missed_hiv_testing_target;
     }
 
-    public int getDaily_pmtct_reached_and_ccounted() {
-        return daily_pmtct_reached_and_ccounted;
+    public int getDaily_pmtct_reached_and_accounted() {
+        return daily_pmtct_reached_and_accounted;
     }
 
-    public void setDaily_pmtct_reached_and_ccounted(int daily_pmtct_reached_and_ccounted) {
-        this.daily_pmtct_reached_and_ccounted = daily_pmtct_reached_and_ccounted;
+    public void setDaily_pmtct_reached_and_accounted(int daily_pmtct_reached_and_ccounted) {
+        this.daily_pmtct_reached_and_accounted = daily_pmtct_reached_and_ccounted;
     }
 
     public int getDaily_pmtct_iit_new_iit_clients() {
