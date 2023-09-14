@@ -8,6 +8,7 @@ For building and running the application you need:
 
 * [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/)
+* [Mysql 8.0](https://www.mysql.com/)
 
 ## Running the application locally
 
@@ -22,10 +23,6 @@ mvn spring-boot:run
 ## Deploying the application to Docker
 
 The easiest way to deploy the application is to use the docker
-
-```shell
-docker buildx build --push --tag erugut/ampath-ioms:spot --platform=linux/arm64,linux/amd64 .
-```
 
 How to install
 
