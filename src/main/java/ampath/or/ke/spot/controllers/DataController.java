@@ -779,17 +779,17 @@ public class DataController {
                     Cell weekcell = dataRow.getCell(71);
 
                     if (weekcell == null) {
-                        week = 0.0;
+                        week = "0.0";
                     } else {
-                        week = dataRow.getCell(71).getNumericCellValue();
+                       // week = dataRow.getCell(71).getNumericCellValue();
                     }
 
                     Cell monthcell = dataRow.getCell(72);
 
                     if (monthcell == null) {
-                        month = 0.0;
+                        month = "0.0";
                     } else {
-                        month = dataRow.getCell(72).getNumericCellValue();
+                        //month = dataRow.getCell(72).getNumericCellValue();
                     }
 
                     String mflcode = nmflcode.substring(0, nmflcode.length() - 2);
