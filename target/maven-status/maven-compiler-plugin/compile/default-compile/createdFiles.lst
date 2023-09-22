@@ -12,7 +12,6 @@ ampath/or/ke/spot/repositories/MonthsRepository.class
 ampath/or/ke/spot/repositories/HIVSummariesRepository.class
 ampath/or/ke/spot/controllers/DatabaseController$3.class
 ampath/or/ke/spot/models/HIVSummaries$HIVSummariesBuilder.class
-ampath/or/ke/spot/controllers/MellyController.class
 ampath/or/ke/spot/models/Years.class
 ampath/or/ke/spot/models/Years$YearsBuilder.class
 ampath/or/ke/spot/services/MonthsService.class
