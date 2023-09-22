@@ -15,7 +15,7 @@
 
         option = {
           title: {
-            text: 'EMR Distribution',
+            text: 'EMR Coverage',
             subtext: 'Count of EMR & Paper Facilities',
             left: 'center'
           },

@@ -49,6 +49,8 @@ public class DashboardController {
             modelAndView.addObject("amrs",facilitiesService.CountEMRS("AMRS").size());
             modelAndView.addObject("kenyaemr",facilitiesService.CountEMRS("KenyaEMR").size());
             modelAndView.addObject("onart",facilitiesService.ARTDistribution());
+            modelAndView.addObject("total_onart",facilitiesService.TotalARTDistribution());
+
             modelAndView.setViewName("programdash");
             return modelAndView;
         }

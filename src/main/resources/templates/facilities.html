@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMPATH SPOT</title>
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
+    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
+    <meta name="msapplication-TileImage" content="/themes/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
+    <script th:src="@{/themes/assets/js/config.js}"></script>
+    <script>
+      window.config.set({
+        phoenixNavbarTopShape: 'slim',
+        phoenixNavbarPosition: 'horizontal'
+      });
+    </script>
+    <script>
+      document.documentElement.classList.add('navbar-horizontal');
+    </script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link th:href="@{/themes/vendors/simplebar/simplebar.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link th:href="@{/themes/assets/css/theme-rtl.min.css}" type="text/css" rel="stylesheet" id="style-rtl">
+    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
+    <script th:src="@{/themes/highcharts/code/highcharts.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/exporting.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/export-data.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .containers {
+          display: flex; /* or inline-flex */
+          flex-wrap: nowrap;
+          width:100%;
+          height: 100%; /* or whatever */
+        }
+        .item {
+          flex: 1 1;
+          margin:0 1%;
+        }
+    </style>
+
+    <script>
+      var phoenixIsRTL = window.config.config.phoenixIsRTL;
+      if (phoenixIsRTL) {
+        var linkDefault = document.getElementById('style-default');
+        var userLinkDefault = document.getElementById('user-style-default');
+        linkDefault.setAttribute('disabled', true);
+        userLinkDefault.setAttribute('disabled', true);
+        document.querySelector('html').setAttribute('dir', 'rtl');
+      } else {
+        var linkRTL = document.getElementById('style-rtl');
+        var userLinkRTL = document.getElementById('user-style-rtl');
+        linkRTL.setAttribute('disabled', true);
+        userLinkRTL.setAttribute('disabled', true);
+      }
+    </script>
+    <link th:href="@{/themes/vendors/leaflet/leaflet.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.Default.css}" rel="stylesheet">
+</head>
+
+<body>
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <nav class="navbar navbar-vertical navbar-expand-lg" style="display:none;">
+        <script>
+          var navbarStyle = window.config.config.phoenixNavbarStyle;
+          if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
+          }
+        </script>
+
+        <div class="navbar-vertical-footer">
+            <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+                <span class="uil uil-left-arrow-to-left fs-0"></span>
+                <span class="uil uil-arrow-from-right fs-0"></span>
+                <span class="navbar-vertical-footer-text ms-2">Collapsed View</span>
+            </button>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <div th:insert="~{common/nav}"></div>
+    <!-- /.navbar -->
+    <script>
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var body = document.querySelector('body');
+        navbarVertical.remove()
+        navbarTopSlim.removeAttribute('style');
+        body.classList.add('nav-slim');
+
+      </script>
+
+    <script>
+        var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+        var navbarPosition = window.config.config.phoenixNavbarPosition;
+        var body = document.querySelector('body');
+        var navbarTop = document.querySelector('#navbarTop');
+        var topNavSlim = document.querySelector('#topNavSlim');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var navbarCombo = document.querySelector('#navbarCombo');
+        var navbarComboSlim = document.querySelector('#navbarComboSlim');
+        var dualNav = document.querySelector('#dualNav');
+
+        var documentElement = document.documentElement;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+
+        if (navbarPosition === 'dual-nav') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          dualNav.removeAttribute('style');
+          documentElement.classList.add('dual-nav');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          topNavSlim.style.display = 'block';
+          navbarVertical.style.display = 'inline-block';
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+          navbarTopSlim.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+           navbarTop.remove();
+          topNavSlim.remove();
+          navbarCombo.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+          topNavSlim.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarTop.removeAttribute('style');
+          documentElement.classList.add('navbar-horizontal');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.remove();
+          navbarCombo.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          documentElement.classList.add('navbar-combo')
+
+        } else {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarVertical.removeAttribute('style');
+        }
+
+        var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+        var navbarTop = document.querySelector('.navbar-top');
+        if (navbarTopStyle === 'darker') {
+          navbarTop.classList.add('navbar-darker');
+        }
+
+        var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        if (navbarVerticalStyle === 'darker') {
+          navbarVertical.classList.add('navbar-darker');
+        }
+      </script>
+
+
+    <div class="content">
+
+        </br>
+        
+        <div id="users" data-list='{"valueNames":["username","full_name","email","phone","pid","status","status","status","status"],"page":10,"pagination":true}'>
+          <div class="row align-items-center justify-content-between g-3 mb-4">
+            <div class="col col-auto">
+              <div class="search-box">
+                <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
+                  <input class="form-control search-input search" type="search" placeholder="Search Users" aria-label="Search" />
+                  <span class="fas fa-search search-box-icon"></span>
+                </form>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="d-flex align-items-center">
+                <button class="btn btn-link text-900 me-4 px-0">
+                  <span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button>
+                  <button class="btn btn-primary" data-bs-target="#staticBackdrop"  data-bs-toggle="modal">
+                    <span class="fas fa-plus me-2"></span>Add User</button></div>
+            </div>
+         
+            
+
+
+            <div class="mx-n4 mx-lg-n6 px-4 px-lg-6 mb-9 bg-white border-y border-300 mt-2 position-relative top-1"> 
+
+               <div class="table-responsive scrollbar ms-n1 ps-1">
+                  <table class="table table-sm fs--1 mb-0">
+                    <thead>
+                      <tr></tr>
+                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Username</th>
+                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Full Name</th>
+                        <th class="sort align-middle" scope="col" data-sort="email" style="width:15%; min-width:100px;">Email</th>
+                        <th class="sort align-middle pe-3" scope="col" data-sort="mobile_number" style="width:20%; min-width:100px;">Phone Number</th>
+                        <th class="sort align-middle" scope="col" data-sort="city" style="width:10%;">Program</th>
+                        <th>Status</th>
+                        <th  data-sort="last_active">Action</th>
+                      
+                    </tr>
+                    </thead>
+                    <tbody class="list" id="members-table-body">
+                      <tr th:each="obj : ${facilities}" class="hover-actions-trigger btn-reveal-trigger position-static">
+                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
+                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
+                        <td class="email align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
+                        <td class="mobile_number align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
+                        <td class="city align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
+                        <td><span th:text="${obj.mflcode}"></span></td>
+                        <td class="align-middle text-end white-space-nowrap pe-0 action">
+                          <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end py-2">
+                              <a  class="dropdown-item" th:id="roles" th:name="roles" th:href="@{'/admin/hrsettings/editbanks/edit/' + ${obj.id}}" onclick="return confirm('Are you sure you want to Edit?')">View Roles</a>
+                              <a  class="dropdown-item" th:id="roles" th:name="roles" th:href="@{'/admin/hrsettings/editbanks/edit/' + ${obj.id}}" onclick="return confirm('Are you sure you want to Reset Password?')">Reset Password</a>
+                              <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" th:href="@{'/admin/hrsettings/editbanks/delete/'+ ${obj.id}}" onclick="return confirm('Are you sure perform the action?')">De/Re-activate</a>
+                              </div>
+                          </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                  </table>
+               </div>
+            <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
+              <div class="col-auto d-flex">
+                <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info"></p>
+                  <a class="fw-semi-bold" href="#!" data-list-view="*">
+                    View all
+                    <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span>
+                  </a>
+                  <a class="fw-semi-bold d-none" href="#!" data-list-view="less">
+                    View Less<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span>
+                  </a>
+              </div>
+              <div class="col-auto d-flex">
+                <button class="page-link" data-list-pagination="prev">
+                  <span class="fas fa-chevron-left"></span>
+                </button>
+                <ul class="mb-0 pagination"></ul>
+                <button class="page-link pe-0" data-list-pagination="next">
+                  <span class="fas fa-chevron-right"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+
+
+      <div th:insert="~{common/footer}"></div>
+    </div>
+
+</main><!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/fontawesome/all.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script th:src="@{/themes/vendors/list.js/list.min.js}"></script>
+<script th:src="@{/themes/vendors/feather-icons/feather.min.js}"></script>
+<script th:src="@{/themes/vendors/dayjs/dayjs.min.js}"></script>
+<script th:src="@{/themes/assets/js/phoenix.js}"></script>
+<script th:src="@{/themes/vendors/echarts/echarts.min.js}"></script>
+<script th:src="@{/themes/vendors/leaflet/leaflet.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
+<script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
+</body>
+</html>
