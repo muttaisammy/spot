@@ -64,6 +64,10 @@ public class FacilitiesService {
     public List<Object> ARTDistribution(){
         return  facilitiesRepository.ARTDistribution();
     }
+    public Integer TotalARTDistribution(){
+        return  facilitiesRepository.TotalARTDistribution();
+    }
+
     public List<Facilities> searchByFnameLike(String id){
         return  facilitiesRepository.searchByFnameLike(id);
     }

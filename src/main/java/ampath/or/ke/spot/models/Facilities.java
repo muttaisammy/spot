@@ -68,6 +68,9 @@ public class Facilities {
     @Column(name = "txcurr")
     private int txcurr;
 
+    @Column(name = "amrs_id")
+    private String amrsid;
+
     public int getId() {
         return id;
     }
@@ -187,5 +190,13 @@ public class Facilities {
 
     public void setTxcurr(int txcurr) {
         this.txcurr = txcurr;
+    }
+
+    public String getAmrsid() {
+        return amrsid;
+    }
+
+    public void setAmrsid(String amrsid) {
+        this.amrsid = amrsid;
     }
 }

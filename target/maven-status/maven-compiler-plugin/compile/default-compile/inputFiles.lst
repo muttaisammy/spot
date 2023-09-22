@@ -15,6 +15,7 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Facilities.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Programs.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/DataController.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/HIVSummaries.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/SpotApplication.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/UserRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/YearsRepository.java
@@ -52,6 +53,7 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/MonthsService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/CountiesService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/FacilitiesService.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/HIVSummariesRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/MonthsRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Years.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/ProgramRepository.java
@@ -64,3 +66,4 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/DashboardController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/HTSController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/DatabasesInfo.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/HIVSummariesService.java

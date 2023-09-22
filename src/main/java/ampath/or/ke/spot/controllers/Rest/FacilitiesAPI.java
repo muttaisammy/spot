@@ -92,6 +92,39 @@ public class FacilitiesAPI {
         return jsonArray.toString();
     }
 
+    @RequestMapping(value="/tx_curr", method = RequestMethod.GET,produces = "application/json")//, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String AllTx_Curr(HttpSession session) throws Exception {
+        JSONArray jsonArray = new JSONArray();
+        if (session.getAttribute("company") != null && session.getAttribute("user") != null) {
+            String output = "";
+            Date nowDate = new Date();
+            List<?> emrs = facilitiesService.ARTDistribution();
+
+            String jssons = "";
+            for (int x = 0; x < emrs.size(); x++) {
+                JsonObject json = new JsonObject();
+                String county = Array.get(emrs.get(x), 0).toString();
+                int cunt = Integer.parseInt(Array.get(emrs.get(x), 1).toString());
+
+               // json.addProperty("value", cunt);
+                json.addProperty("name", county);
+                json.addProperty("y", cunt);
+                json.addProperty("drilldown", county);
+
+                jsonArray.put(json);
+
+            }
+        }else{
+            JsonObject json = new JsonObject();
+            json.addProperty("error", "Authetications is Required");
+            jsonArray.put(json);
+
+        }
+
+
+        return jsonArray.toString();
+    }
+
 
 }
 

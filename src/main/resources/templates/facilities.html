@@ -188,69 +188,7 @@
           navbarVertical.classList.add('navbar-darker');
         }
       </script>
-      <div class="modal fade" id="staticBackdrop" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-         <div class="modal-content">
-           <div class="modal-header">
-             <h5 class="modal-title" id="staticBackdropLabel">User Details</h5>
-             <button class="btn p-1" type="button" data-bs-dismiss="modal" aria-label="Close">
-               <span class="fas fa-times fs--1"></span>
-             </button>
-           </div>
-           <div class="modal-body">
-            
-                 <form class="row g-3 mb-12" id="adduser" th:action="@{/system/users/createaccount}" th:object="${users}" method="POST">
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="username"  th:field="*{username}"  type="text" placeholder="Username" />
-                      <label for="username">Username</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="full_name" type="text" th:field="*{full_name}"  placeholder="Full Name" />
-                      <label for="full_name">Full Name</label>
-                    </div>
-                  </div>
-                   <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="email" type="text" th:field="*{email}"  placeholder="E-mail" />
-                      <label for="email">E-mail</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <input class="form-control" id="phone" type="text" th:field="*{phone}"  placeholder="Phone Number" />
-                      <label for="phone">Phone Number</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <select class="form-select"  id="program"  th:field="*{pid}"  name="program" required="required">
-                       <!-- <option th:value="''" th:text="Select"></option> -->
-                        <option th:each="i : ${partner}" th:value="${i.id}" th:text="${i.programname}"></option>
-                    </select>
-                  
-                      <label for="program">Partner</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 gy-6">
-                    <div class="form-floating">
-                      <select class="form-select"  id="county" name="county" th:field="*{cid}"  required="required">
-                      <!-- <option th:value="''" value="0" th:text="Select"></option>-->
-                        <option th:each="i : ${counties}" th:value="${i.id}" th:text="${i.county}"></option>
-                    </select>
-                  
-                      <label for="county">County</label>
-                    </div>
-                  </div>
-                  <button class="btn btn-primary" type="submit">Save</button>
-                 </form>
-            </div>
-        
-         </div>
-       </div>  
-       </div>
+
 
     <div class="content">
 

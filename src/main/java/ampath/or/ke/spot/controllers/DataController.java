@@ -245,7 +245,6 @@ public class DataController {
                         newsurge = dataRow.getCell(5).getNumericCellValue();
                     }
 
-
                     //Correct the indexes from Here
 
                     Cell prepnewsurgecell = dataRow.getCell(5);

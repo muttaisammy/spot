@@ -35,9 +35,13 @@ public interface FacilitiesRepository extends JpaRepository<Facilities, Long> {
     List<Object> EMRDistribution();
 
     @Query("SELECT county,sum(txcurr) \n" +
-            "FROM Facilities \n" +
-            "group by county")
+            "FROM Facilities  \n" +
+            "group by county order by sum(txcurr) desc")
     List<Object> ARTDistribution();
+
+    @Query("SELECT sum(txcurr) \n" +
+            "FROM Facilities")
+    Integer  TotalARTDistribution();
 
     @Query("SELECT m FROM Facilities m WHERE m.emr LIKE %:emr%")
     List<Object> CountEMRS(String emr);

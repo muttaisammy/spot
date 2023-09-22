@@ -197,7 +197,7 @@
             </div>
             <div class="col-md-3 col-auto">
                <span class="fs-4 lh-1 uil uil-users-alt text-success-500"></span>   
-                <h4 class="mb-2 text-1100">Active OnART - 60,000</h4>
+                <h4 class="mb-2 text-1100">Active OnART - <span th:utext="${total_onart}"></span></h4>
             </div>
         </div>
 
@@ -274,7 +274,7 @@
                   <!--  <p class="text-700 mb-md-7">Newly found and yet to be solved</p> -->
                     <div class="d-flex align-items-center justify-content-between">
                       <p class="mb-0 fw-bold">County </p>
-                      <p class="mb-0 fs--1">Total Current OnART <span class="fw-bold">257</span></p>
+                      <p class="mb-0 fs--1">Total Current OnART <span class="fw-bold"><span th:utext="${total_onart}"></span></span></p>
                       
                     </div>
                     <hr class="bg-200 mb-2 mt-2" />
@@ -299,7 +299,7 @@
                 </div>
               </div>
               <div class="col-12 col-xl-5 col-xxl-6">
-                <h3>EMR Distribution</h3>
+                <h3>EMR Coverage</h3>
                 <div class="echart-zero-burnout-chart" style="min-height:320px;width:100%" id="divTree" ></div>
               </div>
             </div>
@@ -337,6 +337,7 @@
 <script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
 <script th:src="@{/themes/data/emrs.js}"></script>
 <script th:src="@{/themes/data/emrs.js}"></script>
+<script th:src="@{/themes/data/tx_cu.js}"></script>
 <script>
     function replacer(key, value) {
       return value.replace(/[^\w\s]/gi, '');
