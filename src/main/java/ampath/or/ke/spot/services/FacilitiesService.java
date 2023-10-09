@@ -67,17 +67,11 @@ public class FacilitiesService {
     public Integer TotalARTDistribution(){
         return  facilitiesRepository.TotalARTDistribution();
     }
-
     public List<Facilities> searchByFnameLike(String id){
         return  facilitiesRepository.searchByFnameLike(id);
     }
     public List<Facilities> KenyaEMRFacilities(String id){
         return  facilitiesRepository.findByEmr(id);
     }
-
-
-
-
-
 
 }
