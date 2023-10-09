@@ -3,16 +3,17 @@ package ampath.or.ke.spot.controllers;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import ampath.or.ke.spot.models.Role;
-import ampath.or.ke.spot.models.SMTPServer;
-import ampath.or.ke.spot.models.User;
-import ampath.or.ke.spot.services.ProgramsService;
-import ampath.or.ke.spot.services.SMTPServerService;
-import ampath.or.ke.spot.services.UserService;
+import ampath.or.ke.spot.models.*;
+import ampath.or.ke.spot.services.*;
 import ampath.or.ke.spot.utils.HtmlEmails;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,10 +28,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Date;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static ampath.or.ke.spot.utils.GlobalVars.generateSecurePassword;
 
@@ -169,5 +179,6 @@ public class AuthController {
             return new ModelAndView("redirect:/setup");
         }
     }
+
 
 }
