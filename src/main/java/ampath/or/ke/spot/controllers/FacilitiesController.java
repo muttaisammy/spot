@@ -77,7 +77,7 @@ public class FacilitiesController {
 
                 Connection conn = DriverManager.getConnection(server+etl_db , username, password);
                 Statement stmtt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                String xx = "select case when sum(on_art_this_month) is null then 0 else sum(on_art_this_month) end   tx_curr from hiv_monthly_report_dataset_frozen where endDate='2023-08-31' and status='active' and location_id in ("+ emrids +");";
+                String xx = "select case when sum(on_art_this_month) is null then 0 else sum(on_art_this_month) end   tx_curr from hiv_monthly_report_dataset_frozen where endDate='2023-09-30' and status='active' and location_id in ("+ emrids +");";
                System.out.println("Text "+ xx);
                if(emrids.length()>=1) {
                    ResultSet resultSett = stmtt.executeQuery(xx);

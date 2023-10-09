@@ -13,6 +13,8 @@
     <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
     <meta name="msapplication-TileImage" content="/themes/assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
     <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
     <script th:src="@{/themes/assets/js/config.js}"></script>
@@ -41,6 +43,8 @@
     <script th:src="@{/themes/highcharts/code/modules/export-data.js}"></script>
     <script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <style>
         .containers {
           display: flex; /* or inline-flex */
@@ -336,116 +340,71 @@
 <script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
 <script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
 <script th:src="@{/themes/data/emrs.js}"></script>
-<script th:src="@{/themes/data/emrs.js}"></script>
-<script th:src="@{/themes/data/tx_cu.js}"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script>
     function replacer(key, value) {
       return value.replace(/[^\w\s]/gi, '');
     }
 </script>
 <script>
- /* var chartDom = document.getElementById('divChart');
-  var myChart = echarts.init(chartDom);
-  var option;
-  
-  option = {
-    tooltip: {
-      trigger: 'item',
-      formatter: '{a} <br/>{b}: {c} ({d}%)'
-    },
-    legend: {
-      data: [
-        'Direct',
-        'Marketing',
-        'Search Engine',
-        'Email',
-        'Union Ads',
-        'Video Ads',
-        'Baidu',
-        'Google',
-        'Bing',
-        'Others'
-      ]
-    },
-    series: [
-      {
-        name: 'Counties',
-        type: 'pie',
-        selectedMode: 'single',
-        radius: [0, '30%'],
-        label: {
-          position: 'inner',
-          fontSize: 14
+    (async () => {
+
+    const topology = await fetch(
+        'https://code.highcharts.com/mapdata/countries/ke/ke-all.topo.json'
+    ).then(response => response.json());
+
+    // Prepare demo data. The data is joined to map using value of 'hc-key'
+    // property by default. See API docs for 'joinBy' for more info on linking
+    // data and map.
+    const data = [
+        ['ke-co', 10], ['ke-ny', 11], ['ke-ce', 12], ['ke-na', 13],
+        ['ke-565', 14], ['ke-rv', 15], ['ke-we', 16], ['ke-ne', 17]
+    ];
+
+    // Create the chart
+    Highcharts.mapChart('divChart', {
+        chart: {
+            map: topology
         },
-        labelLine: {
-          show: false
+
+        title: {
+            text: 'AMPATH Clients Coverage Maps'
         },
-        data: [
-          { value: 1548, name: 'Kericho' },
-          { value: 775, name: 'UG' },
-          { value: 679, name: 'TZ', selected: true }
-        ]
-      },
-      {
-        name: 'Access From',
-        type: 'pie',
-        radius: ['45%', '60%'],
-        labelLine: {
-          length: 30
+
+        subtitle: {
+            text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/ke/ke-all.topo.json">Kenya</a>'
         },
-        label: {
-          formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-          backgroundColor: '#F6F8FC',
-          borderColor: '#8C8D8E',
-          borderWidth: 1,
-          borderRadius: 4,
-          rich: {
-            a: {
-              color: '#6E7079',
-              lineHeight: 22,
-              align: 'center'
-            },
-            hr: {
-              borderColor: '#8C8D8E',
-              width: '100%',
-              borderWidth: 1,
-              height: 0
-            },
-            b: {
-              color: '#4C5058',
-              fontSize: 14,
-              fontWeight: 'bold',
-              lineHeight: 33
-            },
-            per: {
-              color: '#fff',
-              backgroundColor: '#4C5058',
-              padding: [3, 4],
-              borderRadius: 4
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
             }
-          }
         },
-        data: [
-          { value: 1048, name: 'Baidu' },
-          { value: 335, name: 'Direct' },
-          { value: 310, name: 'Email' },
-          { value: 251, name: 'Google' },
-          { value: 234, name: 'Union Ads' },
-          { value: 147, name: 'Bing' },
-          { value: 135, name: 'Video Ads' },
-          { value: 102, name: 'Others' }
-        ]
-      }
-    ]
-  };
-  
-  if (option && typeof option === 'object') {
-    myChart.setOption(option);
-  }
-  
-  window.addEventListener('resize', myChart.resize);
-  */
-  </script>
+
+        colorAxis: {
+            min: 0
+        },
+
+        series: [{
+            data: data,
+            name: 'Random data',
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }]
+    });
+
+})();
+
+</script>
 
 
 
