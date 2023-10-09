@@ -1,4 +1,5 @@
 ampath/or/ke/spot/services/YearsService.class
+ampath/or/ke/spot/models/AfyastatErrors.class
 ampath/or/ke/spot/models/Months$MonthsBuilder.class
 ampath/or/ke/spot/controllers/DatabaseController$1.class
 ampath/or/ke/spot/services/DatabasesInfoServices.class
@@ -9,7 +10,10 @@ ampath/or/ke/spot/controllers/DatabaseController$2.class
 ampath/or/ke/spot/models/Months.class
 ampath/or/ke/spot/models/DatabasesInfo.class
 ampath/or/ke/spot/repositories/MonthsRepository.class
+ampath/or/ke/spot/models/AfyastatErrors$AfyastatErrorsBuilder.class
 ampath/or/ke/spot/repositories/HIVSummariesRepository.class
+ampath/or/ke/spot/services/AfyastatErrorsService.class
+ampath/or/ke/spot/controllers/AfyastatController.class
 ampath/or/ke/spot/controllers/DatabaseController$3.class
 ampath/or/ke/spot/models/HIVSummaries$HIVSummariesBuilder.class
 ampath/or/ke/spot/models/Years.class
@@ -17,3 +21,4 @@ ampath/or/ke/spot/models/Years$YearsBuilder.class
 ampath/or/ke/spot/services/MonthsService.class
 ampath/or/ke/spot/repositories/DatabasesInfoRepository.class
 ampath/or/ke/spot/models/HIVSummaries.class
+ampath/or/ke/spot/repositories/AfyastatErrorsRepository.class

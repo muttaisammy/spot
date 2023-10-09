@@ -71,6 +71,9 @@ public class Facilities {
     @Column(name = "amrs_id")
     private String amrsid;
 
+    @Column(name = "afyastat_id")
+    private String afyastatid;
+
     public int getId() {
         return id;
     }
@@ -198,5 +201,13 @@ public class Facilities {
 
     public void setAmrsid(String amrsid) {
         this.amrsid = amrsid;
+    }
+
+    public String getAfyastatid() {
+        return afyastatid;
+    }
+
+    public void setAfyastatid(String afyastatid) {
+        this.afyastatid = afyastatid;
     }
 }

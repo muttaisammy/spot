@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-item" id="CRM" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <a class="dropdown-item" id="CRM" href="/sites/amrs" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                             <div class="dropdown-item-wrapper">
                                 <span><span class="me-2 uil" data-feather="calendar"></span>
                                     AMRS
@@ -112,7 +112,7 @@
                                         <span class="me-2" data-feather="columns" style="stroke-width:2;"></span>
                                         <h6 class="dropdown-item-title">3rd 95</h6>
                                     </div>
-                                    <a class="dropdown-link" href="#">Tx_Curr</a>
+                                    <a class="dropdown-link" th:href="@{/sites/amrs}">Tx_Curr</a>
                                     <a class="dropdown-link" href="#">DATIM Report</a>
                                    
                                     <div class="dropdown-item-group mt-5">
@@ -135,13 +135,13 @@
                 </a>
                 <ul class="dropdown-menu navbar-dropdown-caret">
                     <li>
-                        <a class="dropdown-item" href="#">
-                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="life-buoy"></span>Getting started</div>
+                        <a class="dropdown-item" href="https://ampath.atlassian.net/wiki/home">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="life-buoy"></span>AMRS SOPs</div>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="#">
-                            <div class="dropdown-item-wrapper"><span class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>FAQs</div>
+                            <div class="dropdown-item-wrapper"><span class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>SPOT FAQs</div>
                         </a>
                     </li>
 
@@ -166,6 +166,11 @@
                     <li>
                         <a class="dropdown-item" th:href="@{/database/master}">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>KenyaEMR Databases</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Sycn Queues</div>
                         </a>
                     </li>
 

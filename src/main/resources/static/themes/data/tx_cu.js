@@ -14,7 +14,7 @@ $.get('/api/v1/facilities/tx_curr').done(function(data) {
 alert(jsonString);
                         // alert(data);
 
-Highcharts.chart('divChart', {
+Highcharts.chart('divChartt', {
     chart: {
         type: 'column'
     },

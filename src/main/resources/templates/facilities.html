@@ -199,7 +199,7 @@
             <div class="col col-auto">
               <div class="search-box">
                 <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
-                  <input class="form-control search-input search" type="search" placeholder="Search Users" aria-label="Search" />
+                  <input class="form-control search-input search" type="search" placeholder="Search Facility" aria-label="Search" />
                   <span class="fas fa-search search-box-icon"></span>
                 </form>
               </div>
@@ -208,8 +208,9 @@
               <div class="d-flex align-items-center">
                 <button class="btn btn-link text-900 me-4 px-0">
                   <span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button>
-                  <button class="btn btn-primary" data-bs-target="#staticBackdrop"  data-bs-toggle="modal">
-                    <span class="fas fa-plus me-2"></span>Add User</button></div>
+                  <!-- <button class="btn btn-primary" data-bs-target="#staticBackdrop"  data-bs-toggle="modal">
+                   <span class="fas fa-plus me-2"></span>Add User</button> -->
+              </div>
             </div>
          
             
@@ -221,25 +222,29 @@
                   <table class="table table-sm fs--1 mb-0">
                     <thead>
                       <tr></tr>
-                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Username</th>
-                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Full Name</th>
-                        <th class="sort align-middle" scope="col" data-sort="email" style="width:15%; min-width:100px;">Email</th>
-                        <th class="sort align-middle pe-3" scope="col" data-sort="mobile_number" style="width:20%; min-width:100px;">Phone Number</th>
-                        <th class="sort align-middle" scope="col" data-sort="city" style="width:10%;">Program</th>
-                        <th>Status</th>
-                        <th  data-sort="last_active">Action</th>
+                      <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Partner</th>
+                      <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">MFLCODE</th>
+                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:100px;">Facility Name</th>
+                        <th class="sort align-middle" scope="col" data-sort="email" style="width:15%; min-width:100px;">EMR</th>
+                        <th class="sort align-middle pe-3" scope="col" data-sort="mobile_number" style="width:20%; min-width:100px;">TX_CURR</th>
+                        <th class="sort align-middle pe-3" scope="col" data-sort="mobile_number" style="width:20%; min-width:100px;">TX_NEW</th>
+                      <!-- <th class="sort align-middle" scope="col" data-sort="city" style="width:10%;">Program</th> -->
+                       <!-- <th>Status</th>
+                        <th  data-sort="last_active">Action</th> -->
                       
                     </tr>
                     </thead>
                     <tbody class="list" id="members-table-body">
                       <tr th:each="obj : ${facilities}" class="hover-actions-trigger btn-reveal-trigger position-static">
-                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
-                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
-                        <td class="email align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
-                        <td class="mobile_number align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
-                        <td class="city align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
-                        <td><span th:text="${obj.mflcode}"></span></td>
-                        <td class="align-middle text-end white-space-nowrap pe-0 action">
+                          <td class="customer align-middle white-space-nowrap"><span th:text="${obj.partner}"></span></td>
+                          <td class="customer align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
+                        <td class="customer align-middle white-space-nowrap"><span th:text="${obj.facilityname}"></span></td>
+                        <td class="email align-middle white-space-nowrap"><span th:text="${obj.emr}"></span></td>
+                        <td class="mobile_number align-middle white-space-nowrap"><span th:text="${obj.txcurr}"></span></td>
+                          <td class="mobile_number align-middle white-space-nowrap"><span> Comming Soon </span></td>
+                          <!-- <td class="city align-middle white-space-nowrap"><span th:text="${obj.mflcode}"></span></td>
+                        <td><span th:text="${obj.mflcode}"></span></td> -->
+                       <!-- <td class="align-middle text-end white-space-nowrap pe-0 action">
                           <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2"></span></button>
                             <div class="dropdown-menu dropdown-menu-end py-2">
                               <a  class="dropdown-item" th:id="roles" th:name="roles" th:href="@{'/admin/hrsettings/editbanks/edit/' + ${obj.id}}" onclick="return confirm('Are you sure you want to Edit?')">View Roles</a>
@@ -248,7 +253,7 @@
                                 <a class="dropdown-item text-danger" th:href="@{'/admin/hrsettings/editbanks/delete/'+ ${obj.id}}" onclick="return confirm('Are you sure perform the action?')">De/Re-activate</a>
                               </div>
                           </div>
-                        </td>
+                        </td> -->
                     </tr>
                     </tbody>
                   </table>

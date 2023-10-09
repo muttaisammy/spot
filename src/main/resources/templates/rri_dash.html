@@ -239,7 +239,7 @@
                         <option th:value="''" th:text="Select"></option>
                         <option th:each="i : ${facility}" th:value="${i.id}" th:text="${i.facilityname}"></option>
                     </select>
-                  <label for="floatingSelectTask">Facility </label></div>
+                  <label for="facility">Facility </label></div>
               </div>
              <!-- <div class="col-sm-3 col-md-2">
                 <div class="form-floating"><select class="form-select" id="floatingSelectTask">
@@ -277,7 +277,9 @@
                 <div class="col-12 col-md-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            
+                            <figure class="highcharts-figure">
+                                <div id="container2"></div>
+                            </figure>
                             
                             
                         </div>
