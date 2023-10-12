@@ -12,7 +12,7 @@ import java.util.Calendar;
 
 
 /**
- * HTS is representation of HIV test record. It captures Client's test record as would be done in a register.
+ * AfyastatClientLineList is representation of HIV test record. It captures Client's test record as would be done in a register.
  */
 @Data
 @Builder
@@ -20,7 +20,7 @@ import java.util.Calendar;
 @NoArgsConstructor
 @Entity
 @Table(name = "hts")
-public class HTS {
+public class AfyastatClientLineList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

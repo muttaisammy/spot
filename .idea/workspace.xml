@@ -5,21 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cea0b5ca-52e0-455f-9fb1-af040641ac8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/HTS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/repositories/HTSRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/HTSService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/IHTSService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/utils/AfyaStatData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/controllers/HTSController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/FacilitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/FacilitiesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/AfyastatClientLineList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/AfyastatClientLineList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/repositories/AfyastatClientLineListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/repositories/AfyastatClientLineListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/AfyastatClientLineListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/AfyastatClientLineListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/utils/AfyaStatData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/utils/AfyaStatData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/nav.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/FacilitiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/FacilitiesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/HTSController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/common/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/common/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dependencies.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,30 +117,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/HTS.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/HTS.java</url>
-          <line>149</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/HTS.java</url>
-          <line>94</line>
-          <properties class="ampath.or.ke.spot.models.HTS" method="getTestMonth">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
