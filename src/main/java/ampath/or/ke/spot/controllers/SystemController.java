@@ -44,8 +44,6 @@ public class SystemController {
      @Autowired
      private CountiesService countiesService;
 
-
-
     @RequestMapping(value = "/users")
     //@ResponseBody
     public ModelAndView UserDetails(HttpSession session) {

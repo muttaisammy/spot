@@ -47,7 +47,7 @@ public class AfyaStatData {
         return new RestTemplate();
     }
 
-    @Value("${spring.metabase.api.url}")
+   /* @Value("${spring.metabase.api.url}")
     private String strURL;
     @Value("${spring.metabase.api.username}")
     private String strUsername;
@@ -56,7 +56,7 @@ public class AfyaStatData {
     private String strPassword;
 
     @Value("${spring.metabase.api.queryId}")
-    private String strQueryId;
+    private String strQueryId;*/
 
     @Value("${spring.afyastat.server}")
     private String server;
@@ -70,6 +70,7 @@ public class AfyaStatData {
     public void pullAllHTSFromDatabase() throws ParseException, SQLException, IOException {
     }
 
+<<<<<<< HEAD
 
 
     private static XSSFWorkbook getTemplate() {
@@ -246,4 +247,6 @@ public class AfyaStatData {
     public void setPassword(String password) {
         this.password = password;
     }
+=======
+>>>>>>> cf447d1c4f3332402c49bd8ea060747d5b9953ff
 }
