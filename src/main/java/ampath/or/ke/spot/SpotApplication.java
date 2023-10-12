@@ -8,11 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-@EnableScheduling
 public class SpotApplication {
 
 	public static void main(String[] args) {

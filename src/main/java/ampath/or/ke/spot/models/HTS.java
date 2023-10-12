@@ -62,8 +62,23 @@ public class HTS {
     private String sdp;
 
 
+    @Column(name = "created_by")
+    private int created_by;
 
+    @Column(name = "created_on")
+    private Date created_on;
 
+    @Column(name = "modified_by", nullable = true)
+    private int modified_by;
+
+    @Column(name = "modified_on", nullable = true)
+    private Date modified_on;
+
+    @Column(name = "age")
+    private int age;
+
+    @Column(name = "period_id")
+    private int period;
 
     /**
      * Convenience method: calculates the person's age on test date based on the birthdate.

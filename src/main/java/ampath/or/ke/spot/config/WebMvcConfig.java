@@ -31,19 +31,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public DataSource dataSource () {
         return DataSourceBuilder.create().build();
     }
-   
-   /* @Configuration
-    public class SpringFoxConfig {                                    
-        @Bean
-        public Docket api() { 
-            return new Docket(DocumentationType.SWAGGER_2)  
-            .select()                                  
-            .apis(RequestHandlerSelectors.any())              
-            .paths(PathSelectors.any())                          
-            .build();                                           
-        }
-    } */
-
 
     @Override
     public void addResourceHandlers (ResourceHandlerRegistry registry){
@@ -80,12 +67,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return emailTemplateResolver;
     }
 
-   /* @Bean(name = MultipartFilter.DEFAULT_MULTIPART_RESOLVER_BEAN_NAME)
-    protected MultipartResolver getMultipartResolver() {
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(-1);
-        multipartResolver.setMaxInMemorySize(-1);
-        return multipartResolver;
-    }
-    */
 }
