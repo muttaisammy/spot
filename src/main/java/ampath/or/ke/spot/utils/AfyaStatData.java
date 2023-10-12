@@ -22,7 +22,7 @@ public class AfyaStatData {
         return new RestTemplate();
     }
 
-    @Value("${spring.metabase.api.url}")
+   /* @Value("${spring.metabase.api.url}")
     private String strURL;
     @Value("${spring.metabase.api.username}")
     private String strUsername;
@@ -31,7 +31,7 @@ public class AfyaStatData {
     private String strPassword;
 
     @Value("${spring.metabase.api.queryId}")
-    private String strQueryId;
+    private String strQueryId;*/
 
     @Value("${spring.afyastat.server}")
     private String server;
@@ -44,4 +44,5 @@ public class AfyaStatData {
 
     public void pullAllHTSFromDatabase() throws ParseException, SQLException, IOException {
     }
+
 }

@@ -26,7 +26,7 @@ public class Facilities {
     @Column(name = "id")
     private int id;
 
-     @Column(name = "uuid")
+    @Column(name = "uuid")
     private String uuid;
 
     @Column(name = "country")
