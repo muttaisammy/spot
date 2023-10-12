@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cea0b5ca-52e0-455f-9fb1-af040641ac8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/models/HTS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/repositories/HTSRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/HTSService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/IHTSService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/utils/AfyaStatData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/controllers/HTSController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/FacilitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ampath/or/ke/spot/services/FacilitiesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/controllers/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/FacilitiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ampath/or/ke/spot/services/FacilitiesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +23,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="47ce3e03-6ea3-4834-8439-1ed3f3529976" />
+        <option name="url" value="https://github.com/dmaritim/spot.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -118,6 +115,8 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
+=======
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -143,4 +142,5 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+>>>>>>> cf447d1c4f3332402c49bd8ea060747d5b9953ff
 </project>
