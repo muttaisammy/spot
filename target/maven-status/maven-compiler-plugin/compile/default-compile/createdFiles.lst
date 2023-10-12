@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 ampath/or/ke/spot/config/SecurityConfiguration.class
 ampath/or/ke/spot/repositories/SyncTrackerRepository.class
 ampath/or/ke/spot/controllers/RRIController.class
@@ -98,3 +100,4 @@ ampath/or/ke/spot/services/RRIService.class
 ampath/or/ke/spot/models/PerformanceTarget$PerformanceTargetBuilder.class
 ampath/or/ke/spot/models/HTS$HTSBuilder.class
 ampath/or/ke/spot/models/County$CountyBuilder.class
+>>>>>>> cf447d1c4f3332402c49bd8ea060747d5b9953ff

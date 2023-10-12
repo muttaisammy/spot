@@ -6,4 +6,4 @@ ReadMe
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 .idea/
-target/
+./target
