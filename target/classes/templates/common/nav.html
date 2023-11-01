@@ -94,7 +94,7 @@
                                     </div>
 
                                     <a class="dropdown-link" th:href="@{/spot/analytics}">BI Dashboards</a>
-                                    <a class="dropdown-link" th:href="@{/afyastatClientLineList/dashboard}">HTS</a>
+                                    <a class="dropdown-link" th:href="@{/afyastatList/dashboard}">HTS</a>
                                     <a class="dropdown-link" href="#">PreP</a>
                                     <a class="dropdown-link" href="#">GBV</a>
 
@@ -169,8 +169,13 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" th:href="@{/afyastat/process}">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Sycn Queues</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/rest/v1/api/kasha/clients}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>Kasha API</div>
                         </a>
                     </li>
 

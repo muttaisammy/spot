@@ -16,12 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import ampath.or.ke.spot.services.FacilitiesService;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.http.HttpSession;
 
 
-@EnableSwagger2
+//@EnableSwagger2
 @RestController
 @CrossOrigin
 @RequestMapping("api/v1/facilities")

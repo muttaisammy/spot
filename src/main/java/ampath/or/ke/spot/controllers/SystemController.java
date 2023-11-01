@@ -207,8 +207,6 @@ public class SystemController {
                 user.setPassword(newpass);
                 userService.saveUser(user);
 
-
-
                 String vallink = "https://spot.ampath.or.ke/system/users/validate/"+uuid.toString();
             
              SMTPServer smtpServers = smtpServerService.getByTopOne();

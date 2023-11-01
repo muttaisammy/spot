@@ -2,23 +2,29 @@ package ampath.or.ke.spot.services;
 
 import ampath.or.ke.spot.models.AfyastatClientLineList;
 import ampath.or.ke.spot.repositories.AfyastatClientLineListRepository;
+import ampath.or.ke.spot.repositories.AfyastatErrorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
-@Service
+@Service("afyastatClientLineListService")
 public class AfyastatClientLineListService {
-    @Autowired
+    Date nowDate = new Date();
     private AfyastatClientLineListRepository afyastatClientLineListRepository;
-
-
+    @Autowired
+    public AfyastatClientLineListService(AfyastatClientLineListRepository afyastatClientLineListRepository) {
+        this.afyastatClientLineListRepository = afyastatClientLineListRepository;
+    }
     public List<AfyastatClientLineList> getAllTests() {
         return afyastatClientLineListRepository.findAll();
     }
+    public List<AfyastatClientLineList> getFirst1000Tests() {
+        return afyastatClientLineListRepository.findFirst1000ByOrderByDataEntryDateDesc();
+    }
 
-    public AfyastatClientLineList saveStudent(AfyastatClientLineList afyastatClientLineList) {
+    public AfyastatClientLineList save(AfyastatClientLineList afyastatClientLineList) {
         return afyastatClientLineListRepository.save(afyastatClientLineList);
     }
 
@@ -75,17 +81,18 @@ public class AfyastatClientLineListService {
         return null;
     }
 
-
     public List<AfyastatClientLineList> pullHTSFromDatabaseAsOf(Date endData) {
         return null;
     }
-
     public List<AfyastatClientLineList> pullHTSFromDatabaseBetween(Date startDate, Date endDate) {
         return null;
     }
 
-
     public List<AfyastatClientLineList> pullHTSFromDatabaseAfter(Date specificDate) {
         return null;
+    }
+
+    public  AfyastatClientLineList pullLatestSycedRecord(){
+        return afyastatClientLineListRepository.findFirstByOrderByIdDesc();
     }
 }

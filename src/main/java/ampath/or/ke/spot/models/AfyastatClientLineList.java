@@ -19,7 +19,7 @@ import java.util.Calendar;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "hts")
+@Table(name = "afyastat_client_linelist")
 public class AfyastatClientLineList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,24 @@ public class AfyastatClientLineList {
 
     @Column(name = "person_id")
     private int personId;
+
+    @Column(name = "cht_uuid")
+    private String chtUuid;
+
+    @Column(name = "encounter_id")
+    private int encounterId;
+
+    @Column(name = "encounter_Type")
+    private String encounterType;
+
+    @Column(name = "provider_id")
+    private int providerId;
+
+    @Column(name = "patient_name")
+    private String patinetName;
+
+    @Column(name = "creator_id")
+    private int creatorId;
 
     @Column(name = "test_date")
     private Date testDate;
@@ -50,8 +68,18 @@ public class AfyastatClientLineList {
     @Column(name = "mfl")
     private int mfl;
 
+    @Column(name = "emr")
+    private String emr;
+
+    @Column(name = "year")
+    private String year;
+
+    @Column(name = "month")
+    private String month;
+
     @Column(name = "provider")
     private String provider;
+
     @Column(name = "final_test_result")
     private String finalTestResult;
 
@@ -80,51 +108,6 @@ public class AfyastatClientLineList {
     @Column(name = "period_id")
     private int period;
 
-    /**
-     * Convenience method: calculates the person's age on test date based on the birthdate.
-     * @return int value of the client's age
-     */
-    public int getAge(){
-        if (testDate == null || birthDate == null) {
-            return 0;
-        }
-        Calendar birthday = Calendar.getInstance();
-        birthday.setTime(birthDate);
-
-        Calendar testday = Calendar.getInstance();
-        testday.setTime(testDate);
-        int age = testday.get(Calendar.YEAR) - birthday.get(Calendar.YEAR);
-        // Adjust age when today's date is before the person's birthday
-        int testdaysMonth = testday.get(Calendar.MONTH);
-        int birthdayMonth = birthday.get(Calendar.MONTH);
-        int testdaysDay = testday.get(Calendar.DAY_OF_MONTH);
-        int birthdayDay = birthday.get(Calendar.DAY_OF_MONTH);
-
-        if (testdaysMonth < birthdayMonth) {
-            age--;
-        } else if (testdaysMonth == birthdayMonth && testdaysDay < birthdayDay) {
-            age--;
-        }
-        return age;
-    }
-    public String getTestMonth(){
-        if (testDate == null) {
-            return null;
-        }
-        Calendar testday = Calendar.getInstance();
-        testday.setTime(testDate);
-        int testDayMonth = testday.get(Calendar.MONTH);
-        return GlobalVars.CurrMonth(testDayMonth+1);
-    }
-
-    public Integer getTestYear(){
-        if (testDate == null) {
-            return null;
-        }
-        Calendar testDay = Calendar.getInstance();
-        testDay.setTime(testDate);
-        return testDay.get(Calendar.YEAR);
-    }
     public int getId() {
         return id;
     }
@@ -149,12 +132,28 @@ public class AfyastatClientLineList {
         this.personId = personId;
     }
 
+    public int getEncounterId() {
+        return encounterId;
+    }
+
+    public void setEncounterId(int encounterId) {
+        this.encounterId = encounterId;
+    }
+
     public Date getTestDate() {
         return testDate;
     }
 
     public void setTestDate(Date testDate) {
         this.testDate = testDate;
+    }
+
+    public Date getDataEntryDate() {
+        return dataEntryDate;
+    }
+
+    public void setDataEntryDate(Date dataEntryDate) {
+        this.dataEntryDate = dataEntryDate;
     }
 
     public String getGender() {
@@ -173,20 +172,12 @@ public class AfyastatClientLineList {
         this.birthDate = birthDate;
     }
 
-    public int getLocation_id() {
+    public int getLocationId() {
         return locationId;
     }
 
-    public void setLocation_id(int location_id) {
-        this.locationId = location_id;
-    }
-
-    public Date getDataEntryDate() {
-        return dataEntryDate;
-    }
-
-    public void setDataEntryDate(Date dataEntryDate) {
-        this.dataEntryDate = dataEntryDate;
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
     }
 
     public int getMfl() {
@@ -227,5 +218,117 @@ public class AfyastatClientLineList {
 
     public void setSdp(String sdp) {
         this.sdp = sdp;
+    }
+
+    public int getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(int created_by) {
+        this.created_by = created_by;
+    }
+
+    public Date getCreated_on() {
+        return created_on;
+    }
+
+    public void setCreated_on(Date created_on) {
+        this.created_on = created_on;
+    }
+
+    public int getModified_by() {
+        return modified_by;
+    }
+
+    public void setModified_by(int modified_by) {
+        this.modified_by = modified_by;
+    }
+
+    public Date getModified_on() {
+        return modified_on;
+    }
+
+    public void setModified_on(Date modified_on) {
+        this.modified_on = modified_on;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
+    }
+
+    public String getEmr() {
+        return emr;
+    }
+
+    public void setEmr(String emr) {
+        this.emr = emr;
+    }
+
+    public int getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(int providerId) {
+        this.providerId = providerId;
+    }
+
+    public int getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(int creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public String getPatinetName() {
+        return patinetName;
+    }
+
+    public void setPatinetName(String patinetName) {
+        this.patinetName = patinetName;
+    }
+
+    public String getChtUuid() {
+        return chtUuid;
+    }
+
+    public void setChtUuid(String chtUuid) {
+        this.chtUuid = chtUuid;
+    }
+
+    public String getEncounterType() {
+        return encounterType;
+    }
+
+    public void setEncounterType(String encounterType) {
+        this.encounterType = encounterType;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

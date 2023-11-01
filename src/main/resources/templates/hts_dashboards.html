@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Pivot Demo</title>
+
+    <!-- external libs from cdnjs -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- PivotTable.js libs from ../dist -->
+    <link rel="stylesheet" type="text/css" th:href="@{/themes/dist/pivot.css}">
+    <script type="text/javascript" th:src="@{/themes/dist/pivot.js}"></script>
+
+    <style>
+            body {font-family: Verdana;}
+        </style>
+
+    <!-- optional: mobile support with jqueryui-touch-punch -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- for examples only! script to show code to user -->
+    <script type="text/javascript" th:src="@{/themes/dist/show_code.js}"></script>
+</head>
+<body>
+<script type="text/javascript">
+    // This example has all the renderers loaded,
+    // and should work with touch devices.
+
+    $(function(){
+        var derivers = $.pivotUtilities.derivers;
+        var renderers = $.extend(
+            $.pivotUtilities.renderers,
+            $.pivotUtilities.c3_renderers,
+            $.pivotUtilities.d3_renderers,
+            $.pivotUtilities.export_renderers
+            );
+
+        $.getJSON("/rest/v1/api/hts/getall", function(mps) {
+                $("#output").pivotUI(mps, {
+                renderers: $.pivotUtilities.d3_renderers,
+                cols: [], rows: ["sdp", "finalTestResult"],
+                rendererName: "Treemap"
+            });
+        });
+     });
+        </script>
+
+<p><a href="index.html">&laquo; back to PivotTable.js examples</a></p>
+
+
+<div id="output" style="margin: 30px;"></div>
+
+</body>
+</html>

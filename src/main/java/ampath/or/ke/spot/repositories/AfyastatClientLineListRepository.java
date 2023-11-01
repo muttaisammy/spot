@@ -18,4 +18,7 @@ public interface AfyastatClientLineListRepository extends JpaRepository<Afyastat
     List<AfyastatClientLineList> findByDataEntryDate(Date dataEntryDate);
     List<AfyastatClientLineList> findByGender(String gender);
     List<AfyastatClientLineList> findByUuid(String uuid);
+
+    List<AfyastatClientLineList> findFirst1000ByOrderByDataEntryDateDesc();
+    AfyastatClientLineList findFirstByOrderByIdDesc();
 }
