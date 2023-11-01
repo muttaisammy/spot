@@ -33,6 +33,7 @@ public class HIVSummaries {
 
     @Column(name = "tx_new")
     private int tx_new;
+
     @Column(name = "tx_curr")
     private int tx_curr;
 

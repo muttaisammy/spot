@@ -1,7 +1,10 @@
 package ampath.or.ke.spot.controllers;
 
+import ampath.or.ke.spot.models.AfyastatClientLineList;
 import ampath.or.ke.spot.models.AfyastatErrors;
+import ampath.or.ke.spot.services.AfyastatClientLineListService;
 import ampath.or.ke.spot.services.AfyastatErrorsService;
+import ampath.or.ke.spot.utils.AfyaStatData;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.squareup.okhttp.*;
@@ -44,6 +47,8 @@ public class AfyastatController {
     private String openmrs_username;
     @Value("${spring.openmrs.password}")
     private String openmrs_password;
+    @Autowired
+    private AfyastatClientLineListService afyastatClientLineListService;
 
     @Autowired
     private AfyastatErrorsService afyastatErrorsService;
@@ -158,7 +163,7 @@ public class AfyastatController {
 
     }
 
-    @RequestMapping(value = "/process", method = RequestMethod.GET)
+    @RequestMapping(value = "/processs", method = RequestMethod.GET)
     public ModelAndView checkuuid(HttpSession session) throws IOException, JSONException, SQLException {
         if (session.getAttribute("user") != null) {
             ModelAndView modelAndView = new ModelAndView();
@@ -1019,5 +1024,28 @@ public class AfyastatController {
         }
         return conceptValue;
     }
+    @RequestMapping(value = "/process", method = RequestMethod.GET)
+    public ModelAndView processregistartion( HttpSession session) throws IOException, JSONException, SQLException, ParseException {
+        if (session.getAttribute("user") != null) {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("afyastatlinelist");
+           // try {
+
+                AfyaStatData.pullAllHTSFromDatabase(server, username, password, afyastatClientLineListService);
+         //   }catch (Exception e){
+
+           // }
+            // List<AfyastatClientLineList> afyastatClientLineListList =  afyastatClientLineListService.getAllTests();
+            List<AfyastatClientLineList> afyastatClientLineListList =  afyastatClientLineListService.getFirst1000Tests();
+
+
+            modelAndView.addObject("htslinelist",afyastatClientLineListList);
+
+            return modelAndView;
+        } else {
+            return new ModelAndView("redirect:/auth/login");
+        }
+    }
+
 }
 

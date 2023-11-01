@@ -1,5 +1,6 @@
 package ampath.or.ke.spot.repositories;
 
+import ampath.or.ke.spot.models.AfyastatClientLineList;
 import ampath.or.ke.spot.models.Periods;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +15,7 @@ public interface PeriodRepository extends JpaRepository<Periods, Long> {
     Periods findById(int qid);
     //Periods findFirst1OrderByIdDesc();
     Periods findFirst1ByOrderByIdDesc();
+    Periods findFirstByOrderByIdDesc();
 
 
 
