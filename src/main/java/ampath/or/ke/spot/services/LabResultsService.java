@@ -23,5 +23,7 @@ public class LabResultsService {
         labResultsRepository.delete(dataset);
     }
     public List<LabResults> getAllDataset(){return  labResultsRepository.findAll();}
+    public List<LabResults> findByCCCAndCollectionDate(String ccc, Date collected){return  labResultsRepository.findByCccAndCollectionDate(ccc, collected);}
+
 
 }

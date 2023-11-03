@@ -29,7 +29,7 @@ public class LabResults {
     private String uuid;
 
     @Column(name = "ccc_no")
-    private String ccc_no;
+    private String ccc;
 
     @Column(name = "pname")
     private String pname;
@@ -47,13 +47,13 @@ public class LabResults {
     private String mflcode;
     
     @Column(name = "order_no")
-    private int order_no;
+    private int orderno;
 
     @Column(name = "amrs_location")
-    private String amr_location;
+    private String amrlocation;
 
-    @Column(name = "rec_no")
-    private int rec_no;
+    @Column(name = "recency_number")
+    private int recencyNumber;
 
     @Column(name = "sex")
     private String sex;
@@ -68,150 +68,262 @@ public class LabResults {
     private String pmtct;
 
     @Column(name = "sample_type")
-    private String sample_type;
+    private String sampleType;
 
     @Column(name = "collection_date")
-    private Date collection_date;
+    private Date collectionDate;
 
     @Column(name = "received_status")
-    private String received_status;
+    private String receivedStatus;
 
     @Column(name = "curr_regimen")
-    private String curr_regimen;
+    private String currRegimen;
 
-    @Column(name = "art_init_date")
-    private Date art_init_date;
+    @Column(name = "art_initiation_date")
+    private Date artInitiationDate;
 
     @Column(name = "justification")
     private String justification;
 
     @Column(name = "date_received")
-    private Date date_received;
+    private Date dateReceived;
 
     @Column(name = "date_entered")
-    private Date date_entered;
+    private Date dateEntered;
 
     @Column(name = "date_of_testing")
-    private Date date_of_testing;
+    private Date dateOfTesting;
 
     @Column(name = "date_of_approval")
-    private Date date_of_approval;
+    private Date dateOfApproval;
 
     @Column(name = "date_of_dispach")
-    private Date date_of_dispach;
+    private Date dateOfDispach;
 
     @Column(name = "viral_load")
-    private String viral_load;
+    private String viralLoad;
 
     @Column(name = "entry")
     private String entry;
 
+    public int getId() {
+        return id;
+    }
+
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
     }
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 
-    public void setCcc_no(String ccc_no) {
-        this.ccc_no = ccc_no;
+    public String getCcc() {
+        return ccc;
+    }
+
+    public void setCcc(String ccc) {
+        this.ccc = ccc;
+    }
+
+    public String getPname() {
+        return pname;
     }
 
     public void setPname(String pname) {
         this.pname = pname;
     }
 
+    public String getCounty() {
+        return county;
+    }
+
     public void setCounty(String county) {
         this.county = county;
+    }
+
+    public String getSub_county() {
+        return sub_county;
     }
 
     public void setSub_county(String sub_county) {
         this.sub_county = sub_county;
     }
 
+    public String getFname() {
+        return fname;
+    }
+
     public void setFname(String fname) {
         this.fname = fname;
+    }
+
+    public String getMflcode() {
+        return mflcode;
     }
 
     public void setMflcode(String mflcode) {
         this.mflcode = mflcode;
     }
 
-    public void setOrder_no(int order_no) {
-        this.order_no = order_no;
+    public int getOrderno() {
+        return orderno;
     }
 
-    public void setAmr_location(String amr_location) {
-        this.amr_location = amr_location;
+    public void setOrderno(int orderno) {
+        this.orderno = orderno;
     }
 
-    public void setRec_no(int rec_no) {
-        this.rec_no = rec_no;
+    public String getAmrlocation() {
+        return amrlocation;
+    }
+
+    public void setAmrlocation(String amrlocation) {
+        this.amrlocation = amrlocation;
+    }
+
+    public int getRecencyNumber() {
+        return recencyNumber;
+    }
+
+    public void setRecencyNumber(int recencyNumber) {
+        this.recencyNumber = recencyNumber;
+    }
+
+    public String getSex() {
+        return sex;
     }
 
     public void setSex(String sex) {
         this.sex = sex;
     }
 
+    public Date getDob() {
+        return dob;
+    }
+
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
+    public String getPmtct() {
+        return pmtct;
+    }
+
     public void setPmtct(String pmtct) {
         this.pmtct = pmtct;
     }
 
-    public void setSample_type(String sample_type) {
-        this.sample_type = sample_type;
+    public String getSampleType() {
+        return sampleType;
     }
 
-    public void setCollection_date(Date collection_date) {
-        this.collection_date = collection_date;
+    public void setSampleType(String sampleType) {
+        this.sampleType = sampleType;
     }
 
-    public void setReceived_status(String received_status) {
-        this.received_status = received_status;
+    public Date getCollectionDate() {
+        return collectionDate;
     }
 
-    public void setCurr_regimen(String curr_regimen) {
-        this.curr_regimen = curr_regimen;
+    public void setCollectionDate(Date collectionDate) {
+        this.collectionDate = collectionDate;
     }
 
-    public void setArt_init_date(Date art_init_date) {
-        this.art_init_date = art_init_date;
+    public String getReceivedStatus() {
+        return receivedStatus;
+    }
+
+    public void setReceivedStatus(String receivedStatus) {
+        this.receivedStatus = receivedStatus;
+    }
+
+    public String getCurrRegimen() {
+        return currRegimen;
+    }
+
+    public void setCurrRegimen(String currRegimen) {
+        this.currRegimen = currRegimen;
+    }
+
+    public Date getArtInitiationDate() {
+        return artInitiationDate;
+    }
+
+    public void setArtInitiationDate(Date artInitiationDate) {
+        this.artInitiationDate = artInitiationDate;
+    }
+
+    public String getJustification() {
+        return justification;
     }
 
     public void setJustification(String justification) {
         this.justification = justification;
     }
 
-    public void setDate_received(Date date_received) {
-        this.date_received = date_received;
+    public Date getDateReceived() {
+        return dateReceived;
     }
 
-    public void setDate_entered(Date date_entered) {
-        this.date_entered = date_entered;
+    public void setDateReceived(Date dateReceived) {
+        this.dateReceived = dateReceived;
     }
 
-    public void setDate_of_testing(Date date_of_testing) {
-        this.date_of_testing = date_of_testing;
+    public Date getDateEntered() {
+        return dateEntered;
     }
 
-    public void setDate_of_approval(Date date_of_approval) {
-        this.date_of_approval = date_of_approval;
+    public void setDateEntered(Date dateEntered) {
+        this.dateEntered = dateEntered;
     }
 
-    public void setDate_of_dispach(Date date_of_dispach) {
-        this.date_of_dispach = date_of_dispach;
+    public Date getDateOfTesting() {
+        return dateOfTesting;
     }
 
-    public void setViral_load(String viral_load) {
-        this.viral_load = viral_load;
+    public void setDateOfTesting(Date dateOfTesting) {
+        this.dateOfTesting = dateOfTesting;
+    }
+
+    public Date getDateOfApproval() {
+        return dateOfApproval;
+    }
+
+    public void setDateOfApproval(Date dateOfApproval) {
+        this.dateOfApproval = dateOfApproval;
+    }
+
+    public Date getDateOfDispach() {
+        return dateOfDispach;
+    }
+
+    public void setDateOfDispach(Date dateOfDispach) {
+        this.dateOfDispach = dateOfDispach;
+    }
+
+    public String getViralLoad() {
+        return viralLoad;
+    }
+
+    public void setViralLoad(String viralLoad) {
+        this.viralLoad = viralLoad;
+    }
+
+    public String getEntry() {
+        return entry;
     }
 
     public void setEntry(String entry) {
