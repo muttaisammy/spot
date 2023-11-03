@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMPATH SPOT</title>
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
+    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
+    <meta name="msapplication-TileImage" content="/themes/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
+    <script th:src="@{/themes/assets/js/config.js}"></script>
+    <link th:href="@{/themes/vendors/dropzone/dropzone.min.css}" rel="stylesheet">
+    <script>
+      window.config.set({
+        phoenixNavbarTopShape: 'slim',
+        phoenixNavbarPosition: 'horizontal'
+      });
+    </script>
+    <script>
+      document.documentElement.classList.add('navbar-horizontal');
+    </script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link th:href="@{/themes/vendors/simplebar/simplebar.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link th:href="@{/themes/assets/css/theme-rtl.min.css}" type="text/css" rel="stylesheet" id="style-rtl">
+    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
+    <link th:href="@{/themes/assets/css/user-rtl.min.css}" type="text/css" rel="stylesheet" id="user-style-rtl">
+    <link th:href="@{/themes/assets/css/user.min.css}" type="text/css" rel="stylesheet" id="user-style-default">
+    <script th:src="@{/themes/highcharts/code/highcharts.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/exporting.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/export-data.js}"></script>
+    <script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .containers {
+          display: flex; /* or inline-flex */
+          flex-wrap: nowrap;
+          width:100%;
+          height: 100%; /* or whatever */
+        }
+        .item {
+          flex: 1 1;
+          margin:0 1%;
+        }
+    </style>
+
+    <script>
+      var phoenixIsRTL = window.config.config.phoenixIsRTL;
+      if (phoenixIsRTL) {
+        var linkDefault = document.getElementById('style-default');
+        var userLinkDefault = document.getElementById('user-style-default');
+        linkDefault.setAttribute('disabled', true);
+        userLinkDefault.setAttribute('disabled', true);
+        document.querySelector('html').setAttribute('dir', 'rtl');
+      } else {
+        var linkRTL = document.getElementById('style-rtl');
+        var userLinkRTL = document.getElementById('user-style-rtl');
+        linkRTL.setAttribute('disabled', true);
+        userLinkRTL.setAttribute('disabled', true);
+      }
+    </script>
+    <link th:href="@{/themes/vendors/leaflet/leaflet.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.Default.css}" rel="stylesheet">
+</head>
+
+<body>
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <nav class="navbar navbar-vertical navbar-expand-lg" style="display:none;">
+        <script>
+          var navbarStyle = window.config.config.phoenixNavbarStyle;
+          if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
+          }
+        </script>
+
+        <div class="navbar-vertical-footer">
+            <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+                <span class="uil uil-left-arrow-to-left fs-0"></span>
+                <span class="uil uil-arrow-from-right fs-0"></span>
+                <span class="navbar-vertical-footer-text ms-2">Collapsed View</span>
+            </button>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <div th:insert="~{common/nav}"></div>
+    <!-- /.navbar -->
+    <script>
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var body = document.querySelector('body');
+        navbarVertical.remove()
+        navbarTopSlim.removeAttribute('style');
+        body.classList.add('nav-slim');
+
+      </script>
+
+    <script>
+        var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+        var navbarPosition = window.config.config.phoenixNavbarPosition;
+        var body = document.querySelector('body');
+        var navbarTop = document.querySelector('#navbarTop');
+        var topNavSlim = document.querySelector('#topNavSlim');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var navbarCombo = document.querySelector('#navbarCombo');
+        var navbarComboSlim = document.querySelector('#navbarComboSlim');
+        var dualNav = document.querySelector('#dualNav');
+
+        var documentElement = document.documentElement;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+
+        if (navbarPosition === 'dual-nav') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          dualNav.removeAttribute('style');
+          documentElement.classList.add('dual-nav');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          topNavSlim.style.display = 'block';
+          navbarVertical.style.display = 'inline-block';
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+          navbarTopSlim.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+           navbarTop.remove();
+          topNavSlim.remove();
+          navbarCombo.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+          topNavSlim.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarTop.removeAttribute('style');
+          documentElement.classList.add('navbar-horizontal');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.remove();
+          navbarCombo.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          documentElement.classList.add('navbar-combo')
+
+        } else {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarVertical.removeAttribute('style');
+        }
+
+        var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+        var navbarTop = document.querySelector('.navbar-top');
+        if (navbarTopStyle === 'darker') {
+          navbarTop.classList.add('navbar-darker');
+        }
+
+        var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        if (navbarVerticalStyle === 'darker') {
+          navbarVertical.classList.add('navbar-darker');
+        }
+      </script>
+
+    <div class="content">
+        <div class="card shadow-none border border-300 mb-3 mt-6" data-component-card="data-component-card">
+            <div class="card-header p-4 border-bottom border-300 bg-soft">
+                <div class="row g-3 justify-content-between align-items-end">
+                    <div class="col-12 col-md">
+                        <h4 class="text-900 mb-0" data-anchor="data-anchor">Lab Results File Upload</h4>
+                     </div>
+
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="p-4 code-to-copy">
+                    <form id="fileForm"  enctype="multipart/form-data">
+                        <input type="file" id="filename" name="filename" accept=".xls,.xlsx" enctype="multipart/form-data" required="required" />
+                        <input id="btnSubmitFile" type="button" value="Upload Results"/>
+                    </form>
+
+
+                    <div class="dropzone dropzone-multiple p-0" id="dropzone" data-dropzone="data-dropzone" data-options='{"url":"http://localhost:8080/labs/process/csv","maxFiles":1,"dictDefaultMessage":"Choose or Drop a file here"}'>
+                        <div class="fallback">
+                            <input type="file" name="labResults" />
+                        </div>
+                        <div class="dz-message" data-dz-message="data-dz-message">
+                            <div class="dz-message-text">
+                                <img class="me-2" th:src="@{/themes/assets/img/icons/cloud-upload.svg}" width="25" alt="" />Drop your Lab Results file here
+                            </div>
+                        </div>
+                        <div class="dz-preview dz-preview-multiple m-0 d-flex flex-column">
+                            <div class="d-flex pb-3 border-bottom media px-2">
+                                <div class="border border-300 p-2 rounded-2 me-2">
+                                    <img class="rounded-2 dz-image" th:src="@{/themes/assets/img/icons/file.png}" alt="..." data-dz-thumbnail="data-dz-thumbnail" />
+                                </div>
+                                <div class="flex-1 d-flex flex-between-center">
+                                    <div>
+                                        <h6 data-dz-name="data-dz-name"></h6>
+                                        <div class="d-flex align-items-center">
+                                            <p class="mb-0 fs--1 text-400 lh-1" data-dz-size="data-dz-size"></p>
+                                            <div class="dz-progress">
+                                                <span class="dz-upload" data-dz-uploadprogress=""></span>
+                                            </div>
+                                        </div><span class="fs--2 text-danger" data-dz-errormessage="data-dz-errormessage"></span>
+                                    </div>
+                                    <div class="dropdown font-sans-serif">
+                                        <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal dropdown-caret-none" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="fas fa-ellipsis-h"></span>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end border py-2">
+                                            <a class="dropdown-item" href="#!" data-dz-remove="data-dz-remove">Remove File</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div th:insert="~{common/footer}"></div>
+
+</main><!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+<!--
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/fontawesome/all.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script th:src="@{/themes/vendors/list.js/list.min.js}"></script>
+<script th:src="@{/themes/vendors/feather-icons/feather.min.js}"></script>
+<script th:src="@{/themes/vendors/dayjs/dayjs.min.js}"></script>
+<script th:src="@{/themes/assets/js/phoenix.js}"></script>
+<script th:src="@{/themes/vendors/echarts/echarts.min.js}"></script>
+<script th:src="@{/themes/vendors/leaflet/leaflet.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
+-->
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/fontawesome/all.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script th:src="@{/themes/vendors/list.js/list.min.js}"></script>
+<script th:src="@{/themes/vendors/feather-icons/feather.min.js}"></script>
+<script th:src="@{/themes/vendors/dayjs/dayjs.min.js}"></script>
+<script th:src="@{/themes/vendors/dropzone/dropzone.min.js}"></script>
+<script th:src="@{/themes/vendors/prism/prism.js}"></script>
+<script th:src="@{/themes/assets/js/phoenix.js}"></script>
+<script type="text/javascript">
+
+        $(function () {
+
+            $("#btnSubmitFile").click(function () {
+                      var formData = new FormData();
+                      var files = $('#filename')[0].files[0];
+                      formData.append("file", files);
+                     var getUrl = window.location;
+                     var baseurls =  getUrl.origin + '/' +getUrl.pathname.split('/')[1]+'/process/csv';
+
+
+                $.ajax({
+                    url: baseurls,
+                    type: "post",
+                    enctype: 'multipart/form-data',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        $("#outputDiv").html(data);
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+            });
+
+        });
+
+    </script>
+</body>
+</html>
