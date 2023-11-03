@@ -8,6 +8,7 @@ ampath/or/ke/spot/services/YearsService.class
 ampath/or/ke/spot/services/SMTPServerService.class
 ampath/or/ke/spot/models/AfyastatErrors.class
 ampath/or/ke/spot/models/Periods.class
+ampath/or/ke/spot/services/VlsOrdersService.class
 ampath/or/ke/spot/repositories/AppointmentsTrackerRepository.class
 ampath/or/ke/spot/repositories/PeriodRepository.class
 ampath/or/ke/spot/controllers/Rest/HTSRestAPI.class
@@ -22,11 +23,13 @@ ampath/or/ke/spot/services/FacilitiesService.class
 ampath/or/ke/spot/controllers/DatabaseController$1.class
 ampath/or/ke/spot/controllers/KashaController.class
 ampath/or/ke/spot/services/DatabasesInfoServices.class
+ampath/or/ke/spot/repositories/VlsOrdersRepository.class
 ampath/or/ke/spot/services/HIVSummariesService.class
 ampath/or/ke/spot/repositories/CountiesRespository.class
 ampath/or/ke/spot/models/Ward$WardBuilder.class
 META-INF/spring-configuration-metadata.json
 ampath/or/ke/spot/repositories/ProgramRepository.class
+ampath/or/ke/spot/models/VlsOrders.class
 ampath/or/ke/spot/services/UserService.class
 ampath/or/ke/spot/repositories/SubCountyRepository.class
 ampath/or/ke/spot/models/KashaClients$KashaClientsBuilder.class
@@ -68,12 +71,14 @@ ampath/or/ke/spot/models/User$UserBuilder.class
 ampath/or/ke/spot/scheduling/ScheduledTasks.class
 ampath/or/ke/spot/services/CustomUserDetailsService.class
 ampath/or/ke/spot/models/Programs.class
+ampath/or/ke/spot/controllers/VLsController.class
 ampath/or/ke/spot/models/KashaClients.class
 ampath/or/ke/spot/services/KashaClientsServices.class
 ampath/or/ke/spot/controllers/AfyaStatLineListController.class
 ampath/or/ke/spot/models/RRI.class
 ampath/or/ke/spot/models/Facilities.class
 ampath/or/ke/spot/controllers/DatabaseController$3.class
+ampath/or/ke/spot/models/VlsOrders$VlsOrdersBuilder.class
 ampath/or/ke/spot/services/RoleService.class
 ampath/or/ke/spot/models/HIVSummaries$HIVSummariesBuilder.class
 ampath/or/ke/spot/config/WebMvcConfig.class
