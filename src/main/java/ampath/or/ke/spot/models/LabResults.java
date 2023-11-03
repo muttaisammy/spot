@@ -38,7 +38,7 @@ public class LabResults {
     private String county;
 
     @Column(name = "sub_county")
-    private String sub_county;
+    private String subCounty;
 
     @Column(name = "fname")
     private String fname;
@@ -50,7 +50,7 @@ public class LabResults {
     private int orderno;
 
     @Column(name = "amrs_location")
-    private String amrlocation;
+    private String amrsLocation;
 
     @Column(name = "recency_number")
     private int recencyNumber;
@@ -146,14 +146,6 @@ public class LabResults {
         this.county = county;
     }
 
-    public String getSub_county() {
-        return sub_county;
-    }
-
-    public void setSub_county(String sub_county) {
-        this.sub_county = sub_county;
-    }
-
     public String getFname() {
         return fname;
     }
@@ -178,12 +170,20 @@ public class LabResults {
         this.orderno = orderno;
     }
 
-    public String getAmrlocation() {
-        return amrlocation;
+    public String getSubCounty() {
+        return subCounty;
     }
 
-    public void setAmrlocation(String amrlocation) {
-        this.amrlocation = amrlocation;
+    public void setSubCounty(String subCounty) {
+        this.subCounty = subCounty;
+    }
+
+    public String getAmrsLocation() {
+        return amrsLocation;
+    }
+
+    public void setAmrsLocation(String amrsLocation) {
+        this.amrsLocation = amrsLocation;
     }
 
     public int getRecencyNumber() {
