@@ -94,7 +94,7 @@ public class LabResultsController {
         Row facilityRow = sheet.getRow(2);
 
         for (int x =1;x<totalRowNum;x++){
-            String ccc="",pname="",county="",scounty="",fname="",mfl="",order="",location="",recno="";
+            String ccc="",pname="",county="",scounty="",fname="",mfl="",order="",location="",recno="",sex="",dob="",age="",pmtct="",stype="",collectdate="",receivedstatus="",currregimen="",artinitdate="",justification="",datereceived="",dateentered="",datetest="",dateapp="",datedisp="",viralload="",entry="";
             System.out.println("Cell Type "+sheet.getRow(x).getCell(0).getCellType() + " Row Number "+ x);
 
             if(sheet.getRow(x).getCell(0)==null){
@@ -179,22 +179,180 @@ public class LabResultsController {
                         recno = String.valueOf(sheet.getRow(x).getCell(8).getStringCellValue());
                     }
                 }
-//================================
-                if (sheet.getRow(x).getCell(8) == null) {
-                    recno = "";
+
+                if (sheet.getRow(x).getCell(9) == null) {
+                    sex = "";
                 }else {
-                    if (sheet.getRow(x).getCell(8).getCellType().equals(CellType.NUMERIC)) {
-                        recno = String.valueOf(sheet.getRow(x).getCell(8).getNumericCellValue());
+                    if (sheet.getRow(x).getCell(9).getCellType().equals(CellType.NUMERIC)) {
+                        sex = String.valueOf(sheet.getRow(x).getCell(9).getNumericCellValue());
                     } else {
-                        recno = String.valueOf(sheet.getRow(x).getCell(8).getStringCellValue());
+                        sex = String.valueOf(sheet.getRow(x).getCell(9).getStringCellValue());
                     }
                 }
 
-                // ===============================
+                if (sheet.getRow(x).getCell(10) == null) {
+                    dob = "";
+                }else {
+                    if (sheet.getRow(x).getCell(10).getCellType().equals(CellType.NUMERIC)) {
+                        dob = String.valueOf(sheet.getRow(x).getCell(10).getNumericCellValue());
+                    } else {
+                        dob = String.valueOf(sheet.getRow(x).getCell(10).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(11) == null) {
+                    age = "";
+                }else {
+                    if (sheet.getRow(x).getCell(11).getCellType().equals(CellType.NUMERIC)) {
+                        age = String.valueOf(sheet.getRow(x).getCell(11).getNumericCellValue());
+                    } else {
+                        age = String.valueOf(sheet.getRow(x).getCell(11).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(12) == null) {
+                    pmtct = "";
+                }else {
+                    if (sheet.getRow(x).getCell(12).getCellType().equals(CellType.NUMERIC)) {
+                        pmtct = String.valueOf(sheet.getRow(x).getCell(12).getNumericCellValue());
+                    } else {
+                        pmtct = String.valueOf(sheet.getRow(x).getCell(12).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(13) == null) {
+                    stype = "";
+                }else {
+                    if (sheet.getRow(x).getCell(13).getCellType().equals(CellType.NUMERIC)) {
+                        stype = String.valueOf(sheet.getRow(x).getCell(13).getNumericCellValue());
+                    } else {
+                        stype = String.valueOf(sheet.getRow(x).getCell(13).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(14) == null) {
+                    collectdate = "";
+                }else {
+                    if (sheet.getRow(x).getCell(14).getCellType().equals(CellType.NUMERIC)) {
+                        collectdate = String.valueOf(sheet.getRow(x).getCell(14).getNumericCellValue());
+                    } else {
+                        collectdate = String.valueOf(sheet.getRow(x).getCell(14).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(15) == null) {
+                    receivedstatus = "";
+                }else {
+                    if (sheet.getRow(x).getCell(15).getCellType().equals(CellType.NUMERIC)) {
+                        receivedstatus = String.valueOf(sheet.getRow(x).getCell(15).getNumericCellValue());
+                    } else {
+                        receivedstatus = String.valueOf(sheet.getRow(x).getCell(15).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(16) == null) {
+                    currregimen = "";
+                }else {
+                    if (sheet.getRow(x).getCell(16).getCellType().equals(CellType.NUMERIC)) {
+                        currregimen = String.valueOf(sheet.getRow(x).getCell(16).getNumericCellValue());
+                    } else {
+                        currregimen = String.valueOf(sheet.getRow(x).getCell(16).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(17) == null) {
+                    artinitdate = "";
+                }else {
+                    if (sheet.getRow(x).getCell(17).getCellType().equals(CellType.NUMERIC)) {
+                        artinitdate = String.valueOf(sheet.getRow(x).getCell(17).getNumericCellValue());
+                    } else {
+                        artinitdate = String.valueOf(sheet.getRow(x).getCell(17).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(18) == null) {
+                    justification = "";
+                }else {
+                    if (sheet.getRow(x).getCell(18).getCellType().equals(CellType.NUMERIC)) {
+                        justification = String.valueOf(sheet.getRow(x).getCell(18).getNumericCellValue());
+                    } else {
+                        justification = String.valueOf(sheet.getRow(x).getCell(18).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(19) == null) {
+                    datereceived = "";
+                }else {
+                    if (sheet.getRow(x).getCell(19).getCellType().equals(CellType.NUMERIC)) {
+                        datereceived = String.valueOf(sheet.getRow(x).getCell(19).getNumericCellValue());
+                    } else {
+                        datereceived = String.valueOf(sheet.getRow(x).getCell(19).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(20) == null) {
+                    dateentered = "";
+                }else {
+                    if (sheet.getRow(x).getCell(20).getCellType().equals(CellType.NUMERIC)) {
+                        dateentered = String.valueOf(sheet.getRow(x).getCell(20).getNumericCellValue());
+                    } else {
+                        dateentered = String.valueOf(sheet.getRow(x).getCell(20).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(21) == null) {
+                    datetest = "";
+                }else {
+                    if (sheet.getRow(x).getCell(21).getCellType().equals(CellType.NUMERIC)) {
+                        datetest = String.valueOf(sheet.getRow(x).getCell(21).getNumericCellValue());
+                    } else {
+                        datetest = String.valueOf(sheet.getRow(x).getCell(21).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(22) == null) {
+                    dateapp = "";
+                }else {
+                    if (sheet.getRow(x).getCell(22).getCellType().equals(CellType.NUMERIC)) {
+                        dateapp = String.valueOf(sheet.getRow(x).getCell(22).getNumericCellValue());
+                    } else {
+                        dateapp = String.valueOf(sheet.getRow(x).getCell(22).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(23) == null) {
+                    datedisp = "";
+                }else {
+                    if (sheet.getRow(x).getCell(23).getCellType().equals(CellType.NUMERIC)) {
+                        datedisp = String.valueOf(sheet.getRow(x).getCell(23).getNumericCellValue());
+                    } else {
+                        datedisp = String.valueOf(sheet.getRow(x).getCell(23).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(24) == null) {
+                    viralload = "";
+                }else {
+                    if (sheet.getRow(x).getCell(24).getCellType().equals(CellType.NUMERIC)) {
+                        viralload = String.valueOf(sheet.getRow(x).getCell(24).getNumericCellValue());
+                    } else {
+                        viralload = String.valueOf(sheet.getRow(x).getCell(24).getStringCellValue());
+                    }
+                }
+
+                if (sheet.getRow(x).getCell(25) == null) {
+                    entry = "";
+                }else {
+                    if (sheet.getRow(x).getCell(25).getCellType().equals(CellType.NUMERIC)) {
+                        entry = String.valueOf(sheet.getRow(x).getCell(25).getNumericCellValue());
+                    } else {
+                        entry = String.valueOf(sheet.getRow(x).getCell(25).getStringCellValue());
+                    }
+                }
 
 
             }
-            System.out.println("CCC number " +ccc +" " +pname +" "+ location +" "+recno +" "+order);
+            System.out.println("CCC number " +ccc +" " +pname +" "+county +" "+scounty +" "+fname +" "+mfl +" "+order +" "+ location +" "+recno +" "+sex +" "+dob +" "+age + " "+pmtct +" "+stype + " "+collectdate +" " +receivedstatus +" "+currregimen +" "+artinitdate +" "+justification +" "+datereceived +" "+dateentered +" "+datetest +" "+dateapp +" "+datedisp +" "+viralload +" "+entry +" ");
         }
 
 
