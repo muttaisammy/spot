@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "curronartsummaries")
+@Table(name = "curr_on_art_summaries")
 public class CurrOnARTSummaries {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
