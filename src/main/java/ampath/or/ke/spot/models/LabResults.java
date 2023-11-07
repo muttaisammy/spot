@@ -1,13 +1,12 @@
 package ampath.or.ke.spot.models;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 import lombok.*;
 
@@ -62,7 +61,7 @@ public class LabResults {
     private Date dob;
 
     @Column(name = "age")
-    private int age;
+    private String age;
 
     @Column(name = "pmtct")
     private String pmtct;
@@ -210,11 +209,11 @@ public class LabResults {
         this.dob = dob;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

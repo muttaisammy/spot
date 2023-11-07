@@ -82,7 +82,7 @@ public class VLsController {
                 "inner join patient_identifier pii on pii.patient_id=o.patient_id and pii.identifier_type=28\n" +
                 "inner join location l on e.location_id=l.location_id\n" +
                 "left join obs ob on ob.person_id = o.patient_id and ob.order_id=o.order_id and ob.concept_id=856\n" +
-                " where o.voided=0 and o.concept_id=856 and o.date_activated>='2023-09-01' and o.date_activated<='2023-11-01' and ob.value_numeric is null";
+                " where o.voided=0 and o.concept_id=856 and o.date_activated>='2023-09-01' and ob.value_numeric is null";
 
         Connection con = DriverManager.getConnection(server + "/amrs", username, password);
         Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);

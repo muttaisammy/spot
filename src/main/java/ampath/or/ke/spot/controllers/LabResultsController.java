@@ -1,14 +1,13 @@
 package ampath.or.ke.spot.controllers;
 
+import ampath.or.ke.spot.models.LabResults;
 import ampath.or.ke.spot.models.Programs;
 import ampath.or.ke.spot.services.LabResultsService;
 import ampath.or.ke.spot.services.ProgramsService;
+import org.apache.poi.hpsf.Decimal;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,9 @@ import java.math.BigDecimal;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @Transactional
@@ -93,8 +94,9 @@ public class LabResultsController {
         int totalRowNum = sheet.getLastRowNum();
         Row facilityRow = sheet.getRow(2);
 
-        for (int x =1;x<totalRowNum;x++){
+        for (int x =1;x<=totalRowNum;x++){
             String ccc="",pname="",county="",scounty="",fname="",mfl="",order="",location="",recno="",sex="",dob="",age="",pmtct="",stype="",collectdate="",receivedstatus="",currregimen="",artinitdate="",justification="",datereceived="",dateentered="",datetest="",dateapp="",datedisp="",viralload="",entry="";
+           Date dob_Date = null,COllect_Date = null,Received_Date = null,Entry_Date = null,Test_Date= null,Approval_Date= null,Disp_Date= null,Initiation_Date= null;
             System.out.println("Cell Type "+sheet.getRow(x).getCell(0).getCellType() + " Row Number "+ x);
 
             if(sheet.getRow(x).getCell(0)==null){
@@ -195,8 +197,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(10).getCellType().equals(CellType.NUMERIC)) {
                         dob = String.valueOf(sheet.getRow(x).getCell(10).getNumericCellValue());
+                        dob_Date = DateUtil.getJavaDate((double) Float.parseFloat(dob));
                     } else {
                         dob = String.valueOf(sheet.getRow(x).getCell(10).getStringCellValue());
+                        dob_Date = DateUtil.getJavaDate((double) Float.parseFloat(dob));
                     }
                 }
 
@@ -235,8 +239,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(14).getCellType().equals(CellType.NUMERIC)) {
                         collectdate = String.valueOf(sheet.getRow(x).getCell(14).getNumericCellValue());
+                        COllect_Date = DateUtil.getJavaDate((double) Float.parseFloat(collectdate));
                     } else {
                         collectdate = String.valueOf(sheet.getRow(x).getCell(14).getStringCellValue());
+                        COllect_Date = DateUtil.getJavaDate((double) Float.parseFloat(collectdate));
                     }
                 }
 
@@ -265,8 +271,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(17).getCellType().equals(CellType.NUMERIC)) {
                         artinitdate = String.valueOf(sheet.getRow(x).getCell(17).getNumericCellValue());
+                        Initiation_Date = DateUtil.getJavaDate((double) Float.parseFloat(artinitdate));
                     } else {
                         artinitdate = String.valueOf(sheet.getRow(x).getCell(17).getStringCellValue());
+                        Initiation_Date =DateUtil.getJavaDate((double) Float.parseFloat(artinitdate));
                     }
                 }
 
@@ -285,8 +293,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(19).getCellType().equals(CellType.NUMERIC)) {
                         datereceived = String.valueOf(sheet.getRow(x).getCell(19).getNumericCellValue());
+                        Received_Date = DateUtil.getJavaDate((double) Float.parseFloat(datereceived));
                     } else {
                         datereceived = String.valueOf(sheet.getRow(x).getCell(19).getStringCellValue());
+                        Received_Date = DateUtil.getJavaDate((double) Float.parseFloat(datereceived));
                     }
                 }
 
@@ -295,8 +305,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(20).getCellType().equals(CellType.NUMERIC)) {
                         dateentered = String.valueOf(sheet.getRow(x).getCell(20).getNumericCellValue());
+                        Entry_Date = DateUtil.getJavaDate((double) Float.parseFloat(dateentered));
                     } else {
                         dateentered = String.valueOf(sheet.getRow(x).getCell(20).getStringCellValue());
+                        Entry_Date = DateUtil.getJavaDate((double) Float.parseFloat(dateentered));
                     }
                 }
 
@@ -305,8 +317,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(21).getCellType().equals(CellType.NUMERIC)) {
                         datetest = String.valueOf(sheet.getRow(x).getCell(21).getNumericCellValue());
+                        Test_Date = DateUtil.getJavaDate((double) Float.parseFloat(datetest));
                     } else {
                         datetest = String.valueOf(sheet.getRow(x).getCell(21).getStringCellValue());
+                        Test_Date = DateUtil.getJavaDate((double) Float.parseFloat(datetest));
                     }
                 }
 
@@ -315,8 +329,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(22).getCellType().equals(CellType.NUMERIC)) {
                         dateapp = String.valueOf(sheet.getRow(x).getCell(22).getNumericCellValue());
+                        Approval_Date = DateUtil.getJavaDate((double) Float.parseFloat(dateapp));
                     } else {
                         dateapp = String.valueOf(sheet.getRow(x).getCell(22).getStringCellValue());
+                        Approval_Date = DateUtil.getJavaDate((double) Float.parseFloat(dateapp));
                     }
                 }
 
@@ -325,8 +341,10 @@ public class LabResultsController {
                 }else {
                     if (sheet.getRow(x).getCell(23).getCellType().equals(CellType.NUMERIC)) {
                         datedisp = String.valueOf(sheet.getRow(x).getCell(23).getNumericCellValue());
+                         Disp_Date = DateUtil.getJavaDate((double) Float.parseFloat(datedisp));
                     } else {
                         datedisp = String.valueOf(sheet.getRow(x).getCell(23).getStringCellValue());
+                        Disp_Date = DateUtil.getJavaDate((double) Float.parseFloat(datedisp));
                     }
                 }
 
@@ -352,7 +370,75 @@ public class LabResultsController {
 
 
             }
-            System.out.println("CCC number " +ccc +" " +pname +" "+county +" "+scounty +" "+fname +" "+mfl +" "+order +" "+ location +" "+recno +" "+sex +" "+dob +" "+age + " "+pmtct +" "+stype + " "+collectdate +" " +receivedstatus +" "+currregimen +" "+artinitdate +" "+justification +" "+datereceived +" "+dateentered +" "+datetest +" "+dateapp +" "+datedisp +" "+viralload +" "+entry +" ");
+             System.out.println("CCC number " +ccc +" " +pname +" "+county +" "+scounty +" "+fname +" "+mfl +" "+order +" "+ location +" "+recno +" "+sex +" "+dob +" "+age + " "+pmtct +" "+stype + " "+collectdate +" " +receivedstatus +" "+currregimen +" ART_initiation  "+artinitdate +" Justification "+justification +" Date Recevced "+datereceived +" Date entred "+dateentered +" Date Tested "+datetest +" Date Approved"+dateapp +" Date Dispende "+datedisp +" javaDate "+ dob_Date+' '+COllect_Date+' '+Received_Date+' '+Entry_Date+' '+Test_Date+' '+Approval_Date+' '+Disp_Date+ " "+viralload +" "+entry );
+            List<LabResults> labResults = labResultsService.findByCCCAndCollectionDate(ccc,COllect_Date);
+             int labsize = labResults.size();
+             System.out.println("Lab Size is "+ labsize);
+             if(labsize==0){
+                 LabResults results = new LabResults();
+                 results.setAge(age);
+                 results.setCcc(ccc);
+                 results.setCounty(county);
+                 results.setAmrsLocation(location);
+                 results.setDob(dob_Date);
+                 results.setDateEntered(Entry_Date);
+                 results.setArtInitiationDate(Initiation_Date);
+                 results.setCurrRegimen(currregimen);
+                 results.setDateOfDispach(Disp_Date);
+                 results.setDateOfApproval(Approval_Date);
+                 results.setMflcode(mfl);
+                 results.setFname(fname);
+                 results.setSex(sex);
+                 results.setSampleType(stype);
+                 results.setJustification(justification);
+                 results.setPmtct(pmtct);
+                 results.setViralLoad(viralload);
+                 results.setReceivedStatus(receivedstatus);
+                 results.setEntry(entry);
+                 results.setDateReceived(Received_Date);
+                 results.setDateOfApproval(Approval_Date);
+                 results.setCollectionDate(COllect_Date);
+                 results.setCounty(county);
+                 results.setSubCounty(scounty);
+                 results.setDateOfTesting(Test_Date);
+                 results.setPname(pname);
+                 labResultsService.save(results);
+
+                 System.out.println("Lab Size is "+ labsize+" ");
+             }else{
+                 LabResults results = labResults.get(0);
+                 results.setAge(age);
+                 results.setCcc(ccc);
+                 results.setCounty(county);
+                 results.setAmrsLocation(location);
+                 results.setDob(dob_Date);
+                 results.setDateEntered(Entry_Date);
+                 results.setArtInitiationDate(Initiation_Date);
+                 results.setCurrRegimen(currregimen);
+                 results.setDateOfDispach(Disp_Date);
+                 results.setDateOfApproval(Approval_Date);
+                 results.setMflcode(mfl);
+                 results.setFname(fname);
+                 results.setSex(sex);
+                 results.setSampleType(stype);
+                 results.setJustification(justification);
+                 results.setPmtct(pmtct);
+                 results.setViralLoad(viralload);
+                 results.setReceivedStatus(receivedstatus);
+                 results.setEntry(entry);
+                 results.setDateReceived(Received_Date);
+                 results.setDateOfApproval(Approval_Date);
+                 results.setCollectionDate(COllect_Date);
+                 results.setCounty(county);
+                 results.setSubCounty(scounty);
+                 results.setDateOfTesting(Test_Date);
+                 results.setPname(pname);
+                 labResultsService.save(results);
+                 System.out.println("Lab Size is "+ labsize+" textt ");
+             }
+
+
+
         }
 
 
