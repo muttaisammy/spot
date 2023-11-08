@@ -34,7 +34,20 @@ public class DashboardController {
     public SubCountiesService subCountiesService;
     @Autowired
     public PeriodServices periodServices;
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public ModelAndView home(HttpSession session) throws IOException {
+        if (session.getAttribute("company") != null && session.getAttribute("user") != null) {
+            Programs companydetails = (Programs) session.getAttribute("companydetails");
+            ModelAndView modelAndView = new ModelAndView();
+            Date nowDate = new Date();
 
+            modelAndView.setViewName("home");
+            return modelAndView;
+        }
+        else{
+            return new ModelAndView("redirect:/setup");
+        }
+    }
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public ModelAndView overview(HttpSession session) throws IOException {
         if (session.getAttribute("company") != null && session.getAttribute("user") != null) {
