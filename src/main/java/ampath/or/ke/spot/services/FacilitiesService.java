@@ -5,6 +5,7 @@ import ampath.or.ke.spot.repositories.FacilitiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Tuple;
 import java.util.Date;
 import java.util.List;
 
@@ -72,6 +73,12 @@ public class FacilitiesService {
     }
     public List<Facilities> KenyaEMRFacilities(String id){
         return  facilitiesRepository.findByEmr(id);
+    }
+    public Facilities searchByAMRSID(List<String> id){
+        return  facilitiesRepository.findByAmrsidIn(id);
+    }
+    public List<Tuple> CountiesPerPartner(List<String> id){
+        return  facilitiesRepository.findDistinctCountyByPartner(id);
     }
 
 }

@@ -104,7 +104,7 @@ public class LabResultsController {
             }
             else {
                 if (sheet.getRow(x).getCell(0).getCellType().equals(CellType.NUMERIC)) {
-                    ccc = String.valueOf(sheet.getRow(x).getCell(0).getNumericCellValue());
+                    ccc = String.valueOf(BigDecimal.valueOf(sheet.getRow(x).getCell(0).getNumericCellValue()));
                 } else {
                     ccc = String.valueOf(sheet.getRow(x).getCell(0).getStringCellValue());
                 }
@@ -402,7 +402,7 @@ public class LabResultsController {
                  results.setSubCounty(scounty);
                  results.setDateOfTesting(Test_Date);
                  results.setPname(pname);
-                 labResultsService.save(results);
+                labResultsService.save(results);
 
                  System.out.println("Lab Size is "+ labsize+" ");
              }else{
@@ -433,7 +433,7 @@ public class LabResultsController {
                  results.setSubCounty(scounty);
                  results.setDateOfTesting(Test_Date);
                  results.setPname(pname);
-                 labResultsService.save(results);
+                labResultsService.save(results);
                  System.out.println("Lab Size is "+ labsize+" textt ");
              }
 

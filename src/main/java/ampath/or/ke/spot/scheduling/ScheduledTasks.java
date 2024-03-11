@@ -1,7 +1,9 @@
 package ampath.or.ke.spot.scheduling;
 
 import ampath.or.ke.spot.models.AfyastatErrors;
+import ampath.or.ke.spot.models.KashaClients;
 import ampath.or.ke.spot.services.AfyastatErrorsService;
+import ampath.or.ke.spot.services.KashaClientsServices;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import org.json.JSONException;
@@ -13,7 +15,11 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.sql.*;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.UUID;
 
 @Component
 public class ScheduledTasks {
@@ -23,6 +29,15 @@ public class ScheduledTasks {
     public String password;
     @Value("${spring.afyastat.server}")
     public String server;
+
+    //ETL
+    @Value("${spring.etl.username}")
+    public String etl_username;
+    @Value("${spring.etl.password}")
+    public String etl_password;
+    @Value("${spring.etl.server}")
+    public String etl_server;
+    //End of ETL
     @Value("${spring.openmrs.url}")
     private String url;
     @Value("${spring.openmrs.remoteurl}")
@@ -34,8 +49,10 @@ public class ScheduledTasks {
 
     @Autowired
     private AfyastatErrorsService afyastatErrorsService;
+    @Autowired
+    private KashaClientsServices kashaClientsServices;
 
-    @Scheduled(cron = "0 */1 * ? * *")
+    //@Scheduled(cron = "0 */1 * ? * *")
     public void ProcessErrors() throws JSONException, ParseException, SQLException, IOException {
       // HttpSession session= new HttpSession()
         List<AfyastatErrors> afyastatErrorsList = afyastatErrorsService.getAllErrors();
@@ -60,6 +77,109 @@ public class ScheduledTasks {
 
 
     }
+
+   // @Scheduled(cron = "0 */1 * ? * *")
+    @Scheduled(cron="0 0,30 * * * *") // 30 minutes
+    public  void KashaClients() throws JSONException, ParseException, SQLException, IOException {
+        // HttpSession session= new HttpSession()
+        // List<KashaClients> kashaClientsList = kashaClientsServices.getAllDataset();
+        //int x = kashaClientsList.size();
+        //KashaClients
+       Date nowDate = new Date();
+        Connection con = DriverManager.getConnection(etl_server, etl_username, etl_password);
+
+        Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs = stmt.executeQuery("select \n" +
+                "p.person_id,\n" +
+                "pii.identifier,\n" +
+                "pn.given_name first_name,\n" +
+                "pn.family_name last_name,\n" +
+                "p.birthdate,\n" +
+                "p.gender,\n" +
+                "e.encounter_datetime date_consented,\n" +
+                "padd.address1 county,\n" +
+                "padd.address2 address,\n" +
+                "padd.address3 estate_village,\n" +
+                "max(case when pa.person_attribute_type_id=10 then pa.value else NULL end) Phone_Number,\n" +
+                "max(case when pa.person_attribute_type_id=40 then pa.value else NULL end) Alternative_Phone_Number,\n" +
+                "max(hiv.next_clinical_rtc_date_hiv) tca,\n" +
+                "padd.address3 nearest_landmark\n" +
+                "from \n" +
+                "amrs.encounter e\n" +
+                "inner join amrs.person p on p.person_id=e.patient_id\n" +
+                "inner join amrs.patient_identifier pii on pii.patient_id=e.patient_id\n" +
+                "inner join amrs.person_name pn on pn.person_id = p.person_id and pn.preferred=1\n" +
+                "inner join amrs.person_attribute pa on pa.person_id = p.person_id and pa.person_attribute_type_id in(10,40,31,41)\n" +
+                "inner join amrs.person_address padd on padd.person_id =p.person_id and padd.preferred=1\n" +
+                "inner join etl.flat_hiv_summary_v15b hiv on hiv.person_id=p.person_id\n" +
+                "where e.encounter_type=287 and pii.identifier_type=28\n" +
+                "group by p.person_id");
+
+       // ResultSet rs = stmt.executeQuery("select uuid from afyastat.location where location_id=" + id + "");
+            rs.last();
+          //  x = rs.getRow();
+
+            rs.beforeFirst();
+            while (rs.next()) {
+                String person_id= rs.getString(1).toString();
+                String  ccc = rs.getString(2).toString();
+                String  first_name = rs.getString(3).toString();
+                String  last_name = rs.getString(4).toString();
+                String  birthdate = rs.getString(5).toString();
+                String  gender = rs.getString(6).toString();
+                String  date_consented = rs.getString(7).toString();
+                String  county= rs.getString(8).toString();
+                String  address = rs.getString(9).toString();
+                String  estate_village = rs.getString(10);
+                String  phone = rs.getString(11).toString();
+                String  altphone = rs.getString(12);
+                String tca = rs.getString(13);
+                String  land_mark = rs.getString(14);
+
+                System.out.println("CCC Number "+ccc);
+
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
+                Date tcaDate = formatter.parse(tca);
+                Date dateConsented =formatter.parse(date_consented);
+
+                List<KashaClients> kashaClients = kashaClientsServices.getByIdentifier(ccc);
+                if(kashaClients.size()>0){
+
+                }else{
+                    KashaClients kc = new KashaClients();
+                    UUID uuid = UUID.randomUUID();
+                    kc.setUuid(String.valueOf(uuid));
+                    kc.setPerson_id(Integer.parseInt(person_id));
+                    kc.setIdentifier(ccc);
+                    kc.setAge(birthdate);
+                    kc.setCounty(county);
+                    kc.setAddress(address);
+                    kc.setDateConsented(dateConsented);
+                    kc.setConsented(1);
+                    kc.setCreated_by(1);
+                    kc.setEstate_village(estate_village);
+                    kc.setExpected_next_delivery_date(tcaDate);
+                    kc.setFirst_name(first_name);
+                    kc.setLast_name(last_name);
+                    kc.setNearest_landmark(land_mark);
+                    kc.setPhone_number(phone);
+                    kc.setSecondary_phone_number(altphone);
+                    kc.setGender(gender);
+                    kc.setDateCreated(nowDate);
+                    kc.setModifiedOn(nowDate);
+                    kashaClientsServices.save(kc);
+                }
+
+
+
+            }
+           con.close();
+
+
+
+    }
+
+
 
 
    // @Scheduled(cron = "0 */1 * ? * *")

@@ -74,6 +74,15 @@ public class Facilities {
     @Column(name = "afyastat_id")
     private String afyastatid;
 
+    @Column(name = "hts_module")
+    private int htsmodule;
+
+    @Column(name = "pmtct_module")
+    private int pmtctmodule;
+
+    @Column(name = "ct_module")
+    private int ctmodule;
+
     public int getId() {
         return id;
     }
@@ -209,5 +218,29 @@ public class Facilities {
 
     public void setAfyastatid(String afyastatid) {
         this.afyastatid = afyastatid;
+    }
+
+    public int getHtsmodule() {
+        return htsmodule;
+    }
+
+    public void setHtsmodule(int htsmodule) {
+        this.htsmodule = htsmodule;
+    }
+
+    public int getPmtctmodule() {
+        return pmtctmodule;
+    }
+
+    public void setPmtctmodule(int pmtctmodule) {
+        this.pmtctmodule = pmtctmodule;
+    }
+
+    public int getCtmodule() {
+        return ctmodule;
+    }
+
+    public void setCtmodule(int ctmodule) {
+        this.ctmodule = ctmodule;
     }
 }

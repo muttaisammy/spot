@@ -17,6 +17,7 @@
     <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
     <script th:src="@{/themes/assets/js/config.js}"></script>
     <link rel="stylesheet" th:href="@{/themes/jtoaster/jquery.toast.css}" />
+
     <script>
       window.config.set({
         phoenixNavbarTopShape: 'slim',
@@ -43,7 +44,29 @@
     <script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script th:src="@{/themes/jtoaster/jquery.toast.min.js}"></script>
-    <script th:src="@{/themes/data/dbupload.js}"></script>
+   <!-- <script th:src="@{/themes/data/dbupload.js}"></script> -->
+    <script>
+    $( document ).ready(function() {
+
+        var x = document.getElementById("smg").value;
+         if(x==0){
+         }
+         else{
+            $.toast({ heading: 'Success',
+                                                      text: 'Record Operation Successfully',
+                                                      showHideTransition: 'slide',
+                                                      icon: 'success',
+                                                      position : 'top-right',
+                                                      hideAfter : 7000,
+                                                      stack : 5,
+                                                      });
+         }
+
+
+    });
+
+
+    </script>
     <style>
         .containers {
           display: flex; /* or inline-flex */
@@ -82,6 +105,9 @@
 <!--    Main Content-->
 <!-- ===============================================-->
 <main class="main" id="top">
+
+    <input type="hidden" id="smg" name="smg" th:value="${smg}"/>
+
     <nav class="navbar navbar-vertical navbar-expand-lg" style="display:none;">
         <script>
           var navbarStyle = window.config.config.phoenixNavbarStyle;
@@ -201,7 +227,7 @@
              </button>
            </div>
            <div class="modal-body">
-                 <form class="row g-3 mb-12" name="upload" id="upload">
+                 <form class="row g-3 mb-12" name="upload" id="upload" th:action="@{/database/master}" method="post" enctype="multipart/form-data" >
                      <div class="form-group">
                          <label for="facility">Facility</label>
                          <datalist id="suggestions">
@@ -252,7 +278,7 @@
     <div class="content">
 
         </br>
-        
+
         <div id="users" data-list='{"valueNames":["username","full_name","email","phone","pid","status","status","status","status"],"page":10,"pagination":true}'>
           <div class="row align-items-center justify-content-between g-3 mb-4">
             <div class="col col-auto">
@@ -364,6 +390,6 @@
 <script th:src="@{/themes/vendors/leaflet/leaflet.js}"></script>
 <script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
 <script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
-<script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
+
 </body>
 </html>

@@ -24,31 +24,61 @@ public class KashaClients {
     private String uuid;
 
     @Column(name = "person_id")
-    private int person_id ;
+    private int person_id;
 
     @Column(name = "identifier")
-    private String identifier ;
+    private String identifier;
 
-    @Column(name = "bod")
-    private String bod ;
+    @Column(name = "first_name")
+    private String first_name;
 
-    @Column(name = "concented")
-    private int concented ;
+    @Column(name = "last_name")
+    private String last_name;
 
-    @Column(name = "synced")
-    private int synced ;
+    @Column(name = "phone_number")
+    private String phone_number;
+
+    @Column(name = "secondary_phone_number")
+    private String secondary_phone_number;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "estate_village")
+    private String estate_village;
+
+    @Column(name = "county")
+    private String county;
+
+    @Column(name = "expected_next_delivery_date")
+    private Date expected_next_delivery_date;
+
+    @Column(name = "nearest_landmark")
+    private String nearest_landmark;
+
+    @Column(name = "gender")
+    private String gender;
+
+    @Column(name = "age")
+    private String age;
+
+    @Column(name = "consented")
+    private int consented;
+
+    @Column(name = "consented_on")
+    private Date dateConsented;
 
     @Column(name = "created_by")
     private int created_by;
 
     @Column(name = "created_on")
-    private Date created_on;
+    private Date dateCreated;
 
     @Column(name = "modified_by", nullable = true)
     private int modified_by;
 
     @Column(name = "modified_on", nullable = true)
-    private Date modified_on;
+    private Date modifiedOn;
 
     public int getId() {
         return id;
@@ -82,20 +112,100 @@ public class KashaClients {
         this.identifier = identifier;
     }
 
-    public String getBod() {
-        return bod;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setBod(String bod) {
-        this.bod = bod;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public int getConcented() {
-        return concented;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setConcented(int concented) {
-        this.concented = concented;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getSecondary_phone_number() {
+        return secondary_phone_number;
+    }
+
+    public void setSecondary_phone_number(String secondary_phone_number) {
+        this.secondary_phone_number = secondary_phone_number;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEstate_village() {
+        return estate_village;
+    }
+
+    public void setEstate_village(String estate_village) {
+        this.estate_village = estate_village;
+    }
+
+    public String getCounty() {
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
+
+    public Date getExpected_next_delivery_date() {
+        return expected_next_delivery_date;
+    }
+
+    public void setExpected_next_delivery_date(Date expected_next_delivery_date) {
+        this.expected_next_delivery_date = expected_next_delivery_date;
+    }
+
+    public String getNearest_landmark() {
+        return nearest_landmark;
+    }
+
+    public void setNearest_landmark(String nearest_landmark) {
+        this.nearest_landmark = nearest_landmark;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public int getConsented() {
+        return consented;
+    }
+
+    public void setConsented(int consented) {
+        this.consented = consented;
     }
 
     public int getCreated_by() {
@@ -106,12 +216,20 @@ public class KashaClients {
         this.created_by = created_by;
     }
 
-    public Date getCreated_on() {
-        return created_on;
+    public Date getDateConsented() {
+        return dateConsented;
     }
 
-    public void setCreated_on(Date created_on) {
-        this.created_on = created_on;
+    public void setDateConsented(Date dateConsented) {
+        this.dateConsented = dateConsented;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public int getModified_by() {
@@ -122,11 +240,12 @@ public class KashaClients {
         this.modified_by = modified_by;
     }
 
-    public Date getModified_on() {
-        return modified_on;
+    public Date getModifiedOn() {
+        return modifiedOn;
     }
 
-    public void setModified_on(Date modified_on) {
-        this.modified_on = modified_on;
+    public void setModifiedOn(Date modifiedOn) {
+        this.modifiedOn = modifiedOn;
     }
 }
+
