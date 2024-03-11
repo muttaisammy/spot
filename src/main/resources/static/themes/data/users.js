@@ -1,25 +1,35 @@
     $(function() {
     $('form').submit(function() {
-       document.getElementById('facility').style.display = 'none';
-       document.getElementById('year').style.display = 'none';
-       document.getElementById('month').style.display = 'none';
+       document.getElementById('username').style.display = 'none';
+       document.getElementById('full_name').style.display = 'none';
+       document.getElementById('email').style.display = 'none';
+       document.getElementById('phone').style.display = 'none';
+       document.getElementById('program').style.display = 'none';
+       document.getElementById('county').style.display = 'none';
      //  document.getElementById("sidenav").setAttribute("hidden", "hidden");
       // document.getElementById("navpanel").style.display = 'none';
        $("#loading-div-background").show();
-                    var facility = document.getElementById("facility").value;
-                    var year = document.getElementById("year").value;
-                    var month = document.getElementById("month").value;
-                    var filename = new FormData($("#upload")[3]);
-                    var filen = new FormData($("#upload")[3]);
+                    var username = document.getElementById("username").value;
+                    var full_name = document.getElementById("full_name").value;
+                    var email = document.getElementById("email").value;
+                    var phone = document.getElementById("phone").value;
+                    var program = document.getElementById("program").value;
+                    var county = document.getElementById("county").value;
+//                    var filename = new FormData($("#upload")[3]);
+//                    var filen = new FormData($("#upload")[3]);
                     var getUrl = window.location;
-                    var baseurls =  getUrl.origin + '/' +getUrl.pathname.split('/')[1]+'/uploadFile';
+                    var baseurls =  getUrl.origin + '/' +getUrl.pathname.split('/')[1]+'/createaccount';
                        console.log($('#filename')[0].files[0])
                       var formData = new FormData();
                       var files = $('#filename')[0].files[0];
                       formData.append("file", files);
-                      formData.append("facility", facility);
-                      formData.append("year", year);
-                      formData.append("month",month);
+                      formData.append("username", username);
+                      formData.append("full_name", full_name);
+                      formData.append("email",email);
+                      formData.append("phone",phone);
+                      formData.append("program",program);
+                      formData.append("county",county);
+
                         $.ajax({
                                 url: baseurls,
                                 type: 'POST',
@@ -31,9 +41,12 @@
                                 success: function (result) {
                                 var x = result;
                                // alert(x);
-                                   document.getElementById('facility').style.display = 'block';
-                                   document.getElementById('year').style.display = 'block';
-                                   document.getElementById('month').style.display = 'block';
+                                   document.getElementById('username').style.display = 'block';
+                                   document.getElementById('full_name').style.display = 'block';
+                                   document.getElementById('email').style.display = 'block';
+                                   document.getElementById('phone').style.display = 'block';
+                                   document.getElementById('partner').style.display = 'block';
+                                   document.getElementById('county').style.display = 'block';
                                 $(".txtnav").hide();
                                //  document.getElementById("sidenav").removeAttribute("hidden");
                                //  document.getElementById("navpanel").style.display = 'block';
