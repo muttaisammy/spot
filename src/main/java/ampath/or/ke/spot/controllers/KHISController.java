@@ -144,8 +144,8 @@ public class KHISController {
         String data = "";
 
         // Set Basic Authentication header
-        String username = "erugut";
-        String password = "nNoel@2019";
+        String username = ""; // read for .env
+        String password = ""; // read from .env
         String auth = username + ":" + password;
         byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes());
         String authHeaderValue = "Basic " + new String(encodedAuth);
