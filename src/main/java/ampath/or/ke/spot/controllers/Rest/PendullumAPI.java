@@ -1,7 +1,13 @@
 package ampath.or.ke.spot.controllers.Rest;
+import ampath.or.ke.spot.models.PendullumData;
+import ampath.or.ke.spot.repositories.PendullumDataRepositories;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import ampath.or.ke.spot.models.KashaClients;
 import ampath.or.ke.spot.models.Pendullums;
+import ampath.or.ke.spot.repositories.PendullumReporitory;
 import ampath.or.ke.spot.services.PendullumService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.gson.JsonObject;
@@ -15,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Tuple;
 import javax.servlet.http.HttpSession;
-import java.awt.print.Pageable;
+//import java.awt.print.Pageable;
 import java.util.Date;
 import java.util.List;
 
@@ -27,12 +33,40 @@ public class PendullumAPI {
     @Autowired
     private PendullumService pendullumService;
 
+    @Autowired
+    private PendullumReporitory pendullumReporitory;
+    @Autowired
+    private PendullumDataRepositories pendullumDataRepositories;
+
+    @GetMapping("/dataset")
+    public ResponseEntity<Page<PendullumData>> PendullumData(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<PendullumData> data = pendullumDataRepositories.findAll(pageable);
+
+        return ResponseEntity.ok(data);
+    }
+    @GetMapping("/alldata")
+    public ResponseEntity<Page<?>> getUsers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<?> data = pendullumReporitory.getAllsummaries(pageable);
+
+        return ResponseEntity.ok(data);
+    }
+
     @GetMapping("/records")
     public List<Tuple> getRecords(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "1000") int size) {
         return pendullumService.getRecordsWithPagination(page, size);
     }
+
+    /*
     @GetMapping("/clients")
     public ResponseEntity<List<Tuple>> getUsers(@RequestParam(defaultValue = "0") int page,
                                                 @RequestParam(defaultValue = "10") int size) {
@@ -55,9 +89,10 @@ public class PendullumAPI {
 
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+    */
 
     @ResponseBody
-    @RequestMapping(value="/dataset", method = RequestMethod.GET,produces = "application/json")//, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value="/datasettt", method = RequestMethod.GET,produces = "application/json")//, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String HTSlist(HttpSession session) throws Exception {
         JSONArray jsonArray = new JSONArray();
         String json="";

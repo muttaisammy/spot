@@ -65,6 +65,9 @@ public class KashaClients {
     @Column(name = "consented")
     private int consented;
 
+    @Column(name = "eligible")
+    private int eligible;
+
     @Column(name = "consented_on")
     private Date dateConsented;
 

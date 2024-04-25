@@ -59,6 +59,9 @@ public class Facilities {
     @Column(name = "org_unit")
     private String org_unit;
 
+    @Column(name = "khis_org_unit")
+    private String khis_org_unit;
+
     @Column(name = "emr")
     private String emr;
 

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from prium.github.io/phoenix/v1.13.0/showcase.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Aug 2023 18:48:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>AMPATH</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
+    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/themes/assets/js/config.js}"></script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
+    <link th:href="@{/themes/assets/css/user.min.css}" type="text/css" rel="stylesheet" id="user-style-default">
+    <script>
+      document.documentElement.classList.remove('dark');
+    </script>
+</head>
+
+<body>
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <nav class="navbar navbar-expand-lg sticky-top py-3" data-navbar-soft-on-scroll="data-navbar-soft-on-scroll">
+        <div class="container-small px-0 px-sm-3"><a class="navbar-brand" href="index.html">
+            <div class="d-flex align-items-center">
+               <!-- <img src="assets/img/icons/logo.png" alt="phoenix" width="27" /> -->
+                <p class="logo-text ms-2"> USAID AMPATH Uzima Repository</p>
+            </div>
+        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item border-bottom border-bottom-lg-0">
+                        <a class="nav-link fs--1 fw-bold pe-3 active" aria-current="page" href="#">Abstracts</a>
+                    </li>
+                    <li class="nav-item border-bottom border-bottom-lg-0">
+                        <a class="nav-link fs--1 fw-bold pe-3" href="#">Registration</a>
+                    </li>
+                    <li class="nav-item border-bottom border-bottom-lg-0">
+                        <a class="nav-link fs--1 fw-bold pe-3" href="#">Feedback</a>
+                    </li>
+                    <li class="nav-item border-bottom border-bottom-lg-0">
+                        <a class="nav-link fs--1 fw-bold pe-3" href="#">Photo Gallery</a>
+                    </li>
+                </ul>
+                <div class="nav-item border-bottom border-bottom-lg-0">
+                    <a class="nav-link fs--1 fw-bold pe-3" href="#">Correspondent</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="py-0">
+        <div class="bg-holder" style="background-image:url(assets/img/bg/bg-24.png);background-position:center;background-size:auto;"></div>
+        <!--/.bg-holder-->
+        <div class="container-lg position-relative">
+            <div class="row flex-center">
+                            <div class="col-12 col-xl-12 order-1 order-xl-0">
+                                <div class="mb-9">
+                                    <div class="card shadow-none border border-300 my-4" data-component-card="data-component-card">
+                                        <div class="card-header p-4 border-bottom border-300 bg-soft">
+                                            <div class="row g-3 justify-content-between align-items-center">
+                                                <div class="col-12 col-md">
+                                                    <h4 class="text-900 mb-0" data-anchor="data-anchor"> Abstracts </h4>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                            <div class="p-4 code-to-copy">
+                                                <form class="row g-3" th:action="@{/abstracts/call}" th:object="${abstracts}" method="POST" enctype="multipart/form-data" >
+                                                    <div class="col-md-12">
+                                                        <label class="form-label" for="txtTitle">Title</label>
+                                                        <input class="form-control" id="txtTitle" type="text" th:field="*{title}" required="required" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label" for="cat">Category</label>
+                                                        <select class="form-select" id="cat" th:field="*{category}" required="required">
+                                                            <option selected="" disabled="" value="">Choose...</option>
+                                                            <option value="">... Select ...</option>
+                                                            <option value="BP">Best Practice</option>
+                                                            <option value="SCI">Scientific</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label" for="author">Main Author</label>
+                                                        <input class="form-control" id="author" type="text" value="" th:field="*{mainauthor}" required="required" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label" for="validationCustom02">Co - Authors (Separate with commas ,)</label>
+                                                        <input class="form-control" id="validationCustom02" type="text" value="" th:field="*{coauthor}" required="required" />
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label" for="email">Contact Email</label>
+                                                        <input class="form-control" id="email" type="text" required="required" th:field="*{email}" />
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="form-label" for="phone">Contact Phone Number</label>
+                                                        <input class="form-control" id="phone" type="text" required="required" th:field="*{phone}" />
+
+                                                    </div>
+
+
+                                                    <div class="col-md-6">
+                                                        <label class="form-label" for="txtIntro">Introduction</label>
+                                                        <textarea id="txtIntro" class="form-control" name="txtIntro" rows="4" cols="50" required="required" th:field="*{introduction}"></textarea>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="form-label" for="txtMethodology">Methodology</label>
+                                                        <textarea id="txtMethodology" class="form-control" name="txtMethodology" rows="4" cols="50" required="required" th:field="*{methodology}"></textarea>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="form-label" for="txtResults">Results</label>
+                                                        <textarea id="txtResults" class="form-control" name="txtResult" rows="4" cols="50" required="required" th:field="*{result}"></textarea>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="form-label" for="txtConclusion">Conclusion</label>
+                                                        <textarea id="txtConclusion" class="form-control" name="txtConclusion" rows="4" cols="50" required="required" th:field="*{conclusion}"></textarea>
+
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label class="form-label">Abstract File (in PDF)</label>
+                                                        <input type="file"  class="form-control" id="abstractFile" name="abstractFile" accept="application/pdf" required>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" id="invalidCheck" type="checkbox" value="" required="" />
+                                                            <label class="form-check-label mb-0" for="invalidCheck">Agree to terms and conditions</label>
+                                                            <div class="invalid-feedback mt-0">You must agree before submitting.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer class="footer d-flex justify-content-center bg-soft border-0">
+        <div class="row g-0 justify-content-between align-items-center h-100">
+            <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you visiting<span class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2024 &copy;<a class="mx-1" href="https://ampath.org/">AMPATH Kenya</a></p>
+            </div>
+            <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">v1.4.0</p>
+            </div>
+        </div>
+    </footer>
+</main><!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script src="assets/js/phoenix.js"></script>
+<script src="assets/js/showcase.js"></script>
+</body>
+
+
+<!-- Mirrored from prium.github.io/phoenix/v1.13.0/showcase.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Aug 2023 18:49:32 GMT -->
+</html>

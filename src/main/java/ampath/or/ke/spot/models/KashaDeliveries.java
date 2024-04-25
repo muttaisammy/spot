@@ -1,13 +1,20 @@
 package ampath.or.ke.spot.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "kasha_deliveries")
 public class KashaDeliveries {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,19 +29,41 @@ public class KashaDeliveries {
     @Column(name = "identifier")
     private String identifier;
 
-    @Column(name = "delivery_date")
-    private Date delivery_date;
 
-    @Column(name = "expected_delivery_date")
-    private Date expected_delivery_date;
+    @Column(name = "first_name")
+    private String first_name;
 
-    @Column(name = "expected_delivery_date")
-    private Date actual_delivery_date;
+    @Column(name = "last_name")
+    private String last_name;
 
-    @Column(name = "delivery_tries")
-    private int delivery_tries;
-    @Column(name = "delivery_status")
-    private String delivery_status;
+    @Column(name = "order_number")
+    private String orderNumber;
+
+    @Column(name = "customer_reachable_on_phone")
+    private String customer_reachable_on_phone;
+
+    @Column(name = "delivery_attempt")
+    private String delivery_attempt;
+
+    @Column(name = "delivery_address")
+    private String delivery_address;
+
+    @Column(name = "delivery_lat")
+    private String delivery_lat;
+
+    @Column(name = "delivery_long")
+    private String delivery_long;
+
+    @Column(name = "delivery_successful")
+    private String delivery_successful;
+
+    @Column(name = "delivery_failure_reason")
+    private String delivery_failure_reason;
+
+    @Column(name = "delivery_returned_to_pharmacist")
+    private String delivery_returned_to_pharmacist;
+
+
     @Column(name = "address")
     private String address;
 
@@ -44,6 +73,9 @@ public class KashaDeliveries {
     @Column(name = "county")
     private String county;
 
+    @Column(name = "in_amrs")
+    private int inAMRS;
+
     @Column(name = "nearest_landmark")
     private String nearest_landmark;
 
@@ -52,6 +84,12 @@ public class KashaDeliveries {
 
     @Column(name = "created_on")
     private Date created_on;
+
+    @Column(name = "created_at")
+    private String created_at;
+
+    @Column(name = "updated_at")
+    private String updated_at;
 
     @Column(name = "modified_by", nullable = true)
     private int modified_by;
@@ -89,46 +127,6 @@ public class KashaDeliveries {
 
     public void setIdentifier(String identifier) {
         this.identifier = identifier;
-    }
-
-    public Date getDelivery_date() {
-        return delivery_date;
-    }
-
-    public void setDelivery_date(Date delivery_date) {
-        this.delivery_date = delivery_date;
-    }
-
-    public Date getExpected_delivery_date() {
-        return expected_delivery_date;
-    }
-
-    public void setExpected_delivery_date(Date expected_delivery_date) {
-        this.expected_delivery_date = expected_delivery_date;
-    }
-
-    public Date getActual_delivery_date() {
-        return actual_delivery_date;
-    }
-
-    public void setActual_delivery_date(Date actual_delivery_date) {
-        this.actual_delivery_date = actual_delivery_date;
-    }
-
-    public int getDelivery_tries() {
-        return delivery_tries;
-    }
-
-    public void setDelivery_tries(int delivery_tries) {
-        this.delivery_tries = delivery_tries;
-    }
-
-    public String getDelivery_status() {
-        return delivery_status;
-    }
-
-    public void setDelivery_status(String delivery_status) {
-        this.delivery_status = delivery_status;
     }
 
     public String getAddress() {
@@ -193,5 +191,124 @@ public class KashaDeliveries {
 
     public void setModified_on(Date modified_on) {
         this.modified_on = modified_on;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public String getOrder_number() {
+        return orderNumber;
+    }
+
+    public void setOrder_number(String order_number) {
+        this.orderNumber = order_number;
+    }
+
+    public String getCustomer_reachable_on_phone() {
+        return customer_reachable_on_phone;}
+
+    public void setCustomer_reachable_on_phone(String customer_reachable_on_phone) {
+        this.customer_reachable_on_phone = customer_reachable_on_phone;
+    }
+
+    public String getDelivery_attempt() {
+        return delivery_attempt;
+    }
+
+    public void setDelivery_attempt(String delivery_attempt) {
+        this.delivery_attempt = delivery_attempt;
+    }
+
+    public String getDelivery_address() {
+        return delivery_address;
+    }
+
+    public void setDelivery_address(String delivery_address) {
+        this.delivery_address = delivery_address;
+    }
+
+    public String getDelivery_lat() {
+        return delivery_lat;
+    }
+
+    public void setDelivery_lat(String delivery_lat) {
+        this.delivery_lat = delivery_lat;
+    }
+
+    public String getDelivery_long() {
+        return delivery_long;
+    }
+
+    public void setDelivery_long(String delivery_long) {
+        this.delivery_long = delivery_long;
+    }
+
+    public String getDelivery_successful() {
+        return delivery_successful;
+    }
+
+    public void setDelivery_successful(String delivery_successful) {
+        this.delivery_successful = delivery_successful;
+    }
+
+    public String getDelivery_failure_reason() {
+        return delivery_failure_reason;
+    }
+
+    public void setDelivery_failure_reason(String delivery_failure_reason) {
+        this.delivery_failure_reason = delivery_failure_reason;
+    }
+
+    public String getDelivery_returned_to_pharmacist() {
+        return delivery_returned_to_pharmacist;
+    }
+
+    public void setDelivery_returned_to_pharmacist(String delivery_returned_to_pharmacist) {
+        this.delivery_returned_to_pharmacist = delivery_returned_to_pharmacist;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public int getInAMRS() {
+        return inAMRS;
+    }
+
+    public void setInAMRS(int inAMRS) {
+        this.inAMRS = inAMRS;
     }
 }
