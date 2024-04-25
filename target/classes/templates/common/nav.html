@@ -7,170 +7,247 @@
         <a class="navbar-brand navbar-brand" th:href="@{/spot/dashboard}">AMPATH
             <span class="text-1000 d-none d-sm-inline">SPOT</span>
         </a>
-        <b> Current Period FY23 - Q4</b>
+        <b> Current Period FY24 - Q2</b>
     </div>
     <div class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center" id="navbarTopCollapse">
         <ul class="navbar-nav navbar-nav-top" data-dropdown-on-hover="data-dropdown-on-hover">
+
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle lh-1" th:href="@{/spot/dashboard}" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-                        <span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
-                <ul class="dropdown-menu navbar-dropdown-caret">
-                    <li class="dropdown">
-                        <a class="dropdown-item" th:href="@{/spot/dashboard}">
-                            <div class="dropdown-item-wrapper">
-                                <span><span class="me-2 uil" data-feather="calendar"></span>
-                                      Program Dashboard
-                                </span>
-                            </div>
-
-                        </a>
-
-                    </li>
-                </ul>
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/spot/dashboard}" role="button" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>Home</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-                    <span class="uil fs-0 me-2 uil-cube"></span>Sync Data (All Sources)</a>
-                <ul class="dropdown-menu navbar-dropdown-caret">
-                    <li class="dropdown">
-                        <a class="dropdown-item" id="e-commerce" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                            <div class="dropdown-item-wrapper">
-                                <span><span class="me-2 uil" data-feather="calendar"></span>
-                                    AMEP
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-item" id="CRM" href="/sites/amrs" data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                            <div class="dropdown-item-wrapper">
-                                <span><span class="me-2 uil" data-feather="calendar"></span>
-                                    AMRS
-                                </span>
-                            </div>
-                        </a>
-
-                    </li>
-                    <li>
-                        <a class="dropdown-item" id="project-management" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                            <div class="dropdown-item-wrapper">
-                                <span>
-                                    <span class="me-2 uil" data-feather="clipboard"></span>KenyaEMR
-                                </span>
-                            </div>
-                        </a>
-
-                    </li>
-                    <li>
-                        <a class="dropdown-item" th:href="@{/sites/amrs}">
-                            <div class="dropdown-item-wrapper">
-                                <span class="me-2 uil" data-feather="message-square"></span>
-                                Refresh Facilities
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" th:href="@{/data/process_rridata}">
-                            <div class="dropdown-item-wrapper">
-                                <span class="me-2 uil" data-feather="message-square"></span>
-                                RRI Data
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/spot/dashboard}" role="button" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>Reporting Rates</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/afyastatList/dashboard}" role="button" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>HTS</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/spot/home}" role="button" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>PMTCT</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/c&t/dashboard}" role="button" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>CARE & TREATMENT</a>
             </li>
 
+
+            <!-------------------------->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>Dashboards</a>
-                <ul class="dropdown-menu navbar-dropdown-caret dropdown-menu-card py-0">
-                    <div class="border-0 scrollbar" style="max-height: 60vh;">
-                        <div class="px-3 pt-4 pb-3 img-dropdown">
-                            <div class="row gx-4 gy-5">
-                                <div class="col-12 col-sm-6 col-md-4">
-                                    <div class="dropdown-item-group">
-                                        <span class="me-2" data-feather="file-text" style="stroke-width:2;"></span>
-                                        <h6 class="dropdown-item-title">1st 95</h6>
-                                    </div>
-
-                                    <a class="dropdown-link" th:href="@{/spot/analytics}">BI Dashboards</a>
-                                    <a class="dropdown-link" th:href="@{/afyastatList/dashboard}">HTS</a>
-                                    <a class="dropdown-link" href="#">PreP</a>
-                                    <a class="dropdown-link" href="#">GBV</a>
-
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-4">
-                                    <div class="dropdown-item-group"><span class="me-2" data-feather="package" style="stroke-width:2;"></span>
-                                        <h6 class="dropdown-item-title">2nd 95</h6>
-                                    </div>
-                                    <a class="dropdown-link" href="#">IIT</a>
-                                    <a class="dropdown-link" href="#">VL</a>
-                                    <a class="dropdown-link" href="#">TPT</a>
-                                </div>
-                                 <div class="col-12 col-sm-6 col-md-4">
-                                    <div class="dropdown-item-group">
-                                        <span class="me-2" data-feather="columns" style="stroke-width:2;"></span>
-                                        <h6 class="dropdown-item-title">3rd 95</h6>
-                                    </div>
-                                    <a class="dropdown-link" th:href="@{/sites/amrs}">Tx_Curr</a>
-                                    <a class="dropdown-link" href="#">DATIM Report</a>
-                                   
-                                    <div class="dropdown-item-group mt-5">
-                                        <span class="me-2" data-feather="tool" style="stroke-width:2;"></span>
-                                        <h6 class="dropdown-item-title">Other Reports</h6>
-                                    </div>
-                                    <a class="dropdown-link" th:href="@{/spot/RRI_dashboard}">RRI Dashboard</a>
-                                    <a class="dropdown-link" href="#">Coming Soon </a>
-                                
-                                </div> 
+                    <span class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Utilities</a>
+                <ul class="dropdown-menu navbar-dropdown-caret">
+                    <li>
+                        <a class="dropdown-item" href="../pages/starter.html">
+                            <div class="dropdown-item-wrapper">
+                                <span class="me-2 uil" data-feather="compass"></span>Refresh
                             </div>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" id="faq" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <div class="dropdown-item-wrapper">
+                            <span class="uil fs-0 uil-angle-right lh-1 dropdown-indicator-icon"></span>
+                            <span><span class="me-2 uil" data-feather="help-circle"></span>Lab Results</span>
                         </div>
-                    </div>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-                    <span class="uil fs-0 me-2 uil-document-layout-right"></span>
-                    Utilities
-                </a>
-                <ul class="dropdown-menu navbar-dropdown-caret">
-                    <li>
-                        <a class="dropdown-item" href="https://ampath.atlassian.net/wiki/home">
-                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="life-buoy"></span>AMRS SOPs</div>
-                        </a>
+                    </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/labs/upload_CSV}">
+                                <div class="dropdown-item-wrapper">
+                                    <span class="me-2 uil"></span>Upload Results
+                                </div>
+                            </a></li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/vls/CleanAMRSVLsOrders}">
+                                <div class="dropdown-item-wrapper">
+                                    <span class="me-2 uil"></span>Clean AMRS Lab Orders
+                                </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/vls/CleanAMRSVLsOrders}">
+                                    <div class="dropdown-item-wrapper">
+                                        <span class="me-2 uil"></span>Process CD4                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/cleaner/list_ccc}">
+                                    <div class="dropdown-item-wrapper">
+                                        <span class="me-2 uil"></span>Get CCC Numbers
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/cleaner/updateCCC}">
+                                    <div class="dropdown-item-wrapper">
+                                        <span class="me-2 uil"></span>Update CCC Numbers
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a class="dropdown-item" th:href="@{/labs/upload_CSV}">
-                            <div class="dropdown-item-wrapper"><span class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Upload Lab Results</div>
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" id="afyastat" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <div class="dropdown-item-wrapper">
+                                <span class="uil fs-0 uil-angle-right lh-1 dropdown-indicator-icon"></span>
+                                <span><span class="me-2 uil" data-feather="globe"></span>AfyaSTAT</span>
+                            </div>
                         </a>
-                    </li>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" th:href="@{/afyastat/all_errorqueue}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Sycn Queues</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/afyastat/processs}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Process OpenMRS</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/afyastat/process}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Load Summaries</div>
+                                </a>
+                            </li>
 
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-                    <span class="uil fs-0 me-2 uil-document-layout-right" data-feather="settings"></span>
-                    Settings
-                </a>
-                <ul class="dropdown-menu navbar-dropdown-caret">
-                    <li>
-                        <a class="dropdown-item" th:href="@{/system/users}">
-                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>System Users</div>
-                        </a>
+                        </ul>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="#">
-                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>SMTP Server</div>
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" id="khis" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <div class="dropdown-item-wrapper">
+                                <span class="uil fs-0 uil-angle-right lh-1 dropdown-indicator-icon"></span>
+                                <span><span class="me-2 uil" data-feather="globe"></span>KHIS</span>
+                            </div>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" th:href="@{/khis/mapping}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>Mappings</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/khis/reports}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>Reports</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/khis/logs}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>Logs</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" id="landing" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <div class="dropdown-item-wrapper">
+                            <span class="uil fs-0 uil-angle-right lh-1 dropdown-indicator-icon"></span>
+                            <span><span class="me-2 uil" data-feather="globe"></span>Data Sources</span>
+                        </div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="../pages/landing/default.html">
+                                <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>AMRS</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../pages/landing/alternate.html">
+                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>AMEP</div>
+                               </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../pages/landing/alternate.html">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>KenyaEMR</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/sites/amrs}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Refresh Facilities</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/data/process_rridata}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>RRI Data</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{/afyastat/process}">
+                                    <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Sycn Queues</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" id="pricing" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <div class="dropdown-item-wrapper">
+                            <span class="uil fs-0 uil-angle-right lh-1 dropdown-indicator-icon"></span>
+                            <span><span class="me-2 uil" data-feather="settings"></span>Settings</span>
+                        </div>
+                    </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/system/userss}">
+                                <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>System Users</div>
+                            </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>SMTP Server</div>
+                            </a></li>
+                        </ul>
                     </li>
                     <li>
                         <a class="dropdown-item" th:href="@{/database/master}">
-                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>KenyaEMR Databases</div>
+                            <div class="dropdown-item-wrapper">
+                                <span class="me-2 uil" data-feather="monitor"></span>KenyaEMR Databases
+                            </div>
+                       </a>
+                    </li>
+                    <li><a class="dropdown-item" href="../pages/members.html">
+                        <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>Members</div>
+                    </a></li>
+                    <li><a class="dropdown-item" href="../pages/timeline.html">
+                        <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clock"></span>Timeline</div>
+                    </a></li>
+                    <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="errors" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <div class="dropdown-item-wrapper"><span class="uil fs-0 uil-angle-right lh-1 dropdown-indicator-icon"></span><span><span class="me-2 uil" data-feather="alert-triangle"></span>Errors</span></div>
+                    </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../pages/errors/404.html">
+                                <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
+                            </a></li>
+                            <li><a class="dropdown-item" href="../pages/errors/403.html">
+                                <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
+                            </a></li>
+                            <li><a class="dropdown-item" href="../pages/errors/500.html">
+                                <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
+                            </a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </li>
+            <!-------------------------->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/service/dashboard}" role="button" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>Services Tracker</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-document-layout-right"></span>
+                    APIs
+                </a>
+                <ul class="dropdown-menu navbar-dropdown-caret">
+
+                    <li>
+                        <a class="dropdown-item" href="/v2/api-doccs">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>api-docs</div>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" th:href="@{/afyastat/process}">
-                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Sycn Queues</div>
+                        <a class="dropdown-item" href="/swagger-uii/">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>swagger-ui</div>
                         </a>
                     </li>
                     <li>
@@ -178,9 +255,15 @@
                             <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>Kasha API</div>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/rest/v1/api/pendullum/dataset}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>Pendulum API</div>
+                        </a>
+                    </li>
 
                 </ul>
             </li>
+
         </ul>
     </div>
     <ul class="navbar-nav navbar-nav-icons flex-row">

@@ -2,6 +2,7 @@ package ampath.or.ke.spot.repositories;
 
 import ampath.or.ke.spot.models.AfyastatClientLineList;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,4 +22,5 @@ public interface AfyastatClientLineListRepository extends JpaRepository<Afyastat
 
     List<AfyastatClientLineList> findFirst1000ByOrderByDataEntryDateDesc();
     AfyastatClientLineList findFirstByOrderByIdDesc();
+
 }

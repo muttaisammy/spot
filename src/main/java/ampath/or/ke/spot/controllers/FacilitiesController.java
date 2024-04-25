@@ -104,6 +104,92 @@ public class FacilitiesController {
             return new ModelAndView("redirect:/auth/login");
         }
     }
+    @RequestMapping(value = "/clean_Sites", method = RequestMethod.GET)
+    public ModelAndView clean_Sites(HttpSession session) throws IOException, JSONException, SQLException {
+        if (session.getAttribute("user") != null) {
+            ModelAndView modelAndView = new ModelAndView();
+
+            Connection con = DriverManager.getConnection("jdbc:mysql://10.50.80.113:3306/ampath_spot_live", username, password);
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet resultSet = stmt.executeQuery("SELECT f.mflcode, f.emr, n.mfl,n.* FROM ampath_spot_live.newtable n left join facilities f on n.mfl=f.mflcode");
+
+            while (resultSet.next()) {
+                int xxxx = 0;
+                xxxx = Integer.parseInt(resultSet.getString("mfl"));
+                String mflcode = resultSet.getString("mfl").toString();
+
+                Facilities facilities = facilitiesService.getByMFLCODE(mflcode);
+
+                if(facilities==null){
+                    System.out.println("Facility MFL Code Ndo Hii "+ mflcode +" What we have  ");
+                    Facilities facility = new Facilities();
+                    facility.setFacilityname(resultSet.getString("amep").toString());
+                    facility.setStatus(1);
+                    facility.setCounty(resultSet.getString("county").toString());
+                    facility.setSubcounty(resultSet.getString("scounty").toString());
+                    facility.setMflcode(mflcode);
+                    facility.setOrg_unit(resultSet.getString("uuid").toString());
+                    facility.setWard(resultSet.getString("ward").toString());
+
+                    facility.setCountry("Kenya");
+                    facility.setPartner(resultSet.getString("imp").toString());
+                    facility.setOwner("MOH");
+
+                    facility.setHtsmodule(Integer.parseInt(resultSet.getString("hts").toString()));
+                    facility.setPmtctmodule(Integer.parseInt(resultSet.getString("pmtct").toString()));
+                    facility.setCtmodule(Integer.parseInt(resultSet.getString("ct").toString()));
+
+
+                    facilitiesService.save(facility);
+
+                }else{
+
+                    Facilities facility =facilities;
+                    facility.setFacilityname(resultSet.getString("amep").toString());
+                    facility.setStatus(1);
+                    facility.setCounty(resultSet.getString("county").toString());
+                    facility.setSubcounty(resultSet.getString("scounty").toString());
+                    facility.setMflcode(mflcode);
+                    facility.setOrg_unit(resultSet.getString("uuid").toString());
+                    facility.setWard(resultSet.getString("ward").toString());
+
+                    facility.setCountry("Kenya");
+                    facility.setPartner(resultSet.getString("imp").toString());
+                    facility.setOwner("MOH");
+
+                    facility.setHtsmodule(Integer.parseInt(resultSet.getString("hts").toString()));
+                    facility.setPmtctmodule(Integer.parseInt(resultSet.getString("pmtct").toString()));
+                    facility.setCtmodule(Integer.parseInt(resultSet.getString("ct").toString()));
+
+                    facilitiesService.save(facility);
+                    System.out.println("Facility MFL Code Ndo Hii "+ mflcode +" What we have  "+ facilities.getMflcode());
+
+                }
+
+                String mfl ="";// resultSet.getString("mflcode").toString();
+               /*  if(resultSet.getString("mfl").length()>0){
+
+
+                }else{
+                    String mflcode = resultSet.getString("tx_curr").toString();
+                    System.out.println();
+                }
+                */
+
+            }
+
+
+            List<Facilities> facilities = facilitiesService.getAllDataset();
+
+            modelAndView.addObject("facilities", facilities);
+            modelAndView.setViewName("facilities");
+            return modelAndView;
+
+        } else {
+            return new ModelAndView("redirect:/auth/login");
+        }
+    }
+
         public static String removeFirstandLast(String str)
         {
 

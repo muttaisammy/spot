@@ -12,7 +12,7 @@
                     var filename = new FormData($("#upload")[3]);
                     var filen = new FormData($("#upload")[3]);
                     var getUrl = window.location;
-                    var baseurls =  getUrl.origin + '/' +getUrl.pathname.split('/')[1]+'/uploadFile';
+                    var baseurls =  getUrl.origin + '/' +getUrl.pathname.split('/')[1]+'/';
                        console.log($('#filename')[0].files[0])
                       var formData = new FormData();
                       var files = $('#filename')[0].files[0];

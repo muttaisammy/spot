@@ -35,7 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService customUserDetailsService;
 
-
+    @Autowired
+    JwtTokenProvider jwtTokenProvider;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -99,7 +100,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .tokenRepository(persistentTokenRepository())
                 .tokenValiditySeconds(24 * 60 * 60)
                 .and()
-                .exceptionHandling();
+                .exceptionHandling()
+                .and()
+               .apply(new JwtConfigurer(jwtTokenProvider));
 
     }
     @Override

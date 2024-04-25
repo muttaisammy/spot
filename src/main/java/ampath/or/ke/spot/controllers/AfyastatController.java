@@ -53,7 +53,7 @@ public class AfyastatController {
     @Autowired
     private AfyastatErrorsService afyastatErrorsService;
     @RequestMapping(value = "/all_errorqueue", method = RequestMethod.GET)
-    public ModelAndView encounters(HttpSession session) throws IOException, JSONException, SQLException {
+    public String encounters(HttpSession session) throws IOException, JSONException, SQLException {
         if (session.getAttribute("user") != null) {
             ModelAndView modelAndView = new ModelAndView();
             System.out.println("url " + server + "pass " + username + "Password " + password);
@@ -68,7 +68,7 @@ public class AfyastatController {
             ResultSet rs = stmt.executeQuery("SELECT e.id,e.uuid,e.location,provider,e.discriminator,data_source,payload,form_name,patient_uuid,form_data_uuid,m.message\n" +
                     " FROM afyastat.medic_error_data e\n" +
                     " inner join afyastat.medic_error_message m on e.id=m.medic_error_data_id\n" +
-                    " where e.date_created>='2022-06-01'  order by e.id desc");
+                    " where e.date_created>='2024-01-01'  order by e.id desc");
             //and e.date_created<='2022-12-31' and e.location=28
             rs.last();
             x = rs.getRow();
@@ -89,6 +89,7 @@ public class AfyastatController {
                     ae.setFormDataUuid(rs.getString(10));
                     ae.setErrormessage(rs.getString(11));
                     afyastatErrorsService.save(ae);
+                    System.out.println("test here");
                 }
 
             }
@@ -97,9 +98,9 @@ public class AfyastatController {
             System.out.println("Size yake ndo hii " + afyastatErrorsList.size() );
             modelAndView.addObject("errors", afyastatErrorsList);
             modelAndView.setViewName("pm/afyastatnew");
-            return modelAndView;
+            return "Done";
         } else {
-            return new ModelAndView("redirect:/auth/login");
+            return "Login is required";// ModelAndView("redirect:/auth/login");
         }
 
     }
@@ -164,9 +165,9 @@ public class AfyastatController {
     }
 
     @RequestMapping(value = "/processs", method = RequestMethod.GET)
-    public ModelAndView checkuuid(HttpSession session) throws IOException, JSONException, SQLException {
+    public String checkuuid(HttpSession session) throws IOException, JSONException, SQLException {
         if (session.getAttribute("user") != null) {
-            ModelAndView modelAndView = new ModelAndView();
+
             //List<AfyastatErrors> afyastatErrorsList = afyastatErrorsService.getTop25Errors("json-registration");
             List<AfyastatErrors> afyastatErrorsList = afyastatErrorsService.getErrors("json-registration");
 
@@ -237,11 +238,11 @@ public class AfyastatController {
                 }*/
 
 
-            modelAndView.addObject("errors", afyastatErrorsList);
-            modelAndView.setViewName("pm/afyastatnew");
-            return modelAndView;
+           // modelAndView.addObject("errors", afyastatErrorsList);
+           // modelAndView.setViewName("pm/afyastatnew");
+            return "DOne";
         } else {
-            return new ModelAndView("redirect:/auth/login");
+            return "Login is required";// new ModelAndView("redirect:/auth/login");
         }
 
     }

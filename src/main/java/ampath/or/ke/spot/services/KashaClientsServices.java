@@ -23,4 +23,15 @@ public class KashaClientsServices {
         return kashaClientsRepository.save(dataset);
     }
     public List<KashaClients> getAllDataset(){return  kashaClientsRepository.findAll();}
+
+    public List<KashaClients> findByDateConsentedGreaterThanEqual(int eligible,Date created_on){
+        return  kashaClientsRepository.findByEligibleAndModifiedOnGreaterThanEqual(eligible,created_on);}
+
+
+    public List<KashaClients> getByIdentifier(String ccc){return  kashaClientsRepository.findByIdentifier(ccc);}
+
+    public List<KashaClients> getDatasetByDate(){return  kashaClientsRepository.findAll();}
+
+    public List<KashaClients> getAllEligible(int eligible){return  kashaClientsRepository.findByEligible(eligible);}
+    //public List<KashaClients> getAllEligible(int eligible){return  kashaClientsRepository.findByEligible(eligible);}
 }

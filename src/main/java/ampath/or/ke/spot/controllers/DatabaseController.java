@@ -7,6 +7,7 @@ import ampath.or.ke.spot.services.DatabasesInfoServices;
 import ampath.or.ke.spot.services.FacilitiesService;
 import ampath.or.ke.spot.services.MonthsService;
 import ampath.or.ke.spot.services.YearsService;
+import ampath.or.ke.spot.utils.Helper;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +40,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.zip.GZIPInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
 
-import static com.sun.tools.classfile.Attribute.SourceFile;
 
 @Controller
 @Transactional
@@ -83,25 +80,31 @@ public class DatabaseController {
          //   modelAndView.addObject("facilities", facilitiesService.searchByFtypeLike("F"));
          //   modelAndView.addObject("counties", facilitiesService.searchByFtypeLike("C"));
          //   modelAndView.addObject("countfacilities", facilitiesList.size());
+            modelAndView.addObject("smg","0");// new Helper("success", "Successfully save project."));
             modelAndView.addObject("years", yearsService.getAllDataset());
             modelAndView.addObject("months", monthsService.getAllDataset());
             modelAndView.addObject("facility", facilitiesService.KenyaEMRFacilities("KenyaEMR"));
             modelAndView.addObject("dbs", databasesInfos);
             modelAndView.setViewName("databases");
+            //modelAndView.addAttribute("message", new helper("success", "Successfully save project."));
+
             return modelAndView;
         } else {
             return new ModelAndView("redirect:/auth/login");
         }
 
     }
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    @RequestMapping(value = "/master", method = RequestMethod.POST)
     @ResponseBody
-    public String upload(@RequestParam("file") MultipartFile file,
+    public ModelAndView upload(@RequestParam("filename") MultipartFile file,
                          @RequestParam("facility") String facility,
                          @RequestParam("year") String year,
                          @RequestParam("month") String month,
                          HttpSession session
     ) throws IOException, InvalidFormatException, JSONException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+        if (session.getAttribute("user") != null) {
+            ModelAndView modelAndView = new ModelAndView();
+            List<DatabasesInfo> databasesInfos = databasesInfoServices.getAllDataset();
         String progres = "";
         User userdetails = (User) session.getAttribute("user");
         //String fileName = file.getOriginalFilename();
@@ -113,7 +116,7 @@ public class DatabaseController {
         String nfilename = "openmrsm" + facility + month + year + ".sql";
         String fpath = dbpath + nfilename;
         Date nowDate = new Date();
-        try {
+       // try {
 
             //Unzipping the file
             String fileName = file.getOriginalFilename();
@@ -164,14 +167,26 @@ public class DatabaseController {
             //databaseInfo.set;
             databasesInfoServices.save(databaseInfo);
 
-        } catch (Exception e) {
-            return HttpStatus.INTERNAL_SERVER_ERROR.toString();
-        }
+       // } catch (Exception e) {
+       //     return HttpStatus.INTERNAL_SERVER_ERROR.toString();
+       // }
         //modelMap.addAttribute("filename", file);
         System.out.println("Upload imefika hapa" + userdetails.getFull_name() + " " + facility + " " + year + " " + month);
-        return "File uploaded successfully.";
+        //return "File uploaded successfully.";
 
-        // return "fileUploadView";
+        modelAndView.addObject("smg", "1");
+        modelAndView.addObject("years", yearsService.getAllDataset());
+        modelAndView.addObject("months", monthsService.getAllDataset());
+        modelAndView.addObject("facility", facilitiesService.KenyaEMRFacilities("KenyaEMR"));
+        modelAndView.addObject("dbs", databasesInfos);
+        modelAndView.addObject("smg", new Helper("success", "Successfully save project."));
+        modelAndView.setViewName("databases");
+        // modelAndView.addAttribute("message", new helper("success", "Successfully save project."));
+
+        return modelAndView;
+    } else {
+        return new ModelAndView("redirect:/auth/login");
+    }
 
     }
 

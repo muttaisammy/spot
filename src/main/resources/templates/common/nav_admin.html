@@ -1,0 +1,263 @@
+<nav class="navbar navbar-top navbar-slim justify-content-between fixed-top navbar-expand-lg" id="navbarTopSlim"
+     style="display:none;" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="navbar-logo">
+        <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTopCollapse" aria-controls="navbarTopCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
+        </button>
+        <a class="navbar-brand navbar-brand" th:href="@{/spot/dashboard}">AMPATH
+            <span class="text-1000 d-none d-sm-inline">SPOT</span>
+        </a>
+        <b> Current Period FY23 - Q4</b>
+    </div>
+    <div class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center" id="navbarTopCollapse">
+        <ul class="navbar-nav navbar-nav-top" data-dropdown-on-hover="data-dropdown-on-hover">
+            <li class="navbar-dropdown-caret" >
+                <a class="dropdown-item " id="e-commerce" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                    <div class="dropdown-item-wrapper">
+                                <span><span class="me-2 uil" data-feather="calendar"></span>
+                                    AMEP
+                                </span>
+                    </div>
+                </a>
+
+
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/spot/dashboard}" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                        <span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
+                <ul class="dropdown-menu navbar-dropdown-caret">
+                    <li class="dropdown">
+                        <a class="dropdown-item" th:href="@{/spot/dashboard}">
+                            <div class="dropdown-item-wrapper">
+                                <span><span class="me-2 uil" data-feather="calendar"></span>
+                                      Program Dashboard
+                                </span>
+                            </div>
+
+                        </a>
+
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-cube"></span>Sync Data (All Sources)</a>
+                <ul class="dropdown-menu navbar-dropdown-caret">
+                    <li class="dropdown">
+                        <a class="dropdown-item" id="e-commerce" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <div class="dropdown-item-wrapper">
+                                <span><span class="me-2 uil" data-feather="calendar"></span>
+                                    AMEP
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-item" id="CRM" href="/sites/amrs" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <div class="dropdown-item-wrapper">
+                                <span><span class="me-2 uil" data-feather="calendar"></span>
+                                    AMRS
+                                </span>
+                            </div>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="project-management" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <div class="dropdown-item-wrapper">
+                                <span>
+                                    <span class="me-2 uil" data-feather="clipboard"></span>KenyaEMR
+                                </span>
+                            </div>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/sites/amrs}">
+                            <div class="dropdown-item-wrapper">
+                                <span class="me-2 uil" data-feather="message-square"></span>
+                                Refresh Facilities
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/data/process_rridata}">
+                            <div class="dropdown-item-wrapper">
+                                <span class="me-2 uil" data-feather="message-square"></span>
+                                RRI Data
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/spot/home}">
+                            <div class="dropdown-item-wrapper">
+                                <span class="me-2 uil" data-feather="message-square"></span>
+                                Home
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-puzzle-piece"></span>Dashboards</a>
+                <ul class="dropdown-menu navbar-dropdown-caret dropdown-menu-card py-0">
+                    <div class="border-0 scrollbar" style="max-height: 60vh;">
+                        <div class="px-3 pt-4 pb-3 img-dropdown">
+                            <div class="row gx-4 gy-5">
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="dropdown-item-group">
+                                        <span class="me-2" data-feather="file-text" style="stroke-width:2;"></span>
+                                        <h6 class="dropdown-item-title">1st 95</h6>
+                                    </div>
+
+                                    <a class="dropdown-link" th:href="@{/spot/analytics}">BI Dashboards</a>
+                                    <a class="dropdown-link" th:href="@{/afyastatList/dashboard}">HTS</a>
+                                    <a class="dropdown-link" href="#">PreP</a>
+                                    <a class="dropdown-link" href="#">GBV</a>
+
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="dropdown-item-group"><span class="me-2" data-feather="package" style="stroke-width:2;"></span>
+                                        <h6 class="dropdown-item-title">2nd 95</h6>
+                                    </div>
+                                    <a class="dropdown-link" href="#">IIT</a>
+                                    <a class="dropdown-link" href="#">VL</a>
+                                    <a class="dropdown-link" href="#">TPT</a>
+                                </div>
+                                 <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="dropdown-item-group">
+                                        <span class="me-2" data-feather="columns" style="stroke-width:2;"></span>
+                                        <h6 class="dropdown-item-title">3rd 95</h6>
+                                    </div>
+                                    <a class="dropdown-link" th:href="@{/sites/amrs}">Tx_Curr</a>
+                                    <a class="dropdown-link" href="#">DATIM Report</a>
+                                   
+                                    <div class="dropdown-item-group mt-5">
+                                        <span class="me-2" data-feather="tool" style="stroke-width:2;"></span>
+                                        <h6 class="dropdown-item-title">Other Reports</h6>
+                                    </div>
+                                    <a class="dropdown-link" th:href="@{/spot/RRI_dashboard}">RRI Dashboard</a>
+                                    <a class="dropdown-link" href="#">Coming Soon </a>
+                                
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-document-layout-right"></span>
+                    Utilities
+                </a>
+                <ul class="dropdown-menu navbar-dropdown-caret">
+                    <li>
+                        <a class="dropdown-item" href="https://ampath.atlassian.net/wiki/home">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="life-buoy"></span>AMRS SOPs</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/labs/upload_CSV}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Upload Lab Results</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/vls/CleanAMRSVLsOrders}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Clean AMRS Lab Orders Results</div>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <span class="uil fs-0 me-2 uil-document-layout-right" data-feather="settings"></span>
+                    Settings
+                </a>
+                <ul class="dropdown-menu navbar-dropdown-caret">
+                    <li>
+                        <a class="dropdown-item" th:href="@{/system/users}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>System Users</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>SMTP Server</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/database/master}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>KenyaEMR Databases</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/afyastat/process}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>AfyaStat Sycn Queues</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" th:href="@{/rest/v1/api/kasha/clients}">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="monitor"></span>Kasha API</div>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle lh-1" th:href="@{/rest/v1/api/kasha/clients}" role="button">
+                    <span class="uil fs-0 me-2 uil-document-layout-right" data-feather="settings"></span>
+                    Settings
+                </a>
+            </li>
+        </ul>
+    </div>
+    <ul class="navbar-nav navbar-nav-icons flex-row">
+        <li class="nav-item">
+            <div class="theme-control-toggle fa-ion-wait pe-2 theme-control-toggle-slim">
+                <input class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox" data-theme-control="phoenixTheme" value="dark" />
+                <label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme">
+                    <span class="icon me-1 d-none d-sm-block" data-feather="moon"></span>
+                    <span class="fs--1 fw-bold">Dark</span>
+                </label>
+                <label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme">
+                    <span class="icon me-1 d-none d-sm-block" data-feather="sun"></span>
+                    <span class="fs--1 fw-bold">Light</span>
+                </label>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link lh-1 pe-0 white-space-nowrap" id="navbarDropdownUser" href="#!" role="button" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false">
+                <span th:utext="${session.user.username}"></span>
+            <span class="fa-solid fa-chevron-down fs--2"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300" aria-labelledby="navbarDropdownUser">
+                <div class="card position-relative border-0">
+                    <div class="card-body p-0">
+                        <div class="text-center pt-4 pb-3">
+                            <div class="avatar avatar-xl ">
+                                <img class="rounded-circle " th:src="@{/themes/assets/img/team/72x72/57.webp}" alt="" />
+                            </div>
+                            <h6 class="mt-2 text-black">
+                                <span th:utext="${session.user.full_name}"></span>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="overflow-auto scrollbar" style="height: 10rem;">
+                        <ul class="nav d-flex flex-column mb-2 pb-1">
+                          <!--  <li class="nav-item"><a class="nav-link px-3" href="#!"> <span class="me-2 text-900" data-feather="user"></span><span>Profile</span></a></li>
+                            <li class="nav-item"><a class="nav-link px-3" href="#!"><span class="me-2 text-900" data-feather="pie-chart"></span>Dashboard</a></li>-->
+                            <li class="nav-item"><a class="nav-link px-3" th:href="@{/system/users/changepassword}"> <span class="me-2 text-900" data-feather="command"></span>Change Password</a></li>
+                        </ul> 
+                        <a class="btn btn-phoenix-secondary d-flex flex-center w-100" th:href="@{/logout}">
+                            <span class="me-2" data-feather="log-out"> </span>Sign out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>

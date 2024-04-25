@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Tuple;
 import java.util.List;
 
 @Repository("facilitiesRepository")
@@ -17,6 +18,8 @@ public interface FacilitiesRepository extends JpaRepository<Facilities, Long> {
     Facilities findByFacilitynameLike(String qid);
     Facilities findByFacilitynameEndsWith(String director);
     List<Facilities> findByEmr(String emr);
+
+    Facilities findByAmrsidIn(List<String> qid);
 
     @Query("SELECT distinct(facilityname) FROM Facilities")
     List<Object> DistinctFacilityname();
@@ -52,4 +55,9 @@ public interface FacilitiesRepository extends JpaRepository<Facilities, Long> {
     @Query("SELECT m FROM Facilities m WHERE m.owner LIKE %:title%")
     List<Facilities> searchByFtypeLike(@Param("title") String title);
     //Facilities findByorgUnitName(String fname);
+
+   // @Query("SELECT distinct(county)  FROM Facilities  WHERE Partner = ?1 ")
+  //  List<?> findDistinctCountyByPartner(@Param("partner") String partner);
+    @Query(value = "SELECT distinct(county) county FROM facilities WHERE Partner in ( ?1 ) order by county asc ", nativeQuery = true)
+    List<Tuple> findDistinctCountyByPartner( List<String> qid);
 }
