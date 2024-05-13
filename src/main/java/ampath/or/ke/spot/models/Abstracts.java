@@ -35,22 +35,25 @@ public class Abstracts {
     @Column(name = "tracker_no")
     private String trackerNo;
 
+    @Column(name = "file_name")
+    private String fileName;
+
     @Column(name = "email")
     private String email;
 
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "introduction")
+    @Column(name = "introduction" ,columnDefinition = "TEXT")
     private String introduction;
 
-    @Column(name = "methodology")
+    @Column(name = "methodology" ,columnDefinition = "TEXT")
     private String methodology;
 
-    @Column(name = "result")
+    @Column(name = "result" ,columnDefinition = "TEXT")
     private String result;
 
-    @Column(name = "conclusion")
+    @Column(name = "conclusion" ,columnDefinition = "TEXT")
     private String conclusion;
 
     @Column(name = "created_on")

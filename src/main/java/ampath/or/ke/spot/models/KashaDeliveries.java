@@ -55,7 +55,7 @@ public class KashaDeliveries {
     private String delivery_long;
 
     @Column(name = "delivery_successful")
-    private String delivery_successful;
+    private String deliverySuccessful;
 
     @Column(name = "delivery_failure_reason")
     private String delivery_failure_reason;
@@ -256,12 +256,12 @@ public class KashaDeliveries {
         this.delivery_long = delivery_long;
     }
 
-    public String getDelivery_successful() {
-        return delivery_successful;
+    public String getDeliverySuccessful() {
+        return deliverySuccessful;
     }
 
-    public void setDelivery_successful(String delivery_successful) {
-        this.delivery_successful = delivery_successful;
+    public void setDeliverySuccessful(String deliverySuccessful) {
+        this.deliverySuccessful = deliverySuccessful;
     }
 
     public String getDelivery_failure_reason() {

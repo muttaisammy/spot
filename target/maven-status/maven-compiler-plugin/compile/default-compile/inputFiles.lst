@@ -21,6 +21,7 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/DatabasesInfoRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/NewonARTLineList.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/AfyastatClientLineListService.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/PendulumRiskScores.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/VLsController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/scheduling/CareTasks.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/PendullumDataRepositories.java
@@ -40,6 +41,7 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/ServiceTracker.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/VlsOrdersRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/RRIRepository.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/PendulumRiskScoreRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/AfyastatErrorsService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/PendulumDataService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/Rest/FacilitiesAPI.java
@@ -59,6 +61,7 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Months.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/SystemController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/KHISMappingService.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/MediaTypeUtils.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/VLResultsRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/Rest/PendullumAPI.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/FacilitiesService.java
@@ -94,6 +97,7 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/Rest/RRIRestAPI.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/utils/GlobalVars.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/NewonARTSummariesRepository.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/AbstractRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/SyncTrackerRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Facilities.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Programs.java
@@ -128,11 +132,14 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/PeriodRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/AfyastatErrorsRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/RoleRepository.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/ProjectBeyondController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/UserService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/Role.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/SubCountyRepository.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/AbstractService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/CleanerController.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/AfyaStatLineListController.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/PendulumRiskScoreService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/NewonARTSummaries.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/AppInitializer.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/CCCService.java

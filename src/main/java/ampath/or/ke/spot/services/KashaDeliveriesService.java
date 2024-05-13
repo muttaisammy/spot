@@ -30,5 +30,8 @@ public class KashaDeliveriesService {
         return kashaDeliveriesRepository.findByInAMRS(amrs);
     }
 
+    public List<KashaDeliveries> getDeliveredInAMRS(int amrs,String status) {
+        return kashaDeliveriesRepository.findByInAMRSAndDeliverySuccessful(amrs,status);
+    }
 
 }
