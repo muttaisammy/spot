@@ -23,6 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/rest/v2/api/kasha")
 public class KashaAPIV2 {
+
     @Autowired
     private KashaClientsServices kashaClientsServices;
     @Autowired
