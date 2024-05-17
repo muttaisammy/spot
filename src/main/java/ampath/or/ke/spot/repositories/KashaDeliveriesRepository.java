@@ -14,4 +14,7 @@ public interface KashaDeliveriesRepository extends JpaRepository<KashaDeliveries
     List<KashaDeliveries> findByOrderNumber(String ccno);
     List<KashaDeliveries> findByInAMRS(int inamrs);
    /// List<KashaDeliveries> findByEligible(int eligible);
+   List<KashaDeliveries> findByInAMRSAndDeliverySuccessful(int inamrs,String status);
+
+
 }

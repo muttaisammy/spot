@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
 
-
-<!-- Mirrored from prium.github.io/phoenix/v1.13.0/showcase.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Aug 2023 18:48:18 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +33,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
     <link th:href="@{/themes/assets/css/user.min.css}" type="text/css" rel="stylesheet" id="user-style-default">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       document.documentElement.classList.remove('dark');
     </script>
@@ -50,6 +50,7 @@
             <div class="d-flex align-items-center">
                <!-- <img src="assets/img/icons/logo.png" alt="phoenix" width="27" /> -->
                 <p class="logo-text ms-2"> USAID AMPATH Uzima Repository</p>
+                <input id="txtmsg" type="hidden" name="txtmsg" th:value="${smg}"/>
             </div>
         </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,7 +121,7 @@
 
                                                     <div class="col-md-6">
                                                         <label class="form-label" for="email">Contact Email</label>
-                                                        <input class="form-control" id="email" type="text" required="required" th:field="*{email}" />
+                                                        <input class="form-control" id="email" type="email" required="required" th:field="*{email}" />
 
                                                     </div>
                                                     <div class="col-md-6">
@@ -189,7 +190,28 @@
 </main><!-- ===============================================-->
 <!--    End of Main Content-->
 <!-- ===============================================-->
+<script>
+$(document).ready(function() {
+if (document.getElementById("txtmsg").value == 0) {
+}
+else if (document.getElementById("txtmsg").value == 2) {
 
+          Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong! Try Again !!"
+        });
+    } else{
+        Swal.fire({
+          icon: "success",
+          title: "Submitted Successful",
+          text: "Abstract Submitted Successfully..."
+        });
+
+    }
+ });
+
+</script>
 
 
 <!-- ===============================================-->
@@ -204,7 +226,4 @@
 <script src="assets/js/phoenix.js"></script>
 <script src="assets/js/showcase.js"></script>
 </body>
-
-
-<!-- Mirrored from prium.github.io/phoenix/v1.13.0/showcase.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Aug 2023 18:49:32 GMT -->
 </html>

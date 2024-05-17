@@ -167,6 +167,29 @@ public class ScheduledTasks {
 
             List<KashaDeliveries> kashaDeliveries = kashaDeliveriesService.getOrderNumber(orderNumber);
             if(kashaDeliveries.size()>0){
+                KashaDeliveries kd = kashaDeliveries.get(0);
+                kd.setPerson_id(personId);
+                kd.setFirst_name(first_name);
+                kd.setLast_name(last_name);
+                kd.setOrder_number(orderNumber);
+                kd.setCustomer_reachable_on_phone(customerReachable);
+                kd.setIdentifier(identifier);
+                kd.setDelivery_attempt(deliveryAttempt);
+                kd.setDelivery_address(delivery_address);
+                kd.setDelivery_lat(delivery_lat);
+                kd.setDelivery_long(delivery_long);
+                kd.setDeliverySuccessful(delivery_successful);
+                kd.setDelivery_failure_reason(delivery_failure_reason);
+                kd.setDelivery_returned_to_pharmacist(delivery_returned_to_pharmacist);
+                kd.setCreated_at(created_at);
+                kd.setUpdated_at(updated_at);
+                kd.setCreated_on(nowDate);
+                kd.setCreated_by(1);
+                if(personId==0) {
+
+                }else {
+                    kashaDeliveriesService.save(kd);
+                }
 
             }else{
                 KashaDeliveries kd = new KashaDeliveries();
@@ -180,7 +203,7 @@ public class ScheduledTasks {
                 kd.setDelivery_address(delivery_address);
                 kd.setDelivery_lat(delivery_lat);
                 kd.setDelivery_long(delivery_long);
-                kd.setDelivery_successful(delivery_successful);
+                kd.setDeliverySuccessful(delivery_successful);
                 kd.setDelivery_failure_reason(delivery_failure_reason);
                 kd.setDelivery_returned_to_pharmacist(delivery_returned_to_pharmacist);
                 kd.setCreated_at(created_at);
@@ -188,7 +211,11 @@ public class ScheduledTasks {
                 kd.setCreated_on(nowDate);
                 kd.setCreated_by(1);
 
-                kashaDeliveriesService.save(kd);
+                if(personId==0) {
+
+                }else {
+                    kashaDeliveriesService.save(kd);
+                }
             }
 
 

@@ -1,6 +1,8 @@
 package ampath.or.ke.spot.controllers.Rest;
 import ampath.or.ke.spot.models.PendullumData;
+import ampath.or.ke.spot.models.PendulumRiskScores;
 import ampath.or.ke.spot.repositories.PendullumDataRepositories;
+import ampath.or.ke.spot.services.PendulumRiskScoreService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Tuple;
@@ -37,6 +40,8 @@ public class PendullumAPI {
     private PendullumReporitory pendullumReporitory;
     @Autowired
     private PendullumDataRepositories pendullumDataRepositories;
+    @Autowired
+    private PendulumRiskScoreService pendulumRiskScoreService;
 
     @GetMapping("/dataset")
     public ResponseEntity<Page<PendullumData>> PendullumData(
@@ -128,4 +133,19 @@ public class PendullumAPI {
         } */
         return json;
     }
+
+   // @PostMapping("/riskScores")
+    @ResponseBody
+    @RequestMapping(value="/riskscores", method = RequestMethod.POST,produces = "application/json")//, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String postRiskScores(@RequestBody String requestBody) {
+        // Here you can process the incoming risk score data
+        // For this example, let's just print it
+        System.out.println("Received risk score: " + requestBody.toString());
+        PendulumRiskScores pendulumRiskScores = new PendulumRiskScores();
+        pendulumRiskScores.setRisksmg(requestBody.toString());
+        pendulumRiskScoreService.save(pendulumRiskScores);
+        // You can perform further processing or return a response
+        return "Risk score received successfully!";
+    }
 }
+

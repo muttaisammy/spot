@@ -24,6 +24,7 @@ ampath/or/ke/spot/repositories/AppointmentsTrackerRepository.class
 ampath/or/ke/spot/repositories/PeriodRepository.class
 ampath/or/ke/spot/controllers/Rest/HTSRestAPI.class
 ampath/or/ke/spot/models/Periods$PeriodsBuilder.class
+ampath/or/ke/spot/services/AbstractService.class
 ampath/or/ke/spot/repositories/KashaDrugsRepository.class
 ampath/or/ke/spot/services/KashaDeliveriesService.class
 ampath/or/ke/spot/config/SpringFoxConfig.class
@@ -32,6 +33,7 @@ ampath/or/ke/spot/models/AfyastatClientLineList.class
 ampath/or/ke/spot/repositories/UserRepository.class
 ampath/or/ke/spot/repositories/RoleRepository.class
 ampath/or/ke/spot/models/Abstracts.class
+ampath/or/ke/spot/repositories/AbstractRepository.class
 ampath/or/ke/spot/models/Months$MonthsBuilder.class
 ampath/or/ke/spot/services/VLResultsService.class
 ampath/or/ke/spot/models/MOHReports.class
@@ -42,6 +44,7 @@ ampath/or/ke/spot/controllers/DatabaseController$1.class
 ampath/or/ke/spot/models/KashaDrugs.class
 ampath/or/ke/spot/controllers/KashaController.class
 ampath/or/ke/spot/services/DatabasesInfoServices.class
+ampath/or/ke/spot/controllers/MediaTypeUtils.class
 ampath/or/ke/spot/repositories/VlsOrdersRepository.class
 ampath/or/ke/spot/services/HIVSummariesService.class
 ampath/or/ke/spot/repositories/CountiesRespository.class
@@ -57,6 +60,7 @@ ampath/or/ke/spot/models/NewonARTSummaries$NewonARTSummariesBuilder.class
 ampath/or/ke/spot/models/CurrOnARTSummaries.class
 ampath/or/ke/spot/models/ServiceTracker.class
 ampath/or/ke/spot/repositories/SubCountyRepository.class
+ampath/or/ke/spot/services/PendulumRiskScoreService.class
 ampath/or/ke/spot/services/CCCService.class
 ampath/or/ke/spot/models/KashaClients$KashaClientsBuilder.class
 ampath/or/ke/spot/controllers/AMRSIDController.class
@@ -81,6 +85,7 @@ ampath/or/ke/spot/services/PeriodServices.class
 ampath/or/ke/spot/controllers/DatabaseController$2.class
 ampath/or/ke/spot/repositories/KashaDeliveriesRepository.class
 ampath/or/ke/spot/controllers/Rest/PendullumAPI.class
+ampath/or/ke/spot/models/PendulumRiskScores.class
 ampath/or/ke/spot/models/KashaDeliveries.class
 ampath/or/ke/spot/services/ProgramsService.class
 ampath/or/ke/spot/models/Months.class
@@ -156,6 +161,8 @@ ampath/or/ke/spot/models/MOHReports$MOHReportsBuilder.class
 ampath/or/ke/spot/models/SMTPServer.class
 ampath/or/ke/spot/repositories/NewonARTLineListRepository.class
 ampath/or/ke/spot/models/Years$YearsBuilder.class
+ampath/or/ke/spot/repositories/PendulumRiskScoreRepository.class
+ampath/or/ke/spot/controllers/ProjectBeyondController.class
 ampath/or/ke/spot/models/SyncTracker$SyncTrackerBuilder.class
 ampath/or/ke/spot/services/PendullumService.class
 ampath/or/ke/spot/controllers/SystemController.class
@@ -205,6 +212,7 @@ ampath/or/ke/spot/controllers/Rest/SurgeAPI.class
 ampath/or/ke/spot/models/SurgeSummaries.class
 ampath/or/ke/spot/models/County$CountyBuilder.class
 ampath/or/ke/spot/controllers/AbractsController.class
+ampath/or/ke/spot/models/PendulumRiskScores$PendulumRiskScoresBuilder.class
 ampath/or/ke/spot/models/MOHDataset.class
 ampath/or/ke/spot/repositories/KashaClientsRepository.class
 ampath/or/ke/spot/controllers/Rest/KashaAPI.class

@@ -111,7 +111,7 @@ public class KHISController {
         obj.put("completeDate", DateCompleted);
         obj.put("period", "202404");
         obj.put("orgUnit", "WmVkqxdy4xB");
-        obj.put("attributeOptionCombo","KOoyurqK0Uf");
+        //obj.put("attributeOptionCombo","KOoyurqK0Uf");
        String header=obj.toString();
        String finalDataset="";
        String finalHeader = header.substring(0, header.length() - 1);
@@ -120,7 +120,7 @@ public class KHISController {
            String dataset="";
            JSONObject obj2 = new JSONObject();
            obj2.put("dataElement",khisMappingList.get(f).getDataElement());
-           obj2.put("categoryOptionCombo",khisMappingList.get(f).getCategoryCombo());
+          // obj2.put("categoryOptionCombo",khisMappingList.get(f).getCategoryCombo());
            obj2.put("value",f);
            dataset=obj2.toString();
            finalDataset =finalDataset+dataset+",";
