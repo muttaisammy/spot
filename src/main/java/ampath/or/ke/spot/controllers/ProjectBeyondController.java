@@ -30,7 +30,7 @@ public class ProjectBeyondController {
     public ModelAndView mappings(HttpSession session) throws IOException, JSONException {
         if (session.getAttribute("user") != null) {
             ModelAndView modelAndView = new ModelAndView();
-            List<KashaClients> mappingList = kashaClientsServices.getAllDataset();
+            List<KashaClients> mappingList = kashaClientsServices.getAllEligible(1);
             modelAndView.addObject("mappings", mappingList);
 
             modelAndView.setViewName("kasha_clients");

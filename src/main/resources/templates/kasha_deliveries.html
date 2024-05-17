@@ -215,8 +215,8 @@
                                 <th class="sort align-middle" data-sort="code">UUID</th>
                                 <th class="sort align-middle" data-sort="du">Identifier</th>
                                 <th class="sort align-middle ps-3" data-sort="name">Name</th>
-                                <th class="sort align-middle" data-sort="cu">orderNumber</th>
-                                <th class="sort align-middle" data-sort="category">Gender</th>
+                                <th class="sort align-middle" data-sort="cu">OrderNumber</th>
+                                <th class="sort align-middle" data-sort="category">Delivery Date Attempt</th>
                                 <th class="sort align-middle" data-sort="version">Address</th>
                                 <th class="sort align-middle" data-sort="status">Delivery Successful</th>
                                 <th class="sort align-middle" data-sort="eligible">Scyed To AMRS</th>
@@ -236,10 +236,8 @@
                                 <td class="align-middle category"><span th:text="${obj.delivery_attempt}"></span></td>
                                 <td class="align-middle version"><span th:text="${obj.delivery_address}"></span></td>
                                 <td class="align-middle status">
-
-
                                                <div class="badge badge-phoenix fs--2 badge-phoenix-success">
-                                                    <span class="fw-bold" th:text="${obj.delivery_successful}">No</span>
+                                                    <span class="fw-bold" th:text="${obj.deliverySuccessful}">No</span>
                                                     <span class="ms-1 fas fa-stream"></span>
                                                </div>
 

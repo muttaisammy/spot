@@ -157,7 +157,7 @@ public class AbractsController {
         System.out.println("fileName: " + fileName);
         System.out.println("mediaType: " + mediaType);
 
-        File file = new File(data_path + "abstract/" + fileName);
+        File file = new File(data_path + "abstracts/" + fileName);
         InputStreamResource resource = null;
         try {
             resource = new InputStreamResource(new FileInputStream(file));
