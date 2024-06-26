@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Form</title>
+</head>
+<body>
+<h1>User Form</h1>
+<form action="#" th:action="@{/user}" th:object="${user}" method="post">
+    <div>
+        <label for="name">Prefix:</label>
+        <input type="text" id="prefix" th:field="*{prefix}" />
+    </div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" />
+    </div>
+    <div>
+        <label for="name">County:</label>
+        <input type="text" id="county" th:field="*{county}" />
+    </div>
+    <div>
+        <label for="name">Designation:</label>
+        <input type="text" id="designation" th:field="*{designation}" />
+    </div>
+    <div>
+        <label for="name">Presenting an Abstract? {Yes/ No}:</label>
+        <input type="text" id="abstracts" th:field="*{abstracts}" />
+
+
+    <label for="name">If Yes, Title</label>
+        <input type="text" id="title" th:field="*{title}" />
+
+
+        <label for="name">Email:</label>
+        <input type="email" id="email" th:field="*{email}" />
+
+    </div>
+
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+</html>

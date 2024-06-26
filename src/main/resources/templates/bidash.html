@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>AMPATH SPOT</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
+    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
+    <meta name="msapplication-TileImage" content="/themes/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
+    <script th:src="@{/themes/assets/js/config.js}"></script>
+    <script>
+      window.config.set({
+        phoenixNavbarTopShape: 'slim',
+        phoenixNavbarPosition: 'horizontal'
+      });
+    </script>
+    <script>
+      document.documentElement.classList.add('navbar-horizontal');
+    </script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link th:href="@{/themes/vendors/simplebar/simplebar.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link th:href="@{/themes/assets/css/theme-rtl.min.css}" type="text/css" rel="stylesheet" id="style-rtl">
+    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
+    <link th:href="@{/themes/assets/css/user-rtl.min.css}" type="text/css" rel="stylesheet" id="user-style-rtl">
+    <link th:href="@{/themes/assets/css/user.min.css}" type="text/css" rel="stylesheet" id="user-style-default">
+    <script>
+      var phoenixIsRTL = window.config.config.phoenixIsRTL;
+      if (phoenixIsRTL) {
+        var linkDefault = document.getElementById('style-default');
+        var userLinkDefault = document.getElementById('user-style-default');
+        linkDefault.setAttribute('disabled', true);
+        userLinkDefault.setAttribute('disabled', true);
+        document.querySelector('html').setAttribute('dir', 'rtl');
+      } else {
+        var linkRTL = document.getElementById('style-rtl');
+        var userLinkRTL = document.getElementById('user-style-rtl');
+        linkRTL.setAttribute('disabled', true);
+        userLinkRTL.setAttribute('disabled', true);
+      }
+    </script>
+    <link th:href="@{/themes/vendors/leaflet/leaflet.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.css}" rel="stylesheet">
+    <link th:href="@{/themes/vendors/leaflet.markercluster/MarkerCluster.Default.css}" rel="stylesheet">
+</head>
+
+<body>
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <nav class="navbar navbar-vertical navbar-expand-lg" style="display:none;">
+        <script>
+          var navbarStyle = window.config.config.phoenixNavbarStyle;
+          if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
+          }
+        </script>
+
+        <div class="navbar-vertical-footer">
+            <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+                <span class="uil uil-left-arrow-to-left fs-0"></span>
+                <span class="uil uil-arrow-from-right fs-0"></span>
+                <span class="navbar-vertical-footer-text ms-2">Collapsed View</span>
+            </button>
+        </div>
+    </nav>
+    <nav class="navbar navbar-top navbar-slim justify-content-between fixed-top navbar-expand-lg" id="navbarTopSlim" style="display:none;">
+        <div class="navbar-logo">
+            <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTopCollapse" aria-controls="navbarTopCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
+            </button>
+            <a class="navbar-brand navbar-brand" th:href="@{/}">AMPATH
+                <span class="text-1000 d-none d-sm-inline">SPOT</span>'
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center" id="navbarTopCollapse">
+            <ul class="navbar-nav navbar-nav-top" data-dropdown-on-hover="data-dropdown-on-hover">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lh-1" th:href="@{/}" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                        <span class="uil fs-0 me-2 uil-chart-pie">
+                        </span>Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                        <span class="uil fs-0 me-2 uil-cube"></span>Apps</a>
+                    <ul class="dropdown-menu navbar-dropdown-caret">
+                        <li class="dropdown">
+                            <a class="dropdown-item" id="e-commerce" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                <div class="dropdown-item-wrapper">
+                                <span><span class="me-2 uil" data-feather="calendar"></span>
+                                    AMEP
+                                </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-item" id="CRM" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                <div class="dropdown-item-wrapper">
+                                <span><span class="me-2 uil" data-feather="calendar"></span>
+                                    AMRS
+                                </span>
+                                </div>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="dropdown-item" id="project-management" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                <div class="dropdown-item-wrapper">
+                                <span>
+                                    <span class="me-2 uil" data-feather="clipboard"></span>IOMS
+                                </span>
+                                </div>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="dropdown-item-wrapper">
+                                    <span class="me-2 uil" data-feather="message-square"></span>
+                                    Chat
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                        <span class="uil fs-0 me-2 uil-puzzle-piece"></span>Dashboards</a>
+                    <ul class="dropdown-menu navbar-dropdown-caret dropdown-menu-card py-0">
+                        <div class="border-0 scrollbar" style="max-height: 60vh;">
+                            <div class="px-3 pt-4 pb-3 img-dropdown">
+                                <div class="row gx-4 gy-5">
+                                    <div class="col-12 col-sm-6 col-md-4">
+                                        <div class="dropdown-item-group">
+                                            <span class="me-2" data-feather="file-text" style="stroke-width:2;"></span>
+                                            <h6 class="dropdown-item-title">1st 95</h6>
+                                        </div>
+                                        <a class="dropdown-link" href="#">HTS</a>
+                                        <a class="dropdown-link" href="#">PreP</a>
+                                        <a class="dropdown-link" href="#">GBV</a>
+
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-4">
+                                        <div class="dropdown-item-group"><span class="me-2" data-feather="package" style="stroke-width:2;"></span>
+                                            <h6 class="dropdown-item-title">2nd 95</h6>
+                                        </div>
+                                        <a class="dropdown-link" href="#">IIT</a>
+                                        <a class="dropdown-link" href="#">VL</a>
+                                        <a class="dropdown-link" href="#">TPT</a>
+                                    </div>
+                                    <!-- <div class="col-12 col-sm-6 col-md-4">
+                                        <div class="dropdown-item-group">
+                                            <span class="me-2" data-feather="columns" style="stroke-width:2;"></span>
+                                            <h6 class="dropdown-item-title">3rd 95</h6>
+                                        </div>
+                                        <a class="dropdown-link" href="#">Report 1</a>
+                                        <a class="dropdown-link" href="#">Report 2</a>
+                                        <a class="dropdown-link" href="#">Report 3</a>
+                                        <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="tool" style="stroke-width:2;"></span>
+                                            <h6 class="dropdown-item-title">Other Reports</h6>
+                                        </div>
+                                        <a class="dropdown-link" href="#">Report 1</a>
+                                        <a class="dropdown-link" href="#">Report 2</a>
+                                        <a class="dropdown-link" href="#">Report 3</a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false"><span class="uil fs-0 me-2 uil-document-layout-right"></span>Documentation</a>
+                    <ul class="dropdown-menu navbar-dropdown-caret">
+                        <li><a class="dropdown-item" href="../documentation/getting-started.html">
+                            <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="life-buoy"></span>Getting started</div>
+                        </a></li>
+
+                        <li><a class="dropdown-item" href="../documentation/gulp.html">
+                            <div class="dropdown-item-wrapper"><span class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>FAQs</div>
+                        </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav navbar-nav-icons flex-row">
+            <li class="nav-item">
+                <div class="theme-control-toggle fa-ion-wait pe-2 theme-control-toggle-slim">
+                    <input class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox" data-theme-control="phoenixTheme" value="dark" />
+                    <label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme">
+                        <span class="icon me-1 d-none d-sm-block" data-feather="moon"></span>
+                        <span class="fs--1 fw-bold">Dark</span>
+                    </label>
+                    <label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme">
+                        <span class="icon me-1 d-none d-sm-block" data-feather="sun"></span>
+                        <span class="fs--1 fw-bold">Light</span>
+                    </label>
+                </div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link lh-1 pe-0 white-space-nowrap" id="navbarDropdownUser" href="#!" role="button" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false">Olivia <span class="fa-solid fa-chevron-down fs--2"></span></a>
+                <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300" aria-labelledby="navbarDropdownUser">
+                    <div class="card position-relative border-0">
+                        <div class="card-body p-0">
+                            <div class="text-center pt-4 pb-3">
+                                <div class="avatar avatar-xl ">
+                                    <img class="rounded-circle " th:src="@{/themes/assets/img/team/72x72/57.webp}" alt="" />
+                                </div>
+                                <h6 class="mt-2 text-black">Jerry Seinfield</h6>
+                            </div>
+                        </div>
+                        <div class="overflow-auto scrollbar" style="height: 10rem;">
+                            <ul class="nav d-flex flex-column mb-2 pb-1">
+                                <li class="nav-item"><a class="nav-link px-3" href="#!"> <span class="me-2 text-900" data-feather="user"></span><span>Profile</span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3" href="#!"><span class="me-2 text-900" data-feather="pie-chart"></span>Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link px-3" href="#!"> <span class="me-2 text-900" data-feather="help-circle"></span>Help Center</a></li>
+                            </ul>
+                            <a class="btn btn-phoenix-secondary d-flex flex-center w-100" href="#!">
+                                <span class="me-2" data-feather="log-out"> </span>Sign out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var body = document.querySelector('body');
+        navbarVertical.remove()
+        navbarTopSlim.removeAttribute('style');
+        body.classList.add('nav-slim');
+      </script>
+
+    <script>
+        var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+        var navbarPosition = window.config.config.phoenixNavbarPosition;
+        var body = document.querySelector('body');
+        var navbarTop = document.querySelector('#navbarTop');
+        var topNavSlim = document.querySelector('#topNavSlim');
+        var navbarTopSlim = document.querySelector('#navbarTopSlim');
+        var navbarCombo = document.querySelector('#navbarCombo');
+        var navbarComboSlim = document.querySelector('#navbarComboSlim');
+        var dualNav = document.querySelector('#dualNav');
+
+        var documentElement = document.documentElement;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+
+        if (navbarPosition === 'dual-nav') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          dualNav.removeAttribute('style');
+          documentElement.classList.add('dual-nav');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          topNavSlim.style.display = 'block';
+          navbarVertical.style.display = 'inline-block';
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+          navbarVertical.remove();
+          navbarTop.remove();
+          topNavSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarTopSlim.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+           navbarTop.remove();
+          topNavSlim.remove();
+          navbarCombo.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          body.classList.add('nav-slim');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+          topNavSlim.remove();
+          navbarVertical.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarTop.removeAttribute('style');
+          documentElement.classList.add('navbar-horizontal');
+        } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarComboSlim.remove();
+          navbarCombo.removeAttribute('style');
+          navbarVertical.removeAttribute('style');
+          documentElement.classList.add('navbar-combo')
+
+        } else {
+          topNavSlim.remove();
+          navbarTop.remove();
+          navbarTopSlim.remove();
+          navbarCombo.remove();
+          navbarComboSlim.remove();
+          navbarVertical.removeAttribute('style');
+        }
+
+        var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+        var navbarTop = document.querySelector('.navbar-top');
+        if (navbarTopStyle === 'darker') {
+          navbarTop.classList.add('navbar-darker');
+        }
+
+        var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        if (navbarVerticalStyle === 'darker') {
+          navbarVertical.classList.add('navbar-darker');
+        }
+      </script>
+
+    <div class="content">
+        <iframe title="ampath" width="100%" height="90%" src="https://app.powerbi.com/reportEmbed?reportId=5c2dda52-1630-4d3f-9b70-3c839a618142&autoAuth=true&ctid=64036ec8-1db8-41c5-a14a-10a87504c8aa" frameborder="0" allowFullScreen="true"></iframe>
+
+
+        <div class="pb-5">
+            <div class="row g-4">
+
+                <div class="col-12 col-xxl-6">
+
+                    <div class="mb-8">
+                        <h2 class="mb-2">RRI Dashboard</h2>
+                        <h5 class="text-700 fw-semi-bold">Here’s what’s going on at your business right now</h5>
+
+                    </div>
+                    <hr class="bg-200 mb-6 mt-4" />
+                    <div class="row align-items-center g-4">
+                        <div class="col-12 col-md-auto">
+                            Hsdfjdsfgsvdfucvdscfgdsvfcdshv
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div th:insert="~{common/footer}"></div>
+
+    </div>
+
+</main><!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/fontawesome/all.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script th:src="@{/themes/vendors/list.js/list.min.js}"></script>
+<script th:src="@{/themes/vendors/feather-icons/feather.min.js}"></script>
+<script th:src="@{/themes/vendors/dayjs/dayjs.min.js}"></script>
+<script th:src="@{/themes/assets/js/phoenix.js}"></script>
+<script th:src="@{/themes/vendors/echarts/echarts.min.js}"></script>
+<script th:src="@{/themes/vendors/leaflet/leaflet.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.markercluster/leaflet.markercluster.js}"></script>
+<script th:src="@{/themes/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js}"></script>
+<script th:src="@{/themes/assets/js/ecommerce-dashboard.js}"></script>
+</body>
+</html>

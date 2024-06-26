@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>AMPATH</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+
+
+</head>
+<body>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">
+            <img style="width: 50%;" class="img-fluid p-0" th:src="@{/img/USAID AMPATH Uzima_v2-01.png}">
+            <div class="ml-2 p-0 d-inline webT"></div>
+        </a>
+        <button data-target="#navBar" data-toggle="collapse" class="navbar-toggler navbar-toggler-right">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navBar" class="collapse navbar-collapse">
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item active">
+                    <a th:href="@{/}" class="nav-link">Abstract</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Correspondence</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">Archives</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="bg-dark" id="slider">
+    <div data-ride="carousel" class="carousel slide" id="myCarousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-slide-to="1" data-target="#myCarousel"></li>
+            <li data-slide-to="2" data-target="#myCarousel"></li>
+            <li data-slide-to="3" data-target="#myCarousel"></li>
+        </ol>
+        <div role="listbox" class="carousel-inner">
+            <div class="carousel-item crs-img-1 active">
+                <div class="container">
+                    <div class="carousel-caption pb-5 mb-5 text-left">
+                        <h2 class="display-4 text-light">Best Practice Forum</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item crs-img-2">
+                <div class="container">
+                </div>
+            </div>
+
+            <a data-slide="prev" class="carousel-control-prev" href="#myCarousel">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a data-slide="next" class="carousel-control-next" href="#myCarousel">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-0">
+    <div style="background-image: url([[${'/img/ampath.jpeg'}]]); background-color: #c3fbf9; background-position: center; background-size: auto;" class="bg-holder">
+    </div>
+
+    <div style="background-color: #c3fbf9;" class="container-lg position-relative">
+        <div class="row flex-center">
+            <div class="col-12 col-xl-12 order-1 order-xl-0">
+                <div class="mb-9">
+                    <div data-component-card="data-component-card" class="card shadow-none border border-300 my-4">
+                        <div class="card-header p-4 border-bottom border-300 bg-soft">
+                            <div class="row g-3 justify-content-between align-items-center">
+                                <div class="col-12 col-md">
+                                    <h4 data-anchor="data-anchor" class="text-900 mb-0"> Abstracts </h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: #87CEEB;" class="p-4 code-to-copy">
+                            <form enctype="multipart/form-data" method="POST" th:action="@{/cregister}">
+                                <div class="row g-3 justify-content-between align-items-center">
+                                    <div class="col-12 col-md">
+                                        <input type="file" class="form-control" id="abstract" name="abstract" required>
+                                    </div>
+                                    <div class="col-12 col-md">
+                                        <button type="submit" class="btn btn-primary">Currently not receiving Abstracts</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-0">
+    <div style="background-image: url([[${'/img/ampath.jpeg'}]]); background-color: #c3fbf9; background-position: center; background-size: auto;" class="bg-holder">
+    </div>
+
+    <div style="background-color: #c3fbf9;" class="container-lg position-relative">
+        <div class="row flex-center">
+            <div class="col-12 col-xl-12 order-1 order-xl-0">
+                <div class="mb-9">
+                    <div data-component-card="data-component-card" class="card shadow-none border border-300 my-4">
+                        <div class="card-header p-4 border-bottom border-300 bg-soft">
+                            <div class="row g-3 justify-content-between align-items-center">
+                                <div class="col-12 col-md">
+                                    <h4 data-anchor="data-anchor" class="text-900 mb-0"> Registration </h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: #87CEEB;" class="p-4 code-to-copy">
+
+                            <div style="background-color: #87CEEB;" class="p-4 code-to-copy">
+
+
+
+
+                            <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+                                <div class="form-group">
+                                    <label for="prefix">Prefix:</label>
+                                    <input type="text" class="form-control" id="prefix" th:field="*{prefix}" />
+                                    <div th:if="${#fields.hasErrors('prefix')}" class="text-danger" th:errors="*{prefix}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" id="name" th:field="*{name}" />
+                                    <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="county">County:</label>
+                                    <input type="text" class="form-control" id="county" th:field="*{county}" />
+                                    <div th:if="${#fields.hasErrors('county')}" class="text-danger" th:errors="*{county}"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="designation">Designation:</label>
+                                    <input type="text" class="form-control" id="designation" th:field="*{designation}" />
+                                    <div th:if="${#fields.hasErrors('designation')}" class="text-danger" th:errors="*{designation}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="abstracts">Did you present an Abstract? {Yes/No}:</label>
+                                    <input type="text" class="form-control" id="abstracts" th:field="*{abstracts}" />
+                                    <div th:if="${#fields.hasErrors('abstracts')}" class="text-danger" th:errors="*{abstracts}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="title">If Yes, Abstract Title:</label>
+                                    <input type="text" class="form-control" id="title" th:field="*{title}" />
+                                    <div th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" th:field="*{email}" />
+                                    <div th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Telephone Number:</label>
+                                    <input type="text" class="form-control" id="phone" th:field="*{phone}" />
+                                    <div th:if="${#fields.hasErrors('phone')}" class="text-danger" th:errors="*{phone}"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Register now</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

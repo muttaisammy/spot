@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMPATH SPOT</title>
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
+    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
+    <meta name="msapplication-TileImage" content="/themes/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/themes/vendors/simplebar/simplebar.min.js}"></script>
+    <script th:src="@{/themes/assets/js/config.js}"></script>
+    <!-- <script th:src="@{/themes/data/surge_data.js}"></script> -->
+    <script>
+      window.config.set({
+        phoenixNavbarTopShape: 'slim',
+        phoenixNavbarPosition: 'horizontal'
+      });
+       document.documentElement.classList.add('navbar-horizontal');
+
+
+    </script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link th:href="@{/themes/vendors/simplebar/simplebar.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link th:href="@{/themes/assets/css/jquery.multiselect.css}" rel="stylesheet" type="text/css">
+    <script th:src="@{/themes/assets/css/jquery.multiselect.js}"></script>
+
+    <script th:src="@{/themes/assets/js/data_picker/moment.min.js}"></script>
+    <link th:href="@{/themes/assets/js/data_picker/datarangepicker.css}" rel="stylesheet" type="text/css">
+    <script th:src="@{/themes/assets/js/data_picker/datarangepicker.min.js}"></script>
+
+    <!--  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+
+</head>
+
+<body>
+
+<!-- <script th:src="@{/themes/highcharts/code/highcharts.js}"></script>
+<script th:src="@{/themes/highcharts/code/modules/series-label.js}"></script>
+<script th:src="@{/themes/highcharts/code/modules/exporting.js}"></script>
+<script th:src="@{/themes/highcharts/code/modules/export-data.js}"></script>
+<script th:src="@{/themes/highcharts/code/modules/accessibility.js}"></script> -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<!-- <script th:src="@{/themes/data/surge.js}"></script> > -->
+<script th:src="@{/themes/data/appointments.js}"></script>
+<script th:src="@{/themes/data/filter.js}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-B6d+0GgkiYysNUz5D8LNIUMT1ucYO9z6qSe6sQGiV1d8a4G7l5r/D8h5rg6Pc2Jj4LkkbafYYjR7YTvrIu8nvg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+-->
+
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <nav class="navbar navbar-vertical navbar-expand-lg" style="display:none;">
+        <!-- <script>
+          var navbarStyle = window.config.config.phoenixNavbarStyle;
+          if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
+          }
+        </script> -->
+
+        <div class="navbar-vertical-footer">
+            <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+                <span class="uil uil-left-arrow-to-left fs-0"></span>
+                <span class="uil uil-arrow-from-right fs-0"></span>
+                <span class="navbar-vertical-footer-text ms-2">Collapsed View</span>
+            </button>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <div th:insert="~{common/nav}"></div>
+    <!-- /.navbar -->
+    <script th:src="@{/themes/assets/js/nav.js}"></script>
+
+    <div class="content">
+
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    Period
+                                    <input type="text" name="datetimes" class="form-select" multiple="multiple" required="required"/>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    Partner
+                                    <select class="form-select" id="partner" name="partner" multiple="multiple" required="required">
+                                        <option th:value="''" th:text="Select"></option>
+                                        <option th:each="i : ${partner}" th:value="${i.programname}"
+                                                th:text="${i.programname}"></option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    County
+                                    <select class="form-select" id="county" name="county[]" required="required" multiple="multiple">
+                                         <option th:value="''" th:text="Select"></option>
+                                         <option th:each="i : ${counties}" th:value="${i.county}"
+                                                th:text="${i.county}"></option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    Sub County
+                                    <select class="form-select" id="subcounty" multiple="multiple" name="subcounty"
+                                            required="required">
+                                        <option th:value="''" th:text="Select"></option>
+                                        <option th:each="i : ${subcounty}" th:value="${i.id}"
+                                                th:text="${i.subcounty}"></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    Ward
+                                    <select class="form-select" multiple="multiple" id="ward" name="ward"
+                                            required="required">
+                                        <option th:value="''" th:text="Select"></option>
+                                        <option th:each="i : ${ward}" th:value="${i.id}" th:text="${i.ward}"></option>
+                                    </select>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    Facility
+                                    <select class="form-select" multiple="multiple" id="facility" name="facility"
+                                            required="required">
+                                        <option th:value="''" th:text="Select"></option>
+                                        <option th:each="i : ${facility}" th:value="${i.id}"
+                                                th:text="${i.facilityname}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </br>
+
+                    <div class="list-group">
+                        <ul class="nav nav-underline" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-surge" data-bs-toggle="tab" href="#tab-surge"
+                                   role="tab" aria-controls="tab-surge" aria-selected="true">Surge Report</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="home-tpt" data-bs-toggle="tab" href="#tab-home" role="tab"
+                                   aria-controls="tab-home" aria-selected="true">TPT Coverage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="home-retention" data-bs-toggle="tab" href="#tab-home" role="tab"
+                                   aria-controls="tab-home" aria-selected="true">Retention Coverage</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                                    href="#tab-profile" role="tab" aria-controls="tab-profile"
+                                                    aria-selected="false">VL Sync Status</a></li>
+                            <li class="nav-item"><a class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                                    href="#tab-contact" role="tab" aria-controls="tab-contact"
+                                                    aria-selected="false">Contact</a></li>
+                        </ul>
+                        <div class="tab-content mt-3" id="myTabContent">
+                            <div class="tab-pane fade show active" id="tab-surge" role="tabpanel"
+                                 aria-labelledby="home-tab">
+                                <div class="echart-line-chart-example" style="min-height:80%">
+
+                                    <div id="surge_output" style="margin: 30px;"></div>
+                                    <div id="container" style="margin: 30px;"></div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="tab-home" role="tabpanel"
+                                 aria-labelledby="home-tab">
+                                <div class="echart-line-chart-example" style="min-height:80%">
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="tab-tpt" role="tabpanel"
+                                 aria-labelledby="home-tab">
+                                <div class="echart-line-chart-example" style="min-height:80%">
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
+                                Coming Soon
+                            </div>
+                            <div class="tab-pane fade" id="tab-contact" role="tabpanel" aria-labelledby="contact-tab">
+                                Coming Soon
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div th:insert="~{common/footer}"></div>
+
+</main>
+
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+
+<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
+<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
+<script th:src="@{/themes/vendors/is/is.min.js}"></script>
+<script th:src="@{/themes/vendors/fontawesome/all.min.js}"></script>
+<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script th:src="@{/themes/vendors/list.js/list.min.js}"></script>
+<script th:src="@{/themes/vendors/feather-icons/feather.min.js}"></script>
+
+
+<script>
+$(document).ready(function() {
+
+ /* $('select[multiple]').multiselect({
+              columns: 1,
+              placeholder: 'Select options',
+               selectAllValue: 'multiselect-all'
+            });
+
+            $('#county, #ward, #facility').select2(
+                    theme: 'classic',
+                closeOnSelect: false,
+                placeholder: 'Select options',
+                allowHtml: true,
+                templateSelection: function (data, container) {
+                  // Use custom template to display selected items without checkboxes
+                  return $('<span>' + data.text + '</span>');
+            );  */
+
+    $('input[name="datetimes"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+          format: 'M/DD hh:mm A'
+        }
+    });
+
+});
+
+
+</script>
+</body>
+</html>
