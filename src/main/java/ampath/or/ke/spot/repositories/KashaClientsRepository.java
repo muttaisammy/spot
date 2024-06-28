@@ -18,5 +18,6 @@ public interface KashaClientsRepository extends JpaRepository<KashaClients, Long
     List<KashaClients> findByEligibleAndModifiedOnGreaterThanEqual(int eligible,Date createdOn);
     List<KashaClients> findByEligible(int eligible);
 
-    Page<KashaClients> findByEligible(int eligible,Pageable pageable);
+    Page<KashaClients> findByEligibleAndConsented(int eligible,int consented,Pageable pageable);
+
 }

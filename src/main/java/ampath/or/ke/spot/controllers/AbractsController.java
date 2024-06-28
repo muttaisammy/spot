@@ -1,11 +1,9 @@
 package ampath.or.ke.spot.controllers;
 
-import ampath.or.ke.spot.models.Abstracts;
-import ampath.or.ke.spot.models.AfyastatErrors;
-import ampath.or.ke.spot.models.SMTPServer;
-import ampath.or.ke.spot.models.User;
+import ampath.or.ke.spot.models.*;
 import ampath.or.ke.spot.services.AbstractService;
 import ampath.or.ke.spot.services.AfyastatClientLineListService;
+import ampath.or.ke.spot.services.ConferenceService;
 import ampath.or.ke.spot.services.SMTPServerService;
 import ampath.or.ke.spot.utils.HtmlEmails;
 import org.json.JSONException;
@@ -37,7 +35,7 @@ import java.util.Random;
 
 @Controller
 @Transactional
-@RequestMapping("/abstracts")
+@RequestMapping("/conference")
 public class AbractsController {
 
     @Value("${app.dir}")
@@ -48,8 +46,66 @@ public class AbractsController {
 
     @Autowired
     private AbstractService abstractService;
+
+    @Autowired
+    private ConferenceService conferenceService;
     @Autowired
     private SMTPServerService smtpServerService;
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public ModelAndView register(HttpSession session) throws IOException, JSONException, SQLException {
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("smg", 0);
+        modelAndView.addObject("conference", new ConferenceRegister());
+        modelAndView.setViewName("abstracts/conference");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ModelAndView saveregister(@Valid ConferenceRegister conferenceRegister , BindingResult bindingResult) throws IOException, JSONException, SQLException {
+
+        ModelAndView modelAndView = new ModelAndView();
+        conferenceService.save(conferenceRegister);
+        SMTPServer smtpServers = smtpServerService.getByTopOne();
+        //System.out.print(" Host ndo hii "+host);
+        if(smtpServers !=null) {
+            String subject = "Conference Registration Successful";
+            String fname = conferenceRegister.getFullname();
+            String atitle= conferenceRegister.getDesignation();
+           // String coauthor =conferenceRegister.getCoauthor();
+
+          //  String message = HtmlEmails.generateAuthorsubmit(fname,coauthor, trackerNo,atitle);
+
+        //    ApplicationMailer.sendMail(conferenceRegister.getEmail(), subject, message, smtpServers);
+        }
+        // Post to managers
+        if(smtpServers !=null) {
+
+            String subject = "Conference Registration "+ conferenceRegister.getFullname();
+
+      /*      String link= "https://spot.ampath.or.ke/abstracts/download/"+abstracts.getFileName();
+            String fname ="Team";
+            String author=abstracts.getMainauthor();
+            String coauthor = abstracts.getCoauthor();
+            String atitle = abstracts.getTitle();
+            String message = HtmlEmails.generateReviewersubmit(fname,  link, author, coauthor, trackerNo,atitle);
+*/
+            String[] recipients = { "erugut@ampath.or.ke", "nsewe@ampath.or.ke", "dgaitho@usaidampathuzima.or.ke","akingori@ampath.or.ke" };
+            for (String recipient : recipients) {
+             //   ApplicationMailer.sendMail(recipient, subject, message, smtpServers);
+                // message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            }
+            // String to = "erugut@ampath.or.ke"+","+"nsewe@ampath.or.ke"+","+ "dgaitho@usaidampathuzima.or.ke"+","+"akingori@ampath.or.ke";
+            // ApplicationMailer.sendMail(to, subject, message, smtpServers);
+            //ApplicationMailer.sendMail(to, subject, message, smtpServers);
+        }
+        modelAndView.addObject("smg", 1);
+        modelAndView.addObject("smg", 0);
+        modelAndView.addObject("conference", new ConferenceRegister());
+        modelAndView.setViewName("abstracts/conference");
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/call", method = RequestMethod.GET)
     public ModelAndView list_errors(HttpSession session) throws IOException, JSONException, SQLException {

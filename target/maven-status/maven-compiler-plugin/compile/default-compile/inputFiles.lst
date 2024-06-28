@@ -49,8 +49,10 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/CurrOnARTLineListRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/User.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/KashaClientsRepository.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/ConferenceService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/ApplicationMailer.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/config/SecurityConfiguration.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/Rest/PendullumAPIV2.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/SubCountiesService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/ProgramsService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/AppointmentsTrackerRepository.java
@@ -89,7 +91,9 @@
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/DatabasesInfo.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/AfyastatLineListService.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/SurgeReport.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/repositories/ConferenceRepository.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/services/AppointmentsService.java
+/Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/ConferenceRegister.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/models/SubCounty.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/utils/Helper.java
 /Users/directorict/rugute/spot/src/main/java/ampath/or/ke/spot/controllers/RootController.java

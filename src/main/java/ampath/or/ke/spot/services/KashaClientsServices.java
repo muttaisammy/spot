@@ -6,8 +6,10 @@ import ampath.or.ke.spot.models.KashaClients;
 import ampath.or.ke.spot.repositories.AfyastatErrorsRepository;
 import ampath.or.ke.spot.repositories.KashaClientsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.Date;
 import java.util.List;
 
@@ -34,4 +36,8 @@ public class KashaClientsServices {
 
     public List<KashaClients> getAllEligible(int eligible){return  kashaClientsRepository.findByEligible(eligible);}
     //public List<KashaClients> getAllEligible(int eligible){return  kashaClientsRepository.findByEligible(eligible);}
+   public List<KashaClients> getEligibleClients(int eligible, Pageable pageable) {
+       Page<KashaClients> clientsPage = kashaClientsRepository.findByEligibleAndConsented(eligible,1, (org.springframework.data.domain.Pageable) pageable);
+       return clientsPage.getContent(); // Get the list of clients from the page
+   }
 }

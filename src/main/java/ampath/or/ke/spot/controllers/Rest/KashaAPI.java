@@ -80,6 +80,7 @@ public class KashaAPI {
         String jssons="";
         for (int x=0;x<kashaClientsList.size();x++) {
             KashaClients att = kashaClientsList.get(x);
+          //  String ART = att.get
             Gson gson = new Gson();
             String jsons = gson.toJson(att);//att);
             jssons =  jssons+","+jsons;

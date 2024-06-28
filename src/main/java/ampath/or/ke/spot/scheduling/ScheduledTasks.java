@@ -99,7 +99,7 @@ public class ScheduledTasks {
 
     }
 
-    @Scheduled(cron = "0 */59 * ? * *")
+    @Scheduled(cron = "0 */1 * ? * *")
     public void ProcessKashaDeliveries() throws JSONException, ParseException, SQLException, IOException {
 
         // Sending get request
@@ -419,7 +419,7 @@ public class ScheduledTasks {
             String p2 = rs.getString(2);
             String p3 = rs.getString(3);
             String p4 = rs.getString(4);
-            String p5 = rs.getString(5);
+            String  p5 = rs.getString(5);
             String p6 = rs.getString(6);
             String p7 = rs.getString(7);
             String p8 = rs.getString(8);

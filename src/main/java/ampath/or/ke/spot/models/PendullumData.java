@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Builder
@@ -31,6 +32,7 @@ public class PendullumData {
     @Column(name = "encounter_Date")
     private String encounterDate;
 
+
     @Column(name = "height")
     private String height;
 
@@ -55,6 +57,9 @@ public class PendullumData {
     @Column(name = "Is_ART")
     private String Is_ART;
 
+    @Column(name = "Is_project_beyond")
+    private int project_beyond;
+
     @Column(name = "Is_PMTCT")
     private String Is_PMTCT;
 
@@ -76,8 +81,19 @@ public class PendullumData {
     @Column(name = "Isoniazid_Use")
     private String Isoniazid_Use;
 
+
     @Column(name = "Cotrimoxazole_Use")
     private String Cotrimoxazole_Use;
+
+
+
+    public int getProject_beyond() {
+        return project_beyond;
+    }
+
+    public void setProject_beyond(int project_beyond) {
+        this.project_beyond = project_beyond;
+    }
 
     public int getId() {
         return id;
@@ -247,4 +263,6 @@ public class PendullumData {
     public void setCotrimoxazole_Use(String cotrimoxazole_Use) {
         Cotrimoxazole_Use = cotrimoxazole_Use;
     }
+
+
 }
