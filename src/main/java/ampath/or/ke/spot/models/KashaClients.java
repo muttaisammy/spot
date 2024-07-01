@@ -62,6 +62,9 @@ public class KashaClients {
     @Column(name = "age")
     private String age;
 
+    @Column(name = "mflcode")
+    private String mflcode;
+
     @Column(name = "consented")
     private int consented;
 
@@ -249,6 +252,22 @@ public class KashaClients {
 
     public void setModifiedOn(Date modifiedOn) {
         this.modifiedOn = modifiedOn;
+    }
+
+    public String getMflcode() {
+        return mflcode;
+    }
+
+    public void setMflcode(String mflcode) {
+        this.mflcode = mflcode;
+    }
+
+    public int getEligible() {
+        return eligible;
+    }
+
+    public void setEligible(int eligible) {
+        this.eligible = eligible;
     }
 }
 

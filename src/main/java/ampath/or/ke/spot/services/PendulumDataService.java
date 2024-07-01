@@ -1,6 +1,5 @@
 package ampath.or.ke.spot.services;
 
-import ampath.or.ke.spot.models.KashaDrugs;
 import ampath.or.ke.spot.models.PendullumData;
 import ampath.or.ke.spot.repositories.PendullumDataRepositories;
 import org.springframework.stereotype.Service;
@@ -22,5 +21,8 @@ public class PendulumDataService {
     public List<PendullumData> FindbyIdandEdate(String pid, String date)  {
         return pendullumDataRepositories.findByPatientIdentifierAndEncounterDate(pid,date);
     }
+
+
+
 
 }
