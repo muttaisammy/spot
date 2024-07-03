@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AMPATH</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootstrap 5 Tech Conference Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800|Roboto:300,400,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome JS-->
+    <script defer th:src="@{/conference/assets/fontawesome/js/all.min.js}"></script>
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" th:href="@{/conference/assets/css/theme.css}">
+
+
+</head>
+
+<body>
+<header id="header" class="header fixed-top">
+    <div class="branding">
+        <div class="container-fluid">
+            <nav class="main-nav navbar navbar-expand-lg">
+                <!-- <div class="site-logo"><a class="scrollto" href="#hero-block"><img class="logo-icon" src="assets/images/logo-white.svg" alt="logo"></a></div> -->
+
+                <!-- <div class="navbar-btn order-lg-2"><a class="btn btn-secondary" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/devconf-free-bootstrap-4-conference-template-for-tech-conferences-and-events/" target="_blank">Tickets</a></div> -->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navigation" class="navbar-collapse collapse  justify-content-lg-end me-lg-3">
+                    <ul class="nav navbar-nav">
+                        <!-- Abstracts
+                        Registration
+                        Feedback
+                        Photo Gallery
+                        Correspondent -->
+
+                        <li class="nav-item"><a class="nav-link scrollto" href="#about-section">Registration</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link scrollto" href="#speakers-section">Abstracts</a></li> -->
+                        <li class="nav-item"><a class="nav-link scrollto" href="#schedule-section">Schedule</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link scrollto" href="#tickets-section">Tickets</a></li> -->
+                        <li class="nav-item"><a class="nav-link scrollto" href="#venue-section">Photo Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="#sponsors-section">Correspondent</a></li>
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+
+            </nav><!--//main-nav-->
+
+        </div><!--//container-->
+    </div><!--//branding-->
+</header><!--//header-->
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <hr>
+</div>
+
+<section id="schedule-section" class="schedule-section section">
+    <div class="container">
+        <!--		<h3 class="section-heading text-center mb-5">Schedule</h3>-->
+
+        <!-- Nav tabs -->
+        <ul class="schedule-nav nav nav-pills nav-fill" id="myTab" role="tablist">
+            <li class="nav-item me-2">
+                <a class="nav-link active" id="tab-1" data-bs-toggle="tab" href="#tab-1-content" role="tab" aria-controls="tab-1-content" aria-selected="true">
+                    <span class="heading">Abstract</span>
+                    <!--					<span class="meta">(Tue 16, July)</span>-->
+
+                </a>
+            </li>
+            <li class="nav-item me-2">
+                <a class="nav-link" id="tab-2" data-bs-toggle="tab" href="#tab-2-content" role="tab" aria-controls="tab-2-content" aria-selected="false">
+                    <span class="heading">Publications</span>
+                    <!--					<span class="meta">(Wed 17, July)</span>-->
+                </a>
+
+
+            </li>
+            <!--<li class="nav-item">
+                <a class="nav-link" id="tab-3" data-bs-toggle="tab" href="#tab-3-content" role="tab" aria-controls="tab-3-content" aria-selected="false">
+                    <span class="heading">Day 3</span>
+                    <span class="meta">(Fri 14, Oct)</span>
+                </a>
+            </li> -->
+        </ul>
+
+
+        <div class="tab-pane fade show active" id="tab-1-content" role="tabpanel" aria-labelledby="tab-1">
+            <button class="btn btn-primary mt-2" type="button" id="submit-button">
+                submit
+            </button>
+            <h1>table 1</h1>
+
+
+        </div>
+        <div class="tab-pane fade" id="tab-2-content" role="tabpanel" aria-labelledby="tab-2">
+            <button class="btn btn-primary mt-2" type="button" id="view-button">
+                View
+            </button>
+            <h1>table 2</h1>
+        </div>
+
+
+
+
+        <!-- Tab panes -->
+        <!--		<div class="schedule-tab-content tab-content">-->
+        <!--			<div class="tab-pane fade show active" id="tab-1-content" role="tabpanel" aria-labelledby="tab-1">-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">8:30 - 9:00</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Registration</h3> Vincent Ochieng-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">9:00 - 9:30</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Opening remarks</h3> Prof. Sylvester Kimaiyo (Chief of Party) Hon. Abraham Serem (CEC Health – Uasin Gishu County)-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-other">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">9:30 - 9:45</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">AYP Entertainment Session</h3> Nicholas Otieno (West Pokot)-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">9:45 - 10:30</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Improving HIV prevention and treatment outcomes through social behavioral change</h3> Prof. Violet Naanyu-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">10:30 - 11:00</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Tea Break</h3>-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-other">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">11:00 - 11:30</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Maternal and Perinatal Death Surveillance and Response System, as a strategy of improving maternal health services in Trans-Nzoia County</h3> Steve Odima-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">11:30 - 12:00</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Impact of coaching boys into men curriculum; A case of Lessos Primary School</h3> Milka Odero-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">12:00 - 12:30</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Impact of clinical case conferencing on paediatric and adolescent viral suppression; Lessons from Trans Nzoia</h3> Oliver Omoto-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">12:30 - 13:00</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">The use of community ART model to improve retention and viral suppression among PLHIV in informal settlement</h3> Kefa Omollo-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">13:00 - 14:00</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Lunch</h3>-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-other">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">14:00 - 16:00</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Breakout sessions – Abstract Led</h3>-->
+        <!--						<ul>-->
+        <!--							<li>Care and treatment and OVC</li>-->
+        <!--							<li>RMNCAH and PMTCT</li>-->
+        <!--							<li>HIV prevention, testing and GBV</li>-->
+        <!--							<li>HSS</li>-->
+        <!--						</ul>-->
+        <!--						<ul>-->
+        <!--							<li>Richard Too</li>-->
+        <!--							<li>Margaret Kamau</li>-->
+        <!--							<li>Titus Okello</li>-->
+        <!--							<li>Annette Oyoyo</li>-->
+        <!--						</ul>-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">16:00 - 17:00</h4>-->
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Poster Walk</h3>-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--			</div>&lt;!&ndash;//tab-1-content&ndash;&gt;-->
+
+        <!--			<div class="tab-pane fade" id="tab-2-content" role="tabpanel" aria-labelledby="tab-2">-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">8:00 - 8:30</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Registration </h3>Vincent Ochieng-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">8:30 - 9:45</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">The Journey towards Integration-->
+        <!--							(Panel discussion)</h3> Prof. Kimaiyo, Nicholas-->
+        <!--						Sewe, Dr. Mairura, Dr.-->
+        <!--						Kosgei, Dr. Kiprotich-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">9:45 - 10:15</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Impact of integrating hypertension-->
+        <!--							management in the community</h3>Oliver Omoto-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">10:15 - 10:45 </h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">argeted hotspot testing and crossboarder initiatives in West Pokot-->
+        <!--							(Kenya) and Kacheliba (Uganda)</h3>Titus Okello-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">10:45 - 11:45</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Tea Break</h3>-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">11:15 - 11:45</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3"></h3>Mathews Chepkonga-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">11:45 - 12:15</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Male engagement as strategy to-->
+        <!--							improve pregnancy outcome and-->
+        <!--							postnatal services uptake for-->
+        <!--							Adolescents aged 15- 19 years in-->
+        <!--							Kiminini Sub County, Trans Nzoia-->
+        <!--							County</h3>Gladys Odeke-->
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">12:15 - 12:45</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3"> SNS model for AYP’s at Kitale County-->
+        <!--							Referral Hospital</h3>Mildred Wakoli-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">12:45 - 13:15</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Reducing interruption in treatment-->
+        <!--							through a quality improvement-->
+        <!--							approach</h3>Elijah Oranja-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+
+
+
+
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">13:15 - 14:15</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3"> Lunch </h3>-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+
+
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">14:15 - 14:45</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3"> Launch of program SOP’s and best-->
+        <!--							practices repository platform </h3>Nicholas Sewe-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">14:45 - 15:15</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3">Best practices – Award ceremony  </h3> Isaack Kirui-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">15:30 - 15:15</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3"> AYP Entertainment  </h3> Richard Odhiambo-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--				<div class="item item-talk">-->
+        <!--					<div class="meta">-->
+        <!--						<h4 class="time mb-3">15:45 - 16:15</h4>-->
+
+        <!--					</div>&lt;!&ndash;//meta&ndash;&gt;-->
+        <!--					<div class="content">-->
+        <!--						<h3 class="title mb-3"> Closing Remarks  </h3> Prof. Sylvester Kimaiyo-->
+        <!--						Dr. Kiprotich-->
+
+        <!--					</div>&lt;!&ndash;//content&ndash;&gt;-->
+        <!--				</div>&lt;!&ndash;//item&ndash;&gt;-->
+        <!--			</div>&lt;!&ndash;//tab-2-content&ndash;&gt;-->
+
+
+        <!--			<div class="tab-pane no-timeline" id="tab-4-content" role="tabpanel" aria-labelledby="tab-4">-->
+        <!--				<h4 class="text-center py-5 text-muted">Day 2 Agenda Coming Soon...</h4>-->
+        <!--			</div>&lt;!&ndash;//tab-2-content&ndash;&gt;-->
+        <!--			<div class="tab-pane no-timeline" id="tab-3-content" role="tabpanel" aria-labelledby="tab-3">-->
+        <!--				<h4 class="text-center py-5 text-muted">Day 3 Agenda Coming Soon...</h4>-->
+        <!--			</div>&lt;!&ndash;//tab-3-content&ndash;&gt;-->
+
+        <!--			<div class="schedule-cta text-center mx-auto"><a href="#" class="btn btn-primary btn-lg me-md-2 d-block d-md-inline-block mb-3 mb-md-0" target="_blank">Download Schedule</a>-->
+        <!--			</div>-->
+        <!--		</div>&lt;!&ndash;//schedule-tab-content&ndash;&gt;-->
+        <!--	</div>&lt;!&ndash;//container&ndash;&gt;-->
+</section>
+
+
+<section id="venue-section" class="venue-section section  theme-bg-primary text-white">
+    <div class="container">
+        <h3 class="section-heading text-center mb-5 text-white">Venue</h3>
+        <div class="row gx-5 py-lg-5">
+            <div class="col-12 col-lg-7 h-100">
+                <div class="desc">
+                    <h4 class="text-white mb-3">Noble Hotel </h4>
+                    <p>Eldoret kenya</p>
+
+                    <div class="row pt-3">
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="grid-item p-4">
+                                <h5 class="text-white mb-3 title"><i class="fas fa-plane-departure me-2"></i>By Plane</h5>
+                                <p>Flights include Fly 540, Kenya Airways.</p>
+                                <a class="text-white" href="#">Search Tickets &rarr;</a>
+                            </div><!--//grid-item-->
+                        </div><!--col-->
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="grid-item p-4">
+                                <h5 class="text-white mb-3 title"><i class="fas fa-car me-2"></i>By Car</h5>
+                                <p>Eldoret</p>
+                                <a class="text-white" href="#">Check Route &rarr;</a>
+                            </div><!--//grid-item-->
+                        </div><!--col-->
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="grid-item p-4">
+                                <h5 class="text-white mb-3 title"><i class="fas fa-bus-alt me-2"></i>By Bus</h5>
+                                <p> Eldoret </p>
+                                <a class="text-white" href="#">Book Tickets &rarr;</a>
+                            </div><!--//grid-item-->
+                        </div><!--col-->
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="grid-item p-4">
+                                <h5 class="text-white mb-3 title"><i class="fas fa-subway me-2"></i>By Train</h5>
+                                <p>Mombasa, Nairobi, Eldoret.<</p>
+                                <a class="text-white" href="#">Book Tickets &rarr;</a>
+                            </div><!--//grid-item-->
+                        </div><!--col-->
+                    </div><!--//row-->
+                    <h4 class="text-white mb-4 mt-3 mt-lg-5">Facilities &amp; Accommodations</h4>
+                    <p> Hotels within Eldoret </p>
+                    <a class="btn btn-ghost" href="#">Search Hotels</a>
+                </div><!--//desc-->
+            </div><!--//col-->
+            <div class="col-12 col-xl-3 col-lg-4 offset-lg-1 position-relative h-100 mt-5 mt-lg-0">
+                <div class="figures-holder">
+                    <div class="figure figure-1"><img class="shadow" src="assets/images/venue/venue-1.jpg" alt=""></div>
+                    <div class="figure figure-2"><img class="shadow" src="assets/images/venue/venue-2.jpg" alt=""></div>
+                    <div class="figure figure-3"><img class="shadow" src="assets/images/venue/venue-3.jpg" alt=""></div>
+                    <div class="figure figure-4"><img class="shadow" src="assets/images/venue/venue-4.jpg" alt=""></div>
+                </div><!--//figures-holder-->
+            </div><!--//col-->
+        </div><!--//row-->
+    </div><!--//container-->
+</section><!--//venue-section-->
+
+<section id="sponsors-section" class="sponsors-section section">
+    <div class="container">
+        <h3 class="section-heading text-center mb-3">Sponsors &amp; Partners</h3>
+        <div class="section-intro text-center single-col-max mx-auto mb-5">Want to become a sponsor? Get in touch.</div>
+        <div class="row justify-content-center">
+            <div class="logo-item col-6 col-md-4 col-lg-2 mx-2"><img src="assets/images/logos/ampath.png" alt="" class="img-fluid"></div>
+            <div class="logo-item col-6 col-md-4 col-lg-2 mx-2"><img src="assets/images/logos/uasin gishu.png" alt=""></div>
+            <div class="logo-item col-6 col-md-4 col-lg-2 mx-2"><img src="assets/images/logos/tranz-nzoia.jpg" alt=""></div>
+            <div class="logo-item col-6 col-md-4 col-lg-2 mx-2"><img src="assets/images/logos/elgeyomarakwet.jpg" alt=""></div>
+            <div class="logo-item col-6 col-md-4 col-lg-2 mx-2"><img src="assets/images/logos/westpokot.jpg" alt=""></div>
+            <div class="logo-item col-6 col-md-4 col-lg-2 mx-2"><img src="assets/images/logos/usaid.png" alt="" class="img-fluid"></div>
+
+        </div>
+
+        <div class="sponsors-cta text-center pt-5"><a class="btn-primary btn btn-lg" href="#">Become A Sponsor</a></div>
+    </div><!--//container-->
+</section><!--//sponsors-section-->
+
+<footer class="footer py-5 theme-bg-primary">
+    <div class="container text-center">
+
+        <ul class="social-list list-inline mb-4">
+            <li class="list-inline-item me-3"><a href="#"><i class="fas fa-envelope"></i></a></li>
+            <li class="list-inline-item me-3"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+            <li class="list-inline-item me-3"><a href="#"><i class="fab fa-instagram fa-fw"></i></a></li>
+            <li class="list-inline-item me-0"><a href="#"><i class="fab fa-youtube fa-fw"></i></a></li>
+        </ul><!--//social-list-->
+
+
+        <ul class="footer-links list-inline mx-auto mb-4">
+            <li class="list-inline-item"><a href="#">Code of Conduct</a></li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item me-0"><a href="#">Privacy</a></li>
+        </ul><!--//footer-link-->
+
+        <small class="copyright">Designed by AMPATH developers</small>
+
+    </div><!--//container-->
+</footer>
+
+<!-- Modal Speaker -->
+<
+
+<!-- Javascript -->
+<script th:src="@{/conference/assets/plugins/popper.min.js}"></script>
+<script th:src="@{/conference/assets/plugins/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/conference/assets/plugins/smoothscroll.min.js}"></script>
+<script th:src="@{/conference/assets/plugins/gumshoe/gumshoe.polyfills.min.js}"></script>
+<script th:src="@{/conference/assets/js/main.js}"></script>
+
+</body>
+</html>
