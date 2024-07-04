@@ -135,7 +135,7 @@
                                     <form class="row g-3" th:action="@{/conference/register}" th:object="${conference}" method="POST" enctype="multipart/form-data" >
                                         <div class="col-md-3">
                                             <label class="form-label" for="txtPrefix">Prefix </label>
-                                            <select class="form-control" id="exampleFormControlSelect1" th:field="*{pref}">
+                                            <select class="form-control" id="txtPrefix" th:field="*{pref}">
                                                 <option value="Prof" >Prof.</option>
                                                 <option value="Dr">Dr.</option>
                                                 <option value="Mr">Mr.</option>
@@ -168,13 +168,13 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label" for="dot">Date of Travel</label>
-                                            <input class="form-control" id="dot" type="date" value=""  required="required" th:field="*{phone}" />
+                                            <input class="form-control" id="dot" type="date" value=""  required="required" th:field="*{dot}" />
                                         </div>
 
 
                                         <div class="col-md-2">
                                             <label class="form-label" for="with_abstract">Presenting an Abstract?</label>
-                                            <select class="form-control" id="with_abstract" th:field="*{pref}">
+                                            <select class="form-control" id="with_abstract" th:field="*{abstractPresentation}">
                                                 <option value="No" >No</option>
                                                 <option value="Yes">Yes</option>
                                             </select>
