@@ -45,6 +45,7 @@
                         Correspondent -->
 
 						<li class="nav-item"><a class="nav-link scrollto" href="#about-section">Registration</a></li>
+						<li class="nav-item"><a class="nav-link scrollto" href="#about-section">Repository</a></li>
 						<!-- <li class="nav-item"><a class="nav-link scrollto" href="#speakers-section">Abstracts</a></li> -->
 						<li class="nav-item"><a class="nav-link scrollto" href="#schedule-section">Schedule</a></li>
 						<!-- <li class="nav-item"><a class="nav-link scrollto" href="#tickets-section">Tickets</a></li> -->
@@ -135,6 +136,7 @@
 												<option value="Dr">Dr.</option>
 												<option value="Mr">Mr.</option>
 												<option value="Mrs">Mrs.</option>
+												<option value="Ms">Ms.</option>
 											</select>
 										</div>
 
@@ -164,7 +166,6 @@
 											<input class="form-control" id="dot" type="date" value=""  required="required" th:field="*{phone}" />
 										</div>
 
-
 										<div class="col-md-2">
 											<label class="form-label" for="with_abstract">Presenting an Abstract?</label>
 											<select class="form-control" id="with_abstract" th:field="*{pref}">
@@ -173,15 +174,10 @@
 											</select>
 
 										</div>
-
 										<div class="col-md-10">
 											<label class="form-label" for="with_abstract_yes">If Yes, Abstract Title</label>
 											<input class="form-control" id="with_abstract_yes" type="text" value=""  th:field="*{abstractTitle}" />
 										</div>
-
-
-
-
 										<div class="col-12">
 											<button class="btn btn-primary" type="submit">Submit form</button>
 										</div>

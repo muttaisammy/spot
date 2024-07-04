@@ -99,7 +99,8 @@ public class ScheduledTasks {
 
     }
 
-    @Scheduled(cron = "0 */1 * ? * *")
+    //@Scheduled(cron = "0 */1 * ? * *")
+    @Scheduled(cron = "0 0,59 * * * *") // 30 minutes
     public void ProcessKashaDeliveries() throws JSONException, ParseException, SQLException, IOException {
 
         // Sending get request
@@ -224,8 +225,9 @@ public class ScheduledTasks {
 
     }
 
-     @Scheduled(cron = "0 */30 * ? * *")
-    //@Scheduled(cron = "0 0,30 * * * *") // 30 minutes
+     //@Scheduled(cron = "0 */30 * ? * *")
+    // @Scheduled(cron = "0 */1 * ? * *")
+    @Scheduled(cron = "0 0,59 * * * *") // 30 minutes
     public void KashaClients() throws JSONException, ParseException, SQLException, IOException {
         // HttpSession session= new HttpSession()
         // List<KashaClients> kashaClientsList = kashaClientsServices.getAllDataset();
@@ -248,7 +250,7 @@ public class ScheduledTasks {
                 "padd.address3 estate_village,\n" +
                 "max(case when pa.person_attribute_type_id=10 then pa.value else NULL end) Phone_Number,\n" +
                 "max(case when pa.person_attribute_type_id=40 then pa.value else NULL end) Alternative_Phone_Number,\n" +
-                "max(hiv.next_clinical_rtc_date_hiv) tca,\n" +
+                "case when max(hiv.med_pickup_rtc_date) is null then max(hiv.next_clinical_rtc_date_hiv) else max(hiv.med_pickup_rtc_date) end  tca,\n" +
                 "padd.address3 nearest_landmark,\n" +
                 "max(case when o.concept_id=12395 && o.value_coded =1065 && o.voided=0 then 1 else 0 end) eligibler\n" +
                 "from \n" +
@@ -260,7 +262,7 @@ public class ScheduledTasks {
                 "inner join amrs.person_attribute pa on pa.person_id = p.person_id and pa.person_attribute_type_id in(10,40,31,41)\n" +
                 "inner join amrs.person_address padd on padd.person_id =p.person_id and padd.preferred=1\n" +
                 "inner join etl.flat_hiv_summary_v15b hiv on hiv.person_id=p.person_id\n" +
-                "where e.encounter_type=287 and pii.identifier_type=28\n" +
+                "where e.encounter_type=287 and pii.identifier_type=28 and e.voided=0\n" +
                 "group by p.person_id");
 
         // ResultSet rs = stmt.executeQuery("select uuid from afyastat.location where location_id=" + id + "");
@@ -294,6 +296,7 @@ public class ScheduledTasks {
             List<KashaClients> kashaClients = kashaClientsServices.getByIdentifier(ccc);
             if (kashaClients.size() > 0) {
                 KashaClients kc =   kashaClients.get(0);
+                kc.setExpected_next_delivery_date(tcaDate);
                 kc.setEligible(Integer.parseInt(eligible));
                 kashaClientsServices.save(kc);
 
